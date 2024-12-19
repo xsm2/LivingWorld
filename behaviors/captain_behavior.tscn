@@ -58,12 +58,12 @@ script = ExtResource( 14 )
 
 [node name="NearbyEncounter" type="Node" parent="Patrol"]
 script = ExtResource( 19 )
-within_distance = 128.0
+within_distance = 256.0
 group = "RogueFusions"
 
 [node name="IsNearby" type="Node" parent="Patrol/NearbyEncounter"]
 script = ExtResource( 26 )
-distance = 128.0
+distance = 256.0
 bb_name = "Rogues"
 
 [node name="GetGroupNode" type="Node" parent="Patrol/NearbyEncounter/IsNearby"]

@@ -1,6 +1,6 @@
 static func patch():
-	var script_path = "res://menus/inventory/InventoryDetailPanel.gd"
-	var patched_script : GDScript = preload("res://menus/inventory/InventoryDetailPanel.gd")
+	var script_path = "res://global/network/NetRequests.gd"
+	var patched_script : GDScript = preload("res://global/network/NetRequests.gd")
 
 	if !patched_script.has_source_code():
 		var file : File = File.new()
@@ -13,10 +13,9 @@ static func patch():
 
 	var code_lines:Array = patched_script.source_code.split("\n")
 
-	var code_index = code_lines.find("		context_kind = BaseItem.ContextKind.CONTEXT_BATTLE")
+	var code_index = code_lines.find("""	"raid":preload("NetRequestRaid.gd"), """)
 	if code_index > 0:
-		code_lines.insert(code_index+1,get_code("add_context_kind"))
-
+		code_lines.insert(code_index+1,get_code("add_kind"))
 
 	patched_script.source_code = ""
 	for line in code_lines:
@@ -29,11 +28,8 @@ static func patch():
 
 static func get_code(block:String)->String:
 	var code_blocks:Dictionary = {}
-	code_blocks["add_context_kind"] = """
-	elif typeof(context) == TYPE_INT:
-		if context == 99:
-			context_kind = 99
-	"""
+	code_blocks["add_kind"] = """
+	"trade_card":preload("res://mods/LivingWorld/scripts/NetRequestTradeCard.gd"), 
+	"""		
 	return code_blocks[block]
-
 

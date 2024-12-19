@@ -13,7 +13,13 @@ func _run():
 	if captain:
 		var behavior = captain.get_node("RecruitBehavior")
 		if behavior:
-			var objectdata = behavior.get_node("Patrol").get_bb("object_data")
+			var objectdata
+			var patrol_object = behavior.get_node("Patrol")
+			if !patrol_object:
+				return false				
+			objectdata = patrol_object.get_bb("object_data")
+			if !objectdata:
+				return false			
 			reset_behavior(behavior)
 			unregister_from_object(objectdata,captain)
 		enable_interaction(captain)

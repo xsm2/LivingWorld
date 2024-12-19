@@ -297,7 +297,7 @@ static func get_player_snapshot(other_player = null, other_partner = null):
 
 static func get_character_snapshot(other_player):
 	var player = SaveState.party.player if !other_player else other_player.player.custom
-	var partner = SaveState.party.partner if !other_player else other_player.partners[other_player.current_partner_id].custom
+	
 	var snap:Dictionary = {
 		"name":player.name,
 		"human_colors":to_json(player.human_colors),

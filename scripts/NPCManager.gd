@@ -69,8 +69,38 @@ static func initialize_savedata():
 	var collection = initialize_card_collection()
 	SaveState.other_data["LivingWorldData"] = {"ExtraEncounterConfig":{"extra_slots":0},
 												"CurrentFollower":{"recruit":{}, "active":false,"custom":false,"partner_id":""},
-												"Transformations":{"player1":{"form_index":-1},"player2":{"form_index":-1}},
-												"CardGame":{"collection":collection}}
+												"Transformations":{"player1":{"form_index":-1,"use_monster_form":false},"player2":{"form_index":-1}},
+												"CardGame":{"collection":collection,"held_in_trades":[]}}
+
+static func get_cards_held_in_trade()->Array:
+	return SaveState.other_data.LivingWorldData.CardGame.get("held_in_trades",[])
+
+static func is_card_held_in_trade(card)->bool:
+	for trade_card in get_cards_held_in_trade():
+		if card.form == trade_card.form:
+			return true
+	return false
+
+static func set_card_held_in_trade(card):
+	if !SaveState.other_data.LivingWorldData.CardGame.has("held_in_trades"):
+		SaveState.other_data.LivingWorldData.CardGame["held_in_trades"] = []
+	SaveState.other_data.LivingWorldData.CardGame.held_in_trades.push_back(card)
+
+static func remove_card_held_in_trade(card):
+	for held_card in get_cards_held_in_trade():
+		if held_card.form == card.form:
+			SaveState.other_data.LivingWorldData.CardGame.held_in_trades.erase(card)
+			break
+
+static func remove_card_from_collection(card):
+	var key = Loc.tr(card.name).to_lower()
+	var collection = SaveState.other_data.LivingWorldData.CardGame.collection
+	if collection.has(key):
+		collection[key].amount -= 1
+		if collection[key].amount <= 0 and collection[key].deck <= 0:
+			collection.erase(key)
+		elif collection[key].amount < 0:
+			collection[key].amount = 0
 
 static func initialize_card_collection()->Dictionary:
 	var settings = preload("res://mods/LivingWorld/settings.tres")
@@ -80,23 +110,52 @@ static func initialize_card_collection()->Dictionary:
 	var basic_forms = MonsterForms.basic_forms.values()
 	var debut_forms = MonsterForms.pre_evolution.values()
 	var options:Array = []
-	for i in range(settings.deck_limit):
+	for i in range(settings.deck_limit + 10):
 		options = debut_forms if i < settings.deck_limit/2 else basic_forms
 		var form = random.choice(options)
 		var key = Loc.tr(form.name).to_lower()
 		if result.has(key):
-			result[key].deck += 1
+			if i >= settings.deck_limit:
+				result[key].amount += 1
+			else:
+				result[key].deck += 1
 			continue
 		item.path = form.resource_path
-		item.amount = 0
-		item.deck = 1
+		item.amount = 1 if i >= settings.deck_limit else 0
+		item.deck = 0 if i >= settings.deck_limit else 1
 		item.bestiary_index = form.bestiary_index
 		result[key] = item.duplicate()
 	return result
 
+static func get_card_count()->int:
+	var count:int = 0
+	if !has_savedata():
+		initialize_savedata()
+	var collection:Dictionary = SaveState.other_data.LivingWorldData.CardGame.collection
+	for card in collection.values():
+		count += card.deck
+		count += card.amount
+	return count
+
 static func get_card_collection()->Dictionary:
-	var result:Dictionary
-	return SaveState.other_data.LivingWorldData.CardGame.collection
+	var collection = SaveState.other_data.LivingWorldData.CardGame.collection
+	var settings = preload("res://mods/LivingWorld/settings.tres")
+	if settings.deck_limit + 10 > get_card_count():
+		var options:Array = []
+		var random = Random.new(SaveState.random_seed)
+		var item:Dictionary = {"path":"","amount":0,"deck":0,"bestiary_index":0,"holocard":false}
+		var basic_forms = MonsterForms.basic_forms.values()
+		var debut_forms = MonsterForms.pre_evolution.values()		
+		for i in range(10):
+			options = debut_forms if i < settings.deck_limit/2 else basic_forms
+			var form = random.choice(options)
+			var key = Loc.tr(form.name).to_lower()
+			if collection.has(key):
+				collection[key].amount += 1
+				continue
+			add_card_to_collection(item)
+		collection = SaveState.other_data.LivingWorldData.CardGame.collection
+	return collection
 
 static func add_card_to_collection(card):
 	var key = get_card_key(card)
@@ -209,7 +268,95 @@ static func get_follower_config(other_recruit, occupant = null):
 			new_config.character_sfx = partner_template.character.sfx
 	return new_config
 
+static func get_extra_slots()->int:
+	if !has_savedata():
+		initialize_savedata()	
+	return SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots
+
+static func set_extra_slots(amount:int):
+	if !has_savedata():
+		initialize_savedata()	
+	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots = amount
+
+static func repack_background(battlebackground):
+	if !has_savedata():
+		initialize_savedata()	
+	var extra_battle_slots:int = SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots
+	if typeof(battlebackground) == TYPE_STRING:
+		battlebackground = load(battlebackground)
+	var unpacked_background = battlebackground.instance()   
+	if extra_battle_slots <= 0:
+		return
+	if extra_battle_slots > 3:
+		extra_battle_slots = 3
+	if extra_battle_slots > 0:
+		var player1slot = unpacked_background.get_node("BattleSlotPlayer1") if unpacked_background.has_node("BattleSlotPlayer1") else null
+		var player2slot = unpacked_background.get_node("BattleSlotPlayer2") if unpacked_background.has_node("BattleSlotPlayer2") else null
+		var player3slot = unpacked_background.get_node("BattleSlotPlayer3") if unpacked_background.has_node("BattleSlotPlayer3") else null
+		var enemy1slot = unpacked_background.get_node("BattleSlotEnemy1") if unpacked_background.has_node("BattleSlotEnemy1") else null
+		var enemy2slot = unpacked_background.get_node("BattleSlotEnemy2") if unpacked_background.has_node("BattleSlotEnemy2") else null
+		var enemy3slot = unpacked_background.get_node("BattleSlotEnemy3") if unpacked_background.has_node("BattleSlotEnemy3") else null
+		if not player1slot:
+			return battlebackground
+		var index:int = 0
+		for _i in range (extra_battle_slots):
+			var followerslot = preload("res://mods/LivingWorld/nodes/BattleSlotFollower.tscn").instance()
+			var extra_enemy_slot = preload("res://mods/LivingWorld/nodes/BattleSlotEnemy.tscn").instance()
+			var offset:int = 4
+			var translation_slot = player1slot
+			var enemytranslation_slot = enemy1slot
+			if index == 1:
+				translation_slot = player2slot
+				enemytranslation_slot = enemy2slot
+			if index == 2:
+				unpacked_background.add_child_below_node(player2slot, followerslot)
+				followerslot.focus_neighbour_right = player3slot.get_path()
+				player3slot.focus_neighbour_left = followerslot.get_path()
+				unpacked_background.add_child_below_node(enemy2slot, extra_enemy_slot)
+				extra_enemy_slot.focus_neighbour_left = enemy3slot.get_path()
+				enemy3slot.focus_neighbour_right = extra_enemy_slot.get_path()
+				followerslot.transform.origin = player3slot.transform.origin + Vector3(2,0,0)
+				extra_enemy_slot.transform.origin = enemy3slot.transform.origin - Vector3(2,0,0)
+				player3slot.transform.origin += Vector3(10,0,0)
+				enemy3slot.transform.origin -= Vector3(10,0,0)
+				index+=1        
+				followerslot.set_owner(unpacked_background)
+				extra_enemy_slot.set_owner(unpacked_background)
+				continue
+			unpacked_background.add_child_below_node(player2slot, followerslot)
+			followerslot.focus_neighbour_right = translation_slot.get_path()
+			translation_slot.focus_neighbour_left = followerslot.get_path()
+			unpacked_background.add_child_below_node(enemy2slot, extra_enemy_slot)
+			extra_enemy_slot.focus_neighbour_left = enemytranslation_slot.get_path()
+			enemytranslation_slot.focus_neighbour_right = extra_enemy_slot.get_path()
+			followerslot.translation = translation_slot.translation + Vector3(-12 +(offset*index), 0,0)
+			extra_enemy_slot.translation = enemytranslation_slot.translation + Vector3(12-(offset*index), 0,0)
+			followerslot.set_owner(unpacked_background)
+			extra_enemy_slot.set_owner(unpacked_background)        
+			index+=1
+	var battle_camera = unpacked_background.get_node("BattleCamera")
+	battle_camera.wide_mode = true
+	var new_background = PackedScene.new()
+	var result = new_background.pack(unpacked_background)
+	unpacked_background.queue_free()
+	if result == OK:   
+		print("repacked background")
+		return new_background
+	else:
+		return battlebackground 
+
+static func has_raid_request()->bool:
+    var result:bool = false
+    var requests:Array = Net.requests.get_requests()
+    for request in requests:
+        if request.kind == "raid" and not request.closed:
+            result = true
+            break
+    return result
+
 static func add_battle_slots(battlebackground):
+	if has_raid_request():
+		return 
 	if !has_savedata():
 		initialize_savedata()
 	if SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots <= 0:
@@ -395,7 +542,6 @@ static func get_data_from_npc(npc):
 	if npc.has_node("EncounterConfig"):
 		var encounter = npc.get_node("EncounterConfig")
 		var characters:Array = encounter.get_character_nodes()
-		var tapes = []
 		var index:int = 0
 		if characters.size() > 0 and npc.npc_name == "":
 			recruitdata.name = characters[0].character_name
@@ -416,7 +562,7 @@ static func filter_custom_recruits(recruits)->Array:
 	var level = WorldSystem.get_level_map()
 	var grouped_recruits:Array = level.get_tree().get_nodes_in_group("custom_recruits")
 	result = recruits.duplicate()
-	var orig_count = result.size()
+
 	if !current_follower.empty():
 		for item in result:
 			if compare_dictionaries(item,current_follower):
@@ -427,7 +573,7 @@ static func filter_custom_recruits(recruits)->Array:
 		for item in result:
 			if compare_dictionaries(item,data):
 				result.erase(item)
-	var diff = orig_count - result.size()
+
 	return result
 
 static func compare_dictionaries(data_a:Dictionary,data_b:Dictionary)->bool:
@@ -509,10 +655,14 @@ static func get_npc(recruitdata=null,random = Random.new()):
 	return npc
 
 static func engaged_recruits_nearby(encounter)->bool:
+	if !encounter:
+		return false
 	var allow_recruits = get_setting("JoinEncounters")
 	if !allow_recruits:
 		return false
 	var parent = encounter.get_parent()
+	if !parent:
+		return false
 	if !parent.has_node("ObjectData"):
 		parent = parent.get_parent()
 	if parent.has_node("ObjectData"):
@@ -520,7 +670,11 @@ static func engaged_recruits_nearby(encounter)->bool:
 	return false
 
 static func add_extra_fighters(encounter):
+	if !encounter:
+		return
 	var parent = encounter.get_parent()
+	if !parent:
+		return 
 	if !parent.has_node("ObjectData"):
 		parent = parent.get_parent()
 	if parent.has_node("ObjectData"):
@@ -532,7 +686,33 @@ static func add_extra_fighters(encounter):
 			newconfig.add_to_group("trainee_allies")
 			SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1
 
+static func get_extra_fighters(encounter)->Array:
+	var result:Array = []
+	if !encounter:
+		return []
+	var parent = encounter.get_parent()
+	if !parent:
+		return []
+	if !parent.has_node("ObjectData"):
+		parent = parent.get_parent()
+	if parent.has_node("ObjectData"):
+		for slot in parent.get_node("ObjectData").slots:
+			if !slot.occupied:
+				continue
+			var newconfig = get_follower_config(slot.npc_data, slot.occupant)
+			result.push_back(newconfig.generate_fighter(Random.new(),0))
+			SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1
+	return result
+
+static func get_follower_fighter():
+	var newconfig = get_follower_config(get_current_follower())
+	var fighter = newconfig.generate_fighter(Random.new(),0)
+	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1	
+	return fighter
+
 static func add_follower_to_encounter(encounter):
+	if !encounter:
+		return	
 	if has_active_follower():
 		var newconfig = get_follower_config(get_current_follower())
 		encounter.add_child(newconfig)
@@ -540,6 +720,10 @@ static func add_follower_to_encounter(encounter):
 		SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1
 
 static func remove_old_configs(encounter):
+	if !encounter:
+		return	
+	if !has_savedata():
+		return
 	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots = 0
 	for child in encounter.get_children():
 		if child.is_in_group("trainee_allies"):
@@ -606,17 +790,21 @@ static func is_player_transformed(playerindex=0)->bool:
 		return SaveState.other_data.LivingWorldData.Transformations.player2.form_index != -1
 
 	return SaveState.other_data.LivingWorldData.Transformations.player1.form_index != -1
-static func set_player_form(npc,playerindex = 0):
-	if playerindex == 0:
-		npc.swap_sprite(1,SaveState.other_data.LivingWorldData.Transformations.player1.form_index)
-	if playerindex == 1:
-		npc.swap_sprite(1,SaveState.other_data.LivingWorldData.Transformations.player2.form_index)
 
-static func set_transformation_index(index,playerindex = 0):
+static func set_player_form(npc,playerindex = 0,direct_index=-1,use_monster_form:bool=true):
+	if playerindex == 0:
+		var index = direct_index if direct_index >= 0 else SaveState.other_data.LivingWorldData.Transformations.player1.form_index
+		npc.swap_sprite(use_monster_form,index)
+	if playerindex == 1:
+		var index = direct_index if direct_index >= 0 else SaveState.other_data.LivingWorldData.Transformations.player2.form_index
+		npc.swap_sprite(1,index)
+
+static func set_transformation_index(index,playerindex = 0,use_monster_form:bool = false):
 	if !has_savedata():
 		initialize_savedata()
 	if playerindex == 0:
 		SaveState.other_data.LivingWorldData.Transformations.player1.form_index = index
+		SaveState.other_data.LivingWorldData.Transformations.player1["use_monster_form"] = use_monster_form
 	if playerindex == 1:
 		SaveState.other_data.LivingWorldData.Transformations.player2.form_index = index
 
@@ -630,3 +818,7 @@ static func get_transformation_index(playerindex = 0)->int:
 		index = SaveState.other_data.LivingWorldData.Transformations.player2.form_index
 	return index
 
+static func get_use_transformation_form()->bool:
+	if !has_savedata():
+		initialize_savedata()	
+	return SaveState.other_data.LivingWorldData.Transformations.player1.get("use_monster_form",false)

@@ -19,7 +19,7 @@ func _ready():
 	reset()
 
 func is_dirty()->bool:
-	var config = _load_settings_file()
+
 	if JoinEncountersInput.selected_value != get_config_value("join_raids"):
 		return true
 

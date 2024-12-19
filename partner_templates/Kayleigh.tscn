@@ -714,6 +714,12 @@ sprite_part_names = {
 "wings": ""
 }
 character = ExtResource( 19 )
+human_part_names/body = "kayleigh"
+human_part_names/arms = "kayleigh"
+human_part_names/hair = "kayleigh"
+human_part_names/head = ""
+human_part_names/legs = ""
+human_part_names/wings = ""
 human_colors/body_color_1 = 14
 human_colors/body_color_2 = 8
 human_colors/eye_color = 7
@@ -870,6 +876,10 @@ human_colors = {
 }
 custom_battle_sprite = ExtResource( 21 )
 ai = ExtResource( 122 )
+human_part_names/body = ""
+human_part_names/hair = ""
+human_part_names/head = ""
+human_part_names/legs = ""
 human_colors/body_color_1 = -1
 human_colors/body_color_2 = -1
 human_colors/eye_color = -1

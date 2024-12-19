@@ -42,7 +42,6 @@ func _enter_tree():
 	_cull_freed_spawns()
 	call_deferred("_do_initial_spawns")
 
-
 func try_spawn():
 	var max_spawns = day_max_spawns if WorldSystem.time.is_day() else night_max_spawns
 	if current_spawns.size() >= max_spawns:
@@ -66,11 +65,6 @@ func _try_spawn_attempt():
 
 	var pos = aabb.position + Vector3(randf() * aabb.size.x, randf() * aabb.size.y, randf() * aabb.size.z)
 	var global_pos = global_transform.xform(pos)
-	for player in WorldSystem.get_players():
-		var flat_pos = Vector3(global_pos.x, player.global_transform.origin.y, global_pos.z)
-#		if flat_pos.distance_to(player.global_transform.origin) < MIN_DISTANCE_TO_PLAYER:
-#			return null
-
 	var npc = npcmanager.create_npc(forced_personality,supress_abilities)
 	add_child(npc)
 	npc.global_transform.origin = global_pos + Vector3(0,5,0)
@@ -81,7 +75,6 @@ func _try_spawn_attempt():
 			npc.transform = orig_xform
 	if npc:
 		current_spawns.push_back(npc)
-
 		return npc
 	return null
 
@@ -98,6 +91,7 @@ func _on_suppress_spawns_changed():
 func kill_spawns():
 	for spawn in current_spawns:
 		if is_instance_valid(spawn):
+			spawn.get_parent().remove_child(spawn)
 			spawn.queue_free()
 	current_spawns.clear()
 

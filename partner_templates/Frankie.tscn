@@ -713,6 +713,12 @@ sprite_part_names = {
 "wings": "generic"
 }
 character = ExtResource( 118 )
+human_part_names/body = "jacket"
+human_part_names/arms = "jacket"
+human_part_names/hair = "cat1"
+human_part_names/head = "glasses_1"
+human_part_names/legs = "skirt1"
+human_part_names/wings = "generic"
 human_colors/body_color_1 = 16
 human_colors/body_color_2 = 12
 human_colors/eye_color = 10
@@ -876,6 +882,10 @@ human_part_names = {
 }
 copy_human_sprite = NodePath("../..")
 ai = ExtResource( 95 )
+human_part_names/body = "jacket"
+human_part_names/hair = "cat1"
+human_part_names/head = "glasses_1"
+human_part_names/legs = "skirt1"
 human_colors/body_color_1 = 16
 human_colors/body_color_2 = 12
 human_colors/eye_color = 10

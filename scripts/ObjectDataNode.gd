@@ -13,7 +13,7 @@ func _ready():
 	if fire:
 		campfire = get_node(fire)
 	timer = purge_timer
-	for i in range(0,max_slots):
+	for _i in range(0,max_slots):
 		slots.push_back({"occupant":null,"occupied":false,"position_target":null,"npc_data":null,"face_direction":Direction.down})
 	if object_type == ObjectType.SEAT or object_type == ObjectType.TREE:
 		set_seats()
@@ -118,6 +118,8 @@ func set_seats():
 	var index:int = 0
 	for slot in slots:
 		var pos:Position3D = get_parent().get_node(targets[index])
+		if pos == null:
+			return
 		slot.position_target = pos.global_translation
 		if object_type == ObjectType.TREE:
 			if index == 0:

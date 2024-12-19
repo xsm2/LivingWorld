@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://nodes/layered_sprite/WorldHumanSprite3D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/core/Interaction.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://nodes/actions/MenuDialogAction.gd" type="Script" id=10]
 [ext_resource path="res://mods/LivingWorld/nodes/RecruitData.tscn" type="PackedScene" id=11]
 [ext_resource path="res://mods/LivingWorld/actions/CheckCurrentForm.gd" type="Script" id=12]
+[ext_resource path="res://nodes/actions/CheckConditionAction.gd" type="Script" id=13]
 [ext_resource path="res://nodes/sprite_container/SpriteContainer.gd" type="Script" id=37]
 [ext_resource path="res://mods/LivingWorld/actions/PlayAudioVolumeCtrl.gd" type="Script" id=38]
 [ext_resource path="res://world/npc/WalkingState.gd" type="Script" id=39]
@@ -55,6 +56,12 @@ sprite_part_names = {
 "legs": "generic",
 "wings": "dog"
 }
+human_part_names/body = "sweater1"
+human_part_names/arms = "sweater1"
+human_part_names/hair = "short"
+human_part_names/head = "generic"
+human_part_names/legs = "generic"
+human_part_names/wings = "dog"
 human_colors/body_color_1 = -1
 human_colors/body_color_2 = -1
 human_colors/eye_color = -1
@@ -781,6 +788,21 @@ wait_for_finish = false
 [node name="ChangeSprite" type="Node" parent="Transform/MenuDialogAction/CheckConditionAction34"]
 script = ExtResource( 43 )
 sprite_form = 1
+
+[node name="DirectTransform" type="Node" parent="."]
+script = ExtResource( 13 )
+always_succeed = true
+
+[node name="PlayAudioAction" type="Node" parent="DirectTransform"]
+script = ExtResource( 38 )
+stream = ExtResource( 40 )
+wait_for_finish = false
+
+[node name="ChangeSprite" type="Node" parent="DirectTransform"]
+script = ExtResource( 43 )
+sprite_form = 1
+use_bb = true
+transform_bb = "transform_index"
 
 [node name="MonsterForms" parent="." instance=ExtResource( 5 )]
 

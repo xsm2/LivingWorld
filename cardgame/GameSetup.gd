@@ -794,7 +794,7 @@ func is_full_remaster(field, new_card)->bool:
 
 func find_previous_form(current_form):
 	var all_forms = MonsterForms.basic_forms.values()
-	var debut_forms = MonsterForms.pre_evolution.values()
+
 	var result = null
 	for form in all_forms:
 		for evo in form.evolutions:

@@ -45,6 +45,9 @@ func _run():
 		elif !target.is_inside_tree():
 			_pathing_failed()
 			return false or always_succeed
+		# elif !path_controller.has_node(target.get_path()):
+		# 	_pathing_failed()
+		# 	return false or always_succeed			
 		else:
 			path_controller.target_node = target.get_path()
 	path_controller.enabled = true

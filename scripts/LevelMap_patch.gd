@@ -32,6 +32,14 @@ static func patch():
 	if code_index > 0:
 		code_lines[code_index] = get_code("change_player")
 
+	code_index = code_lines.find("		var rp = WorldPlayerFactory.create_remote_player(avatar.id)")
+	if code_index > 0:
+		code_lines[code_index] = get_code("change_remoteplayer")		
+
+	code_index = code_lines.find("		var rp = WorldPlayerFactory.create_remote_player(id)")
+	if code_index > 0:
+		code_lines[code_index] = get_code("change_remoteplayer2")		
+
 	code_index = code_lines.find("	if warp_target:")
 	if code_index > 0:
 		code_lines.insert(code_index-1,get_code("warp_recruit"))
@@ -61,10 +69,26 @@ static func get_code(block:String)->String:
 	var npc = create_modded_player(player_index)
 	var npc_manager = preload("res://mods/LivingWorld/scripts/NPCManager.gd")
 	npc_manager.remove_duplicate_partner()
+	npc.net_id = -1
 	if npc_manager.is_player_transformed(player_index):
 		call_deferred("set_player_form",npc,player_index)
 	"""
-
+	code_blocks["change_remoteplayer"] = """
+		var rp = create_modded_remote_player(avatar.id)
+		rp.net_id = avatar.id
+		var rp_info = Net.avatars.get_avatar_info(avatar.id)
+		print("Checking transform data: %s %s"%[rp_info.transform_index,rp_info.use_monster_form])		
+		if rp_info.transform_index >= 0 and rp_info.use_monster_form:
+			print("Transformation required")
+			call_deferred("set_player_form",rp,0,rp_info.transform_index,rp_info.use_monster_form)
+	"""
+	code_blocks["change_remoteplayer2"] = """
+		var rp = create_modded_remote_player(id)
+		rp.net_id = id
+		print("Checking transform data: %s %s"%[avatar.transform_index,avatar.use_monster_form])		
+		if avatar.transform_index >= 0 and avatar.use_monster_form:
+			call_deferred("set_player_form",rp,0,avatar.transform_index,avatar.use_monster_form)
+	"""
 	code_blocks["respawn_recruit"] = """
 	var npc_manager = preload("res://mods/LivingWorld/scripts/NPCManager.gd")
 	if has_node("FollowerRecruit") and !npc_manager.has_active_follower():
@@ -90,9 +114,9 @@ func setup_recruit_spawner(current_regionname):
 	var npc_manager = preload("res://mods/LivingWorld/scripts/NPCManager.gd")
 	npc_manager.add_spawner(current_regionname,self)
 
-func set_player_form(npc,playerindex):
+func set_player_form(npc,playerindex,transform_index:int=-1,use_monster_form:bool=true):
 	var npc_manager = preload("res://mods/LivingWorld/scripts/NPCManager.gd")
-	npc_manager.set_player_form(npc,playerindex)
+	npc_manager.set_player_form(npc,playerindex,transform_index,use_monster_form)
 
 func create_modded_player(player_index:int):
 	var npc = preload("res://mods/LivingWorld/nodes/PlayerMonster.tscn").instance()
@@ -106,6 +130,19 @@ func create_modded_player(player_index:int):
 
 	WorldPlayerFactory.set_npc_to_player(npc, player_index)
 	return npc
+
+func create_modded_remote_player(id):
+	var RemotePlayerController = load("res://world/player/RemotePlayerController.gd")
+	var npc = preload("res://mods/LivingWorld/nodes/PlayerMonster.tscn").instance()	
+	npc.add_to_group("remote_player")
+	var rp_info = Net.players.get_player_info(id)
+	npc.sprite_colors = rp_info.human_colors
+	npc.sprite_part_names = rp_info.human_part_names
+	var controller = RemotePlayerController.new()
+	controller.id = id
+	npc.add_child(controller)
+	return npc
+
 	"""
 
 	return code_blocks[block]

@@ -1,5 +1,7 @@
 extends ContentInfo
+
 const settings_path = "user://LivingWorldSettings.cfg"
+
 var recruit_tracker:Array = []
 var levelmap_patch = preload("LevelMap_patch.gd")
 var encounterconfig_patch = preload("encounter_config_patch.gd")
@@ -20,9 +22,18 @@ var conditionallayer = preload("res://mods/LivingWorld/scripts/ConditionalLayer_
 var battlenpcbehavior = preload("res://mods/LivingWorld/scripts/BattleNPCBehavior_patch.gd")
 var unlockedpartnerspawner = preload("res://mods/LivingWorld/scripts/UnlockedPartnerSpawner_patch.gd")
 var randomdailyconditionallayer = preload("res://mods/LivingWorld/scripts/RandomDailyConditionalLayer_patch.gd")
+var remoteplayercontroller = preload("res://mods/LivingWorld/scripts/RemotePlayerControllerPatch.gd")
+var netavatars = preload("res://mods/LivingWorld/scripts/NetAvatars_patch.gd")
+var inetavatars = preload("res://mods/LivingWorld/scripts/INetAvatars_patch.gd")
+var netrequestraid = preload("res://mods/LivingWorld/scripts/NetRequestRaid_patch.gd")
+var raidbattleaction = preload("res://mods/LivingWorld/scripts/RaidBattleAction_patch.gd")
+var netinfo_contextmenu = preload("res://mods/LivingWorld/scripts/NetInfoPlayer_ContextMenu_patch.gd")
+var netrequests = preload("res://mods/LivingWorld/scripts/NetRequests_patch.gd")
+var netmultiplayer_connectedui = preload("res://mods/LivingWorld/scripts/NetMultiplayer_ConnectedUI_patch.gd")
 
 var partners:Dictionary = {}
 var npc_template = preload("res://mods/LivingWorld/nodes/RecruitTemplate.tscn")
+
 const warptarget_template = preload("res://mods/LivingWorld/nodes/warptarget.tscn")
 const settings = preload("res://mods/LivingWorld/settings.tres")
 const spawner = preload("res://mods/LivingWorld/nodes/RecruitSpawner.tscn")
@@ -42,7 +53,6 @@ func _init():
 	roguefusions.patch()
 	inventorydetail.patch()
 	stickeritem_patch.patch()
-	playercontroller.patch()
 	interactor.patch()
 	captainbehavior.patch()
 	usersettings.patch()
@@ -51,7 +61,15 @@ func _init():
 	battlenpcbehavior.patch()
 	unlockedpartnerspawner.patch()
 	randomdailyconditionallayer.patch()
-
+	inetavatars.patch()
+	netavatars.patch()
+	remoteplayercontroller.patch()
+	playercontroller.patch()	
+	netrequestraid.patch()
+	raidbattleaction.patch()
+	netinfo_contextmenu.patch()
+	netrequests.patch()
+	netmultiplayer_connectedui.patch()
 
 	yield(SceneManager.preloader,"singleton_setup_completed")
 	add_keyboard_shortcuts()
@@ -77,6 +95,19 @@ func add_keyboard_shortcuts():
 	InputMap.add_action("livingworldmod_transform")
 	InputMap.action_add_event("livingworldmod_transform",inputeventkey)
 	InputMap.action_add_event("livingworldmod_transform",inputeventjoy)
+
+func choose_card_for_trade(remote_id):
+	if yield (MenuHelper.confirm("ONLINE_REQUEST_UI_TRADE_SAVE_WARNING"), "completed"):
+		return yield (show_card_collection(remote_id), "completed")
+	return null
+
+func show_card_collection(trading_remote_id = null):
+	var menu = load("res://mods/LivingWorld/menus/CardCollectionMenu.tscn").instance()
+	menu.trading_remote_id = trading_remote_id
+	MenuHelper.add_child(menu)
+	var result = yield (menu.run_menu(), "completed")
+	menu.queue_free()
+	return result
 
 func clear_recruit_tracker():
 	recruit_tracker.clear()
@@ -116,11 +147,6 @@ func add_debug_commands():
 			"args":[TYPE_BOOL],
 			"target":[self, "add_debug_camera"]
 		})
-#	Console.register("my_pos", {
-#			"description":"Prints player's current global position Vector3",
-#			"args":[],
-#			"target":[self, "get_my_pos"]
-#		})
 #	Console.register("clean_data",{
 #		"description":"Remove other_data values in SaveState",
 #		"args":[TYPE_STRING],
@@ -161,16 +187,6 @@ func add_debug_commands():
 #		"args":[],
 #		"target":[self,"spawn_card"]
 #	})
-func check_flags():
-	var result:String = ""
-	result = """
-	AI_ENABLED: %s
-	PHYSICS_ENABLED: %s
-	PLAYERCONTROL: %s
-	SAVING: %s
-	UI: %s
-	"""%[str(WorldSystem.WorldFlags.AI_ENABLED),str(WorldSystem.WorldFlags.PHYSICS_ENABLED),str(WorldSystem.WorldFlags.PLAYER_CONTROL_ENABLED),str(WorldSystem.WorldFlags.SAVING_ENABLED),str(WorldSystem.WorldFlags.UI_ENABLED)]
-	return result
 func pause():
 	WorldSystem.get_tree().paused = !WorldSystem.get_tree().paused
 
@@ -204,6 +220,7 @@ func add_location_spawner(location_name:String,supress_abilities:bool = false,ig
 	var err = ResourceSaver.save("res://mods/LivingWorld/settings.tres",settings)
 	if err == OK:
 		return ("Saved %s for region %s at position %s with ignore_visibility set to %s personality set to %s abiilities supressed %s"%[location_name,region_name,player.global_transform.origin,ignore_visibility,personality,supress_abilities])
+
 func add_debug_camera(value):
 	var camera = WorldSystem.get_level_map().camera
 
@@ -218,6 +235,7 @@ func add_debug_camera(value):
 			debugnode.set_player_control(true)
 			camera.remove_child(debugnode)
 			debugnode.queue_free()
+			
 func export_player():
 	var jsonparser = preload("res://mods/LivingWorld/scripts/RangerDataParser.gd")
 	var playersnap = jsonparser.get_player_snapshot()
@@ -232,7 +250,7 @@ func spawn_npc(playersnap = null):
 	if playersnap:
 		npc.get_data().recruit = jsondataparser.get_character_snapshot(playersnap)
 		var data = npc.get_data().recruit
-#		print(data)
+
 		npc = manager.get_npc(data)
 	else:
 		npc.get_data().recruit = jsondataparser.get_empty_recruit()
@@ -263,7 +281,7 @@ func summon_save(file_path):
 			var version = snapshot.get("version",-1)
 			if version != SaveState.CURRENT_VERSION:
 				continue
-#			var player = jsondataparser.merge(snapshot.party.player.custom,snapshot.party.player)
+
 			var player = snapshot.party
 			spawn_npc(player)
 			break
@@ -294,3 +312,4 @@ func show_card_reward(reward):
 	MenuHelper.add_child(menu)
 	yield (menu, "reward_completed")
 	menu.queue_free()
+

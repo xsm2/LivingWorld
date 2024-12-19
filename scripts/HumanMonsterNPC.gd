@@ -2,6 +2,7 @@ tool
 extends NPC
 enum FORMS {HUMAN, MONSTER}
 signal character_changed
+signal character_transformed
 
 const UniqueSprite3D = preload("res://nodes/layered_sprite/UniqueSprite3D.gd")
 const LayeredSprite3D = preload("res://nodes/layered_sprite/LayeredSprite3D.gd")
@@ -22,6 +23,7 @@ var player_index = -1
 var human_sprite
 var data_node = null
 var behavior_node = null
+var net_id:int = -1
 func _ready():
 	if name == "Player":
 		player_index = 0
@@ -45,17 +47,23 @@ func set_transform_index():
 	var random = Random.new()
 	random.shuffle(monster_index)
 
-func player_transform(value=-1):
-	if value == -1:
-		value = 0 if use_monster_form else 1
+func player_transform(value:bool=false,direct_index:int=-1):
+	if direct_index > -1:
+		var transformnode = get_node("DirectTransform")
+		if transformnode:
+			transformnode.set_bb("mode",value)
+			transformnode.set_bb("transform_index",direct_index)
+			transformnode.run()
+			return
 	var cutscene = get_node("Transform")
 	if cutscene:
 		cutscene.set_bb("mode",value)
-		cutscene.run()
+		cutscene.run()	
 
-func swap_sprite(value:int, forced_index:int = -2):
+func swap_sprite(value:bool, forced_index:int = -2):
+	if !state_machine:return
 	var npc_manager = preload("res://mods/LivingWorld/scripts/NPCManager.gd")
-	use_monster_form = value == FORMS.MONSTER
+	use_monster_form = value
 	if forced_index == -1:
 		use_monster_form = false
 		forced_index += 1
@@ -78,9 +86,14 @@ func swap_sprite(value:int, forced_index:int = -2):
 			monster_sprite.direction = sprite.direction
 		dominant_sprite = monster_sprite
 		human_sprite.visible = false
-		npc_manager.set_transformation_index(index,player_index)
+		npc_manager.set_transformation_index(index,player_index,use_monster_form)
 	else:
 		if sprite:
+			if net_id > -1 and Net.status_connected():
+				var rp_info = Net.players.get_player_info(net_id)
+				var sprite_layer = human_sprite.get_node("HumanSprite")
+				if sprite_layer:
+					sprite_layer.set_part_names(rp_info.human_part_names)			
 			human_sprite.set_static_amount(sprite.static_amount)
 			human_sprite.set_static_speed(sprite.static_speed)
 			human_sprite.set_wave_amplitude(sprite.wave_amplitude)
@@ -88,7 +101,7 @@ func swap_sprite(value:int, forced_index:int = -2):
 			human_sprite.direction = sprite.direction
 		dominant_sprite = human_sprite
 		monster_sprite.visible = false
-		npc_manager.set_transformation_index(-1,player_index)
+		npc_manager.set_transformation_index(-1,player_index,use_monster_form)
 	sprite = dominant_sprite
 	state_machine.set_formname(selection.name)
 	state_machine.change_forms(use_monster_form)
@@ -96,6 +109,7 @@ func swap_sprite(value:int, forced_index:int = -2):
 	if previous_monster_form_index != index:
 		monster_forms.get_child(previous_monster_form_index).get_child(0).visible = false
 		previous_monster_form_index = index
+	emit_signal("character_transformed",index,use_monster_form)
 
 func refresh_sprite():
 	if not sprite or use_monster_form:

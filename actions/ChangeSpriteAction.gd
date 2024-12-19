@@ -7,6 +7,7 @@ export (float) var duration = .25
 export (String) var random_activation_bb = ""
 export (bool) var use_bb = false
 export (String) var blackboard_value = "mode"
+export (String) var transform_bb = ""
 export (bool) var is_player = true
 export (bool) var reset = false
 var index:int = -2
@@ -33,7 +34,11 @@ func _run():
 		tween.start()
 		yield(tween,"tween_completed")
 	if use_bb:
-		sprite_form = get_bb(blackboard_value)
+		sprite_form = get_bb(blackboard_value)		
+	if transform_bb != "":
+		index = get_bb(transform_bb)
+	if typeof(sprite_form) == TYPE_INT:
+		sprite_form = sprite_form == FORMS.MONSTER		
 	pawn.swap_sprite(sprite_form, index)
 	sprite = pawn.sprite
 	tween = sprite.controller.tween

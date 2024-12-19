@@ -13,7 +13,8 @@ static func patch():
 
 	var code_lines:Array = patched_script.source_code.split("\n")
 
-	var code_index = code_lines.find("		name = \"UI_SETTINGS_NETWORK\",")
+	var code_index = code_lines.find("		name = \"UI_SETTINGS_NETWORK\", ")
+	
 	if code_index > 0:
 		code_lines.insert(code_index-1,get_code("add_panel"))
 

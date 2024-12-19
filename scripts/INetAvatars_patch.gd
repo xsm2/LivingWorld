@@ -1,6 +1,6 @@
 static func patch():
-	var script_path = "res://menus/inventory/InventoryDetailPanel.gd"
-	var patched_script : GDScript = preload("res://menus/inventory/InventoryDetailPanel.gd")
+	var script_path = "res://global/network/INetAvatars.gd"
+	var patched_script : GDScript = preload("res://global/network/INetAvatars.gd")
 
 	if !patched_script.has_source_code():
 		var file : File = File.new()
@@ -13,10 +13,13 @@ static func patch():
 
 	var code_lines:Array = patched_script.source_code.split("\n")
 
-	var code_index = code_lines.find("		context_kind = BaseItem.ContextKind.CONTEXT_BATTLE")
+	var code_index = code_lines.find("signal avatar_scene_changed(id)")
 	if code_index > 0:
-		code_lines.insert(code_index+1,get_code("add_context_kind"))
-
+		code_lines.insert(code_index-1,get_code("add_signal"))
+	
+	code_index = code_lines.find("	var time_left:float")
+	if code_index > 0:
+		code_lines.insert(code_index+1,get_code("add_var"))
 
 	patched_script.source_code = ""
 	for line in code_lines:
@@ -29,11 +32,13 @@ static func patch():
 
 static func get_code(block:String)->String:
 	var code_blocks:Dictionary = {}
-	code_blocks["add_context_kind"] = """
-	elif typeof(context) == TYPE_INT:
-		if context == 99:
-			context_kind = 99
-	"""
-	return code_blocks[block]
+	code_blocks["add_signal"] = """
+signal avatar_transformed(id,index)
+	"""		
 
+	code_blocks["add_var"] = """
+	var transform_index:int
+	var use_monster_form:bool
+	"""	
+	return code_blocks[block]
 

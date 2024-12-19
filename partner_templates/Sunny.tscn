@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://data/monster_forms/rockertrice.tres" type="Resource" id=1]
 [ext_resource path="res://mods/LivingWorld/nodes/RecruitData.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://mods/LivingWorld/scripts/DefeatedNPCDetector.gd" type="Script" id=22]
 [ext_resource path="res://mods/LivingWorld/actions/PlayRandomEmote.gd" type="Script" id=23]
 [ext_resource path="res://mods/LivingWorld/actions/RecordSuccessAction.gd" type="Script" id=24]
+[ext_resource path="res://sprites/characters/battle/sunny.json" type="PackedScene" id=25]
 [ext_resource path="res://nodes/actions/PassiveMessageAction.gd" type="Script" id=26]
 [ext_resource path="res://world/npc/SwimmingState.gd" type="Script" id=27]
 [ext_resource path="res://world/npc/PauseState.gd" type="Script" id=28]
@@ -78,6 +79,7 @@
 [ext_resource path="res://mods/LivingWorld/scripts/MonsterDetector.gd" type="Script" id=77]
 [ext_resource path="res://data/monster_forms/mascotorn.tres" type="Resource" id=78]
 [ext_resource path="res://data/monster_forms/queenyx.tres" type="Resource" id=79]
+[ext_resource path="res://data/character_sfx/sunny_sfx.tres" type="Resource" id=80]
 [ext_resource path="res://mods/LivingWorld/behaviors/FindDoor.tscn" type="PackedScene" id=81]
 [ext_resource path="res://mods/LivingWorld/scripts/TalkingNPCDetector.gd" type="Script" id=83]
 [ext_resource path="res://mods/LivingWorld/actions/SetInteraction.gd" type="Script" id=84]
@@ -95,7 +97,6 @@
 [ext_resource path="res://sfx/voices/sunny/sunny_accept.wav" type="AudioStream" id=96]
 [ext_resource path="res://sfx/voices/sunny/sunny_decline.wav" type="AudioStream" id=97]
 [ext_resource path="res://sfx/voices/sunny/sunny_greeting.wav" type="AudioStream" id=98]
-[ext_resource path="res://mods/LivingWorld/sfx/sunny.tres" type="Resource" id=99]
 [ext_resource path="res://nodes/actions/ChangeMusicAction.gd" type="Script" id=100]
 [ext_resource path="res://mods/LivingWorld/cardgame/FoozleCC_Track2.ogg" type="AudioStream" id=101]
 [ext_resource path="res://mods/LivingWorld/scripts/setbattlesprite.gd" type="Script" id=102]
@@ -708,6 +709,12 @@ sprite_part_names = {
 "wings": "generic"
 }
 character = ExtResource( 65 )
+human_part_names/body = "sunny"
+human_part_names/arms = "sunny"
+human_part_names/hair = "long1"
+human_part_names/head = "grumpy"
+human_part_names/legs = "shorts1"
+human_part_names/wings = "generic"
 human_colors/body_color_1 = 6
 human_colors/body_color_2 = 2
 human_colors/eye_color = 12
@@ -848,7 +855,7 @@ character_name = "SUNNY_NAME"
 pronouns = 1
 level_scale_override_key = "npc"
 base_character = ExtResource( 65 )
-character_sfx = ExtResource( 99 )
+character_sfx = ExtResource( 80 )
 character_kind = 1
 human_colors = {
 "body_color_1": 6,
@@ -870,7 +877,12 @@ human_part_names = {
 "legs": "shorts1",
 "wings": "generic"
 }
+custom_battle_sprite = ExtResource( 25 )
 ai = ExtResource( 115 )
+human_part_names/body = "sunny"
+human_part_names/hair = "long1"
+human_part_names/head = "grumpy"
+human_part_names/legs = "shorts1"
 human_colors/body_color_1 = 6
 human_colors/body_color_2 = 2
 human_colors/eye_color = 12

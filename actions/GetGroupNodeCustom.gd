@@ -4,11 +4,11 @@ export (String) var group:String
 export (int, "First", "Last", "Random", "All", "Nearest") var mode:int = 0
 export (bool) var ignore_limited_space = false
 export (GROUPTYPE) var group_type = GROUPTYPE.OBJECT
+
 func get_value():
 	var nodes = get_tree().get_nodes_in_group(group)
 	if nodes.size() == 0 and mode != 3:
 		return null
-
 	if mode == 0:
 		return nodes[0]
 	elif mode == 1:

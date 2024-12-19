@@ -11,6 +11,7 @@ var last_card_focus:int = 0
 var last_deck_focus:int = 0
 var last_removed_button = null
 var deck_count:int = 0
+var trading_remote_id = null
 onready var card_grid = find_node("CardGrid")
 onready var deck_grid = find_node("DeckGrid")
 onready var add_card_button = find_node("AddCard")
@@ -29,11 +30,21 @@ func _ready():
 	set_deck_focus_buttons()
 	focus_button = card_grid.get_child(0).get_node("Button")
 	focus_button.grab_focus()
+	if trading_remote_id != null:
+		remove_card_button.visible = false
+		add_card_button.text = Loc.tr("LIVINGWORLD_UI_OFFER_CARD")
 
 func _on_focus_changed(control:Control) -> void:
 	if control != null:
 		if control.name == "CardCollectionMenu":
 			focus_button.grab_focus()
+
+func shown():
+	if trading_remote_id != null:
+		yield (GlobalMessageDialog.show_message(Loc.trf("ONLINE_REQUEST_CARDTRADE_PROMPT", {
+			remote_player = Net.players.get_player_info(trading_remote_id).player_name
+		})), "completed")	
+	.shown()
 
 func populate_collection():
 	var collection
@@ -45,6 +56,8 @@ func populate_collection():
 	collection.sort_custom(self, "_sort_indices")
 
 	for data in collection:
+		if trading_remote_id != null and data.amount <= 0:
+			continue
 		var card = card_template.instance()
 		var label = count_label.instance()
 		var decklabel = deck_label.instance()
@@ -70,6 +83,8 @@ func populate_collection():
 		setup_button(new_card)
 
 func populate_deck():
+	if trading_remote_id != null:
+		return
 	var collection = manager.get_card_collection()
 	for data in collection.values():
 		if data.deck > 0:
@@ -211,17 +226,29 @@ func stockpile_empty(card)->bool:
 		return true
 	return card_data.amount == 0
 
+func is_reserved(card)->bool:
+	var card_info = card.get_card_info()
+	var card_data = get_card_data(card)
+	if manager.is_card_held_in_trade(card_info) and card_data.amount <= 1:
+		return true
+	return false
+
 func _on_AddCard_pressed():
-	if deck_full():
-		return
 	var card = focus_button.get_parent()
 	if !has_valid_data(card):
 		return
+	if trading_remote_id != null:
+		choose_option(card.get_card_info())		
+		return
+	if deck_full():
+		return
 	if stockpile_empty(card):
+		return
+	if is_reserved(card):
+		yield(GlobalMessageDialog.show_message("LIVINGWORLD_UI_CARD_RESERVED"),"completed")
 		return
 	if focus_button.get_parent().get_parent().name == "DeckGrid":
 		return
-	var card_data = get_card_data(card)
 	add_to_deck(card)
 	add_deck_button(card.form)
 	set_deck_focus_buttons()
@@ -295,9 +322,11 @@ func disable_add_button():
 	remove_card_button.disabled = false
 
 func _on_Back_pressed():
-	if !deck_full():
+	if !deck_full() and trading_remote_id == null:
 		yield(GlobalMessageDialog.show_message("LIVINGWORLD_UI_DECKCOUNT_ERROR"),"completed")
 		return
+	if trading_remote_id != null:
+		choose_option(null)
 	cancel()
 
 func set_focus_buttons():

@@ -79,6 +79,7 @@ var random:Random = Random.new()
 var coffee_menu:Array = [coffee1,coffee2,coffee3,coffee4]
 var tape_arsenal:Array = [basic_tape,chrome_tape]
 var will_record:bool = false
+var behavior_settings:Dictionary = {}
 func _ready():
 	cooldowns = {}
 
@@ -127,7 +128,7 @@ func request_orders():
 
 	if is_coffee_appropriate():
 		var coffee_node = generic_itemnode.instance()
-		coffee_node.item = random.choice(coffee_menu)
+		coffee_node.item = battle.rand.choice(coffee_menu)
 		coffee_node.amount = 1
 		add_child(coffee_node)
 
@@ -141,7 +142,7 @@ func request_orders():
 
 	if is_recording_appropriate():
 		var tape_node:Node = generic_itemnode.instance()
-		tape_node.item = random.choice(tape_arsenal) if randf() > 0.05 else shuck_tape
+		tape_node.item = battle.rand.choice(tape_arsenal) if randf() > 0.05 else shuck_tape
 		tape_node.amount = 1
 		add_child(tape_node)
 		var arg:Dictionary = {"target_slots":[]}
@@ -195,7 +196,7 @@ func is_fusion_appropriate()->bool:
 		fuse_rate = 1.0
 	if cooldowns.has("fusion"):
 		return false
-	if !random.rand_bool(fuse_rate):
+	if !battle.rand.rand_bool(fuse_rate):
 		return false
 #	if get_available_tapes(true).size() > 0:
 #		return false
@@ -646,7 +647,7 @@ func _others_are_recording(fighter)->bool:
 				return true
 	return false
 
-func _has_heal_target(figher)->bool:
+func _has_heal_target(fighter)->bool:
 	var teams = fighter.battle.get_teams(false, true)
 	for team_id in teams:
 		if team_id != fighter.team:
@@ -667,7 +668,7 @@ func _get_heal_target(fighter):
 				var weight = player_weight if f.is_player_controlled() else npc_weight
 				potential_targets.push_back({"fighter":f,"weight":weight})
 
-	return random.weighted_choice(potential_targets) if !potential_targets.empty() else null
+	return battle.rand.weighted_choice(potential_targets) if !potential_targets.empty() else null
 
 func _get_random_teammate(fighter):
 	var teams = fighter.battle.get_teams(false, true)
@@ -678,7 +679,7 @@ func _get_random_teammate(fighter):
 		for f in teams[team_id]:
 			potential_targets.push_back(f)
 
-	return random.choice(potential_targets) if !potential_targets.empty() else null
+	return battle.rand.choice(potential_targets) if !potential_targets.empty() else null
 
 func _get_random_recording_target(fighter):
 	var teams = fighter.battle.get_teams(false, true)
@@ -689,7 +690,7 @@ func _get_random_recording_target(fighter):
 		for f in teams[team_id]:
 			if f.is_recordable() and !f.is_bootleg():
 				potential_targets.push_back(f)
-	return random.choice(potential_targets) if !potential_targets.empty() else null
+	return battle.rand.choice(potential_targets) if !potential_targets.empty() else null
 
 func _is_type_disadvantaged(fighter)->bool:
 	var teams = fighter.battle.get_teams(false, true)
@@ -722,7 +723,7 @@ func _get_type_advantaged_tape():
 			if ElementalReactions.is_type_advantaged(tape_types,target_types) or ElementalReactions.is_type_disadvantaged(target_types,tape_types):
 				choices.push_back(tape)
 
-	return random.choice(choices)
+	return battle.rand.choice(choices)
 
 func has_ap_target()->bool:
 	var teams = fighter.battle.get_teams(false, true)
@@ -744,10 +745,13 @@ func _get_ap_target(fighter):
 			if f.status.ap <= f.status.max_ap * settings.ap_percentage:
 				potential_targets.push_back(f)
 
-	return random.choice(potential_targets) if !potential_targets.empty() else null
+	return battle.rand.choice(potential_targets) if !potential_targets.empty() else null
 
 func is_rewind_appropriate()->bool:
-	if !manager.get_setting("UseItems"):
+	if !behavior_settings.empty():
+		if !behavior_settings.get("use_items",false):
+			return false
+	elif !manager.get_setting("UseItems"):
 		return false
 	if cooldowns.has("rewind"):
 		return false
@@ -755,19 +759,22 @@ func is_rewind_appropriate()->bool:
 		return false
 	if has_healed:
 		return false
-	if !random.rand_bool(settings.heal_rate):
+	if !battle.rand.rand_bool(settings.heal_rate):
 		return false
 
 	return true
 
 func is_coffee_appropriate()->bool:
-	if !manager.get_setting("UseItems"):
+	if !behavior_settings.empty():
+		if !behavior_settings.get("use_items",false):
+			return false
+	elif !manager.get_setting("UseItems"):
 		return false
 	if has_used_coffee:
 		return false
 	if !has_ap_target():
 		return false
-	if !random.rand_bool(settings.coffee_rate):
+	if !battle.rand.rand_bool(settings.coffee_rate):
 		return false
 
 	return true
@@ -782,7 +789,10 @@ func is_switching_appropriate()->bool:
 	return true
 
 func is_recording_appropriate()->bool:
-	if !manager.get_setting("NPCRecording"):
+	if !behavior_settings.empty():
+		if !behavior_settings.get("allow_recording",false):
+			return false
+	elif !manager.get_setting("NPCRecording"):
 		return false
 	if attempted_recording:
 		return false
@@ -792,6 +802,6 @@ func is_recording_appropriate()->bool:
 		return false
 	if fighter.is_fusion():
 		return false
-	if !random.rand_bool(settings.record_rate):
+	if !battle.rand.rand_bool(settings.record_rate):
 		return false
 	return true

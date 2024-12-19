@@ -91,36 +91,26 @@ func draw_card(endposition,duration=0.5,start_pos=rect_global_position):
 	emit_signal("card_drawn")
 
 func rotate(duration):
-#	if tween.is_active():
-#		yield(tween,"tween_completed")
 	tween.interpolate_property(self,"rect_rotation",rect_rotation,-90,duration,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween,"tween_completed")
 
 func move_to(endposition,duration=0.5,start_pos=rect_global_position):
-#	if tween.is_active():
-#		yield(tween,"tween_completed")
 	tween.interpolate_property(self,"rect_global_position",start_pos,endposition,duration,Tween.TRANS_QUINT,Tween.EASE_OUT)
 	tween.start()
 	yield(tween,"tween_completed")
 
 func grow():
-#	if tween.is_active():
-#		yield(tween,"tween_completed")
 	tween.interpolate_property(self,"rect_scale",rect_scale,Vector2.ONE,0.1,Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	tween.start()
 	yield(tween,"tween_completed")
 
 func animate_hover_enter():
-#	if tween.is_active():
-#		yield(tween,"tween_completed")
 	highlight_focus.visible = true
 	tween.interpolate_property(self,"rect_scale",rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_CIRC,Tween.EASE_IN)
 	tween.start()
 
 func animate_hover_exit():
-#	if tween.is_active():
-#		yield(tween,"tween_completed")
 	highlight_focus.visible = false
 	tween.interpolate_property(self,"rect_scale",rect_scale,Vector2.ONE,.3,Tween.TRANS_BOUNCE,Tween.EASE_OUT)
 	tween.start()
@@ -153,6 +143,14 @@ func set_card():
 
 func is_faceup()->bool:
 	return face == cardface.FRONT
+
+func get_card_info()->Dictionary:
+	var info:Dictionary = {
+		name = card_info.name,
+		form = form,
+		holocard = holocard,
+	}
+	return info
 
 func set_card_info(form):
 	var monster_form:MonsterForm = load(form)
@@ -228,4 +226,12 @@ func flip_card_hidden(duration):
 func flip_card_no_anim():
 	cardback.visible = !cardback.visible
 	card.visible = !card.visible
+
+func hide_card():
+	cardback.visible = true
+	card.visible = false
+
+func show_card():
+	cardback.visible = false
+	card.visible = true	
 
