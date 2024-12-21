@@ -229,7 +229,7 @@ func stockpile_empty(card)->bool:
 func is_reserved(card)->bool:
 	var card_info = card.get_card_info()
 	var card_data = get_card_data(card)
-	if manager.is_card_held_in_trade(card_info) and card_data.amount <= 1:
+	if manager.is_card_held_in_trade(card_info) and card_data.amount <= manager.amount_held_in_trade(card_info):
 		return true
 	return false
 
@@ -237,15 +237,15 @@ func _on_AddCard_pressed():
 	var card = focus_button.get_parent()
 	if !has_valid_data(card):
 		return
+	if is_reserved(card):
+		yield(GlobalMessageDialog.show_message("LIVINGWORLD_UI_CARD_RESERVED"),"completed")
+		return		
 	if trading_remote_id != null:
 		choose_option(card.get_card_info())		
 		return
 	if deck_full():
 		return
 	if stockpile_empty(card):
-		return
-	if is_reserved(card):
-		yield(GlobalMessageDialog.show_message("LIVINGWORLD_UI_CARD_RESERVED"),"completed")
 		return
 	if focus_button.get_parent().get_parent().name == "DeckGrid":
 		return

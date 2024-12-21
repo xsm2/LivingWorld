@@ -30,6 +30,7 @@ var raidbattleaction = preload("res://mods/LivingWorld/scripts/RaidBattleAction_
 var netinfo_contextmenu = preload("res://mods/LivingWorld/scripts/NetInfoPlayer_ContextMenu_patch.gd")
 var netrequests = preload("res://mods/LivingWorld/scripts/NetRequests_patch.gd")
 var netmultiplayer_connectedui = preload("res://mods/LivingWorld/scripts/NetMultiplayer_ConnectedUI_patch.gd")
+var carriage_scene = preload("res://mods/LivingWorld/scripts/CarriageScene_patch.gd")
 
 var partners:Dictionary = {}
 var npc_template = preload("res://mods/LivingWorld/nodes/RecruitTemplate.tscn")
@@ -70,6 +71,7 @@ func _init():
 	netinfo_contextmenu.patch()
 	netrequests.patch()
 	netmultiplayer_connectedui.patch()
+	carriage_scene.patch()
 
 	yield(SceneManager.preloader,"singleton_setup_completed")
 	add_keyboard_shortcuts()

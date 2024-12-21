@@ -142,7 +142,7 @@ func confirmed():
 	.confirmed()
 	
 	if is_outgoing():
-		Net.activity.traded(remote_id)
+		traded(remote_id)
 
 func traded(other_player_id):
 	var other_player = Net.players.get_player_info(other_player_id)

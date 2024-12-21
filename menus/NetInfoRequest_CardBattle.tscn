@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/battle_theme.tres" type="Theme" id=1]
+[ext_resource path="res://mods/LivingWorld/scripts/NetInfoRequest_CardBattle.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 0.0
+bg_color = Color( 0.670588, 0.458824, 0.909804, 1 )
+corner_radius_bottom_right = 60
+corner_detail = 1
+expand_margin_right = 60.0
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_size = 1
+shadow_offset = Vector2( -20, 20 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 10.0
+content_margin_bottom = 32.0
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_bottom_right = 32
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_size = 1
+shadow_offset = Vector2( -20, 20 )
+
+[node name="NetInfoRequest_CardBattle" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 610.0
+margin_top = 459.0
+margin_right = 1310.0
+margin_bottom = 621.0
+rect_min_size = Vector2( 700, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 0
+
+[node name="HeadingPanel" type="PanelContainer" parent="VBoxContainer"]
+margin_right = 700.0
+margin_bottom = 60.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HeadingPanel"]
+margin_left = 10.0
+margin_right = 700.0
+margin_bottom = 60.0
+text = "ONLINE_REQUEST_UI_TITLE"
+align = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 700.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 0, 100 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer3"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 680.0
+margin_bottom = 70.0
+size_flags_vertical = 4
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+margin_right = 660.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ONLINE_PLAYER_STATUS_OFFLINE"
+align = 1
+autowrap = true

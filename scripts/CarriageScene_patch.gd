@@ -1,6 +1,6 @@
 static func patch():
-	var script_path = "res://menus/net_multiplayer/NetMultiplayer_ConnectedUI.gd"
-	var patched_script : GDScript = preload("res://menus/net_multiplayer/NetMultiplayer_ConnectedUI.gd")
+	var script_path = "res://world/maps/gauntlet/CarriageScene.gd"
+	var patched_script : GDScript = preload("res://world/maps/gauntlet/CarriageScene.gd")
 
 	if !patched_script.has_source_code():
 		var file : File = File.new()
@@ -13,9 +13,11 @@ static func patch():
 
 	var code_lines:Array = patched_script.source_code.split("\n")
 
-	var code_index = code_lines.find("""	raid = preload("NetInfoRequest_Raid.tscn"), """)
+	var code_index = code_lines.find("	var rp = WorldPlayerFactory.create_remote_player(avatar.id)")
 	if code_index > 0:
-		code_lines.insert(code_index+1,get_code("add_kind"))
+		code_lines[code_index] = get_code("replace_rp")
+
+	
 
 	patched_script.source_code = ""
 	for line in code_lines:
@@ -28,9 +30,11 @@ static func patch():
 
 static func get_code(block:String)->String:
 	var code_blocks:Dictionary = {}
-	code_blocks["add_kind"] = """
-	trade_card = preload("res://mods/LivingWorld/menus/NetInfoRequest_TradeCard.tscn"), 	
-	card_battle = preload("res://mods/LivingWorld/menus/NetInfoRequest_CardBattle.tscn"),
+	code_blocks["replace_rp"] = """
+	var rp = create_modded_remote_player(avatar.id)
+	var rp_info = Net.avatars.get_avatar_info(avatar.id)
+	if rp_info.transform_index >= 0 and rp_info.use_monster_form:
+		call_deferred("set_player_form",rp,0,rp_info.transform_index,rp_info.use_monster_form)		
 	"""		
 	return code_blocks[block]
 

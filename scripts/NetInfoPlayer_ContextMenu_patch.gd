@@ -87,7 +87,19 @@ func _on_TradeCards_pressed():
 	emit_signal("show_request", request)
 
 func _on_CardBattle_pressed():
-	pass
+	if player_id == Net.local_id or Net.requests.has_outgoing_request_with(player_id):
+		return 
+	
+	Controls.set_disabled(self, true)
+	
+	if Net.requests.has_outgoing_request_with(player_id):
+		Controls.set_disabled(self, false)
+		battle_btn.grab_focus()
+		return 
+	var request = Net.requests.open_request("card_battle", player_id)
+	request.set_deck()
+	Controls.set_disabled(self, false)
+	emit_signal("show_request", request)
 	"""
 	return code_blocks[block]
 

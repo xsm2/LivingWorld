@@ -81,6 +81,13 @@ static func is_card_held_in_trade(card)->bool:
 			return true
 	return false
 
+static func amount_held_in_trade(card)->int:
+	var result:int = 0
+	for trade_card in get_cards_held_in_trade():
+		if card.form == trade_card.form:
+			result += 1
+	return result
+
 static func set_card_held_in_trade(card):
 	if !SaveState.other_data.LivingWorldData.CardGame.has("held_in_trades"):
 		SaveState.other_data.LivingWorldData.CardGame["held_in_trades"] = []
@@ -156,6 +163,24 @@ static func get_card_collection()->Dictionary:
 			add_card_to_collection(item)
 		collection = SaveState.other_data.LivingWorldData.CardGame.collection
 	return collection
+
+static func get_player_deck()->Array:
+	var result:Array = []
+	if !has_savedata():
+		initialize_savedata()
+	var collection = get_card_collection()
+	for item in collection.values():
+		var load_test = load(item.path)
+		if !load_test:
+			continue
+		if item.deck > 0:
+			for _i in range(0,item.deck):
+				var card = {
+					form = item.path,
+					holocard = item.holocard,
+				}
+				result.push_back(card)
+	return result
 
 static func add_card_to_collection(card):
 	var key = get_card_key(card)

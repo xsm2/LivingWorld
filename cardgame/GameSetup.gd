@@ -58,9 +58,9 @@ onready var EnemySlot4 = find_node("EnemySlot4")
 onready var EnemySlot5 = find_node("EnemySlot5")
 onready var PlayerDeckPos = find_node("PlayerDeckPos")
 onready var EnemyDeckPos = find_node("EnemyDeckPos")
-
-export (Dictionary) var player_setup
-export (Dictionary) var enemy_setup
+onready var PlayerHighlight = get_node("%PlayerHighlight")
+onready var EnemyHighlight = get_node("%EnemyHighlight")
+export var music:AudioStream 
 export (int) var game_seed
 export (Color) var attack_color
 export (Color) var defend_color
@@ -72,6 +72,7 @@ export (bool) var demo = false
 export (bool) var logs = false
 enum State {ATTACK,DEFENSE,NEUTRAL}
 enum Team  {PLAYER,ENEMY}
+var net_request = null
 var random:Random
 var player_deck:Array = []
 var player_discard:Array = []
@@ -102,8 +103,16 @@ var player_state:int = State.NEUTRAL
 var enemy_state:int = State.NEUTRAL
 var state_changed:bool = false
 var current_focus_button = null
+var is_remote_player:bool = false
+var is_disconnect:bool = false
+var surrendered:String = ""
+var is_surrendering:bool = false
 func _ready():
-	random = Random.new()
+	if net_request:
+		net_request.connect("closed", self, "_on_request_closed")
+		Net.rpc.register(self, ["_remote_player_turn","_remote_surrender"])
+		MusicSystem.play(music)
+	if !random:random = Random.new()
 	tween = Tween.new()
 	add_child(tween)
 	PlayerSprite.animate_turn_end()
@@ -113,21 +122,31 @@ func _ready():
 	set_sprites()
 	initialize_decks()
 	populate_damage_pop_arrays()
-	connect("enemyturn",self,"enemy_move")
+	if !net_request:
+		connect("enemyturn",self,"enemy_move")
 	connect("gameover",self,"end_game")
-
 	draw_initial_hand()
 	yield(self,"hand_drawn")
-
 	set_focus_buttons()
-
 	console_log("Match Start: %s vs %s"%[player_data.name,enemy_data.name])
-	if coin_toss():
-		console_log("Player wins coin toss.")
-		set_player_turn(true)
-	else:
-		console_log("Bot wins coin toss.")
-		enemy_move()
+		
+	var heads = coin_toss()
+	if heads:
+		heads = !is_remote_player
+	elif !heads:
+		heads = is_remote_player
+	if heads:console_log("%s wins coin toss!"%player_data.name)
+	if !heads:console_log("%s wins coin toss!"%enemy_data.name)
+	set_player_turn(heads)
+
+func _on_request_closed(_by_id, reason:int):
+	if reason == net_request.ClosedReason.COMPLETE:
+		if net_request and net_request.winning_team == 0:
+			pass
+	if reason == net_request.ClosedReason.DISCONNECT:
+		is_disconnect = true
+		end_game()
+	net_request = null
 
 func coin_toss()->bool:
 	if demo:
@@ -167,8 +186,13 @@ func initialize_decks():
 			player_deck = get_player_deck()
 	if enemy_deck.empty():
 		enemy_deck = build_demo_deck(1)
-	random.shuffle(player_deck)
-	random.shuffle(enemy_deck)
+	if is_remote_player:		
+		random.shuffle(enemy_deck)
+		random.shuffle(player_deck)
+	else:
+		random.shuffle(player_deck)				
+		random.shuffle(enemy_deck)
+
 
 func draw_initial_hand():
 	for _i in range (0,5):
@@ -198,24 +222,28 @@ func end_game():
 	else:
 		player_wins = winner == "Nate"
 	player_turn = false
-	if player_wins:
+
+	if player_wins or is_disconnect:
 		EnemySprite.animate_defeat()
-	else:
+	if !player_wins or is_disconnect:
 		PlayerSprite.animate_defeat()
 	var team = Team.PLAYER if player_wins else Team.ENEMY
-	var text = "%s Wins!"%Loc.tr(winner)
+	var text = "%s Wins!"%Loc.tr(winner) if !is_disconnect else "Draw!"
+	if surrendered != "":
+		text = "%s has surrendered!"%surrendered
 	PlayBanner(team,text,"remaster")
 	yield(Banner.tween,"tween_completed")
+	if net_request:
+		net_request.winning_team = 0 if player_wins else 1
+		if is_disconnect:
+			net_request.winning_team = -1
+		net_request.close(net_request.ClosedReason.COMPLETE)
+
 	choose_option(player_wins)
+
 
 func is_game_ended()->bool:
 	return player_stats.hp == 0 or enemy_stats.hp == 0
-
-func set_card_colors(card,team): #Obsolete
-	var setup = player_setup if team == Team.PLAYER else enemy_setup
-	card.bordercolor = setup.bordercolor
-	card.bandcolor = setup.bandcolor
-	card.backcolor = setup.backcolor
 
 func ready_to_resolve()->bool:
 	var result:bool = true
@@ -502,7 +530,7 @@ func set_focus_buttons():
 	if focus_button:
 		if !current_focus_button:
 			set_current_focus_button(focus_button)
-		if !current_focus_button.has_focus():
+		if !current_focus_button.has_focus() and !is_surrendering:
 			current_focus_button.grab_focus()
 
 func get_previous_occupied_slot(current_slot):
@@ -531,6 +559,9 @@ func get_next_occupied_slot(current_slot):
 				break
 	return next_index
 
+func has_surrendered()->bool:
+	return surrendered != ""
+
 func player_card_picked(card):
 	if !player_turn:
 		return
@@ -555,8 +586,8 @@ func player_card_picked(card):
 			player_stats.remaster_bonus += 1
 		if full_remaster_bonus:
 			player_stats.full_remaster_bonus += 2
-		var banner_text = "LIVINGWORLD_CARDS_UI_REMASTER_BONUS" if remaster_bonus else "LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS"
-		PlayBanner(Team.PLAYER, banner_text, "remaster")
+		var banner_text = "LIVINGWORLD_CARDS_UI_REMASTER_BONUS" if remaster_bonus else "LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS"		
+		if !has_surrendered():PlayBanner(Team.PLAYER, banner_text, "remaster")
 		yield(Banner.tween,"tween_completed")
 	if active_field(Team.PLAYER):
 		player_stats = evaluate_state(Team.PLAYER, card, remaster_bonus)
@@ -572,6 +603,8 @@ func player_card_picked(card):
 	current_focus_button = null
 	set_focus_buttons()
 	set_player_turn(false)
+	if net_request:
+		Net.send_rpc(net_request.remote_id,self,"_remote_player_turn",[card.get_card_info()])
 
 func PlayBanner(team, text, track):
 	Banner.set_colors(team)
@@ -623,7 +656,6 @@ func draw_card(team):
 	if hand_slot == null:
 		return
 
-#	set_card_colors(card, team)
 	draw_point.set_card(card)
 	card.rect_position = Vector2.ZERO
 	var pos = hand_position.position
@@ -675,10 +707,65 @@ func animate_thinking(chosen_card):
 	yield(chosen_card.tween,"tween_all_completed")
 	emit_signal("thinking_complete")
 
+func _remote_player_turn(card_info:Dictionary):
+	var card = null
+	var hand = EnemyHandGrid.get_children()
+	for hand_card in hand:
+		var info = hand_card.card_info
+		if info.name == card_info.name:
+			card = hand_card.get_card()
+			break
+	console_log("%s chose to play %s"%[enemy_data.name,card.card_name.text])
+	if manager.get_setting("EnemyCardThought"):
+		animate_thinking(card)
+		yield(self,"thinking_complete")
+	if !demo:
+		yield(Co.wait(0.1),"completed")
+		card.flip_card(0.1)
+	yield(Co.wait(0.3),"completed")
+	if !card.is_faceup():
+		card.flip_card(0.1)
+	var empty_slot_data = get_empty_slot(EnemyField)
+	var empty_slot = empty_slot_data.slot
+	var move_pos = empty_slot.get_global_rect().position
+	var remaster_bonus:bool = is_remaster(EnemyField,card) if enemy_stats.remaster_bonus == 0 else false
+	var full_remaster_bonus:bool = is_full_remaster(EnemyField,card) if enemy_stats.full_remaster_bonus == 0 else false
+	if full_remaster_bonus or enemy_stats.full_remaster_bonus > 0:
+		remaster_bonus = false
+	card.animate_playcard(move_pos,0.2)
+	yield(card.tween,"tween_completed")
+	empty_slot.set_card(card)
+	if remaster_bonus or full_remaster_bonus:
+		if remaster_bonus:
+			console_log("Bot Remaster Bonus: +1/1")
+			enemy_stats.remaster_bonus += 1
+		if full_remaster_bonus:
+			enemy_stats.full_remaster_bonus += 2
+			console_log("Bot Full Remaster Bonus: +2/2")
+		var banner_text = "LIVINGWORLD_CARDS_UI_REMASTER_BONUS" if remaster_bonus else "LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS"
+		if !has_surrendered():PlayBanner(Team.ENEMY,banner_text,"remaster")
+		yield(Banner.tween,"tween_completed")
+	if active_field(Team.ENEMY):
+		enemy_stats = evaluate_state(Team.ENEMY,card,remaster_bonus)
+		set_state(enemy_stats.state,Team.ENEMY)
+		if state_changed:
+			animate_hover_enter(EnemyState)
+			animate_hover_exit(EnemyState)
+			yield(tween,"tween_completed")
+			state_changed = false
+			enemy_state = enemy_stats.state
+		update_value_labels(Team.ENEMY)
+		yield(self,"labels_updated")
+	yield(Co.wait(0.5),"completed")
+	EnemySprite.animate_turn_end()
+	set_player_turn(true)
+
 func enemy_move():
+	if net_request:
+		return
 	EnemySprite.animate_turn()
 	var text = "%s's Turn"%Loc.tr(enemy_data.name)
-	PlayBanner(Team.ENEMY,text,"turn_start")
+	if !has_surrendered():PlayBanner(Team.ENEMY,text,"turn_start")
 	yield(Banner.tween,"tween_completed")
 	if can_draw_card(Team.ENEMY):
 		draw_card(Team.ENEMY)
@@ -713,7 +800,7 @@ func enemy_move():
 			enemy_stats.full_remaster_bonus += 2
 			console_log("Bot Full Remaster Bonus: +2/2")
 		var banner_text = "LIVINGWORLD_CARDS_UI_REMASTER_BONUS" if remaster_bonus else "LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS"
-		PlayBanner(Team.ENEMY,banner_text,"remaster")
+		if !has_surrendered():PlayBanner(Team.ENEMY,banner_text,"remaster")
 		yield(Banner.tween,"tween_completed")
 	if active_field(Team.ENEMY):
 		enemy_stats = evaluate_state(Team.ENEMY,card,remaster_bonus)
@@ -957,6 +1044,7 @@ func has_empty_slots(field,required_slots)->bool:
 		if slot.occupied():
 			count -= 1
 	return count >= required_slots
+
 func get_pre_remaster(field, new_card):
 	for card_slot in field.get_children():
 		if !card_slot.occupied():
@@ -987,6 +1075,8 @@ func get_random():
 	return choice
 
 func set_player_turn(value:bool):
+	PlayerHighlight.visible = false
+	EnemyHighlight.visible = false
 	player_turn = false
 	log_current_field()
 	if ready_to_resolve():
@@ -996,13 +1086,15 @@ func set_player_turn(value:bool):
 		if is_game_ended():
 			emit_signal("gameover")
 			return
-
+	PlayerHighlight.visible = value
+	EnemyHighlight.visible = !value
 	if value:
+		if net_request and !net_request.closed:
+			net_request.barrier.start()
 		var text = "%s's Turn"%Loc.tr(player_data.name)
-		PlayBanner(Team.PLAYER, text, "turn_start")
+		if !has_surrendered():PlayBanner(Team.PLAYER, text, "turn_start")
 		yield(Banner.tween,"tween_completed")
 		PlayerSprite.animate_turn()
-
 		if can_draw_card(Team.PLAYER):
 			draw_card(Team.PLAYER)
 			yield(self,"card_drawn")
@@ -1010,7 +1102,14 @@ func set_player_turn(value:bool):
 	else:
 		emit_signal("enemyturn")
 		yield(Co.wait(0.5),"completed")
-		PlayerSprite.animate_turn_end()
+		PlayerSprite.animate_turn_end()	
+		if net_request and !net_request.closed:
+			EnemySprite.animate_turn()
+			var text = "%s's Turn"%Loc.tr(enemy_data.name)
+			if !has_surrendered():PlayBanner(Team.ENEMY,text,"turn_start")
+			yield(Banner.tween,"tween_completed")
+			if can_draw_card(Team.ENEMY):
+				draw_card(Team.ENEMY)				
 	player_turn = value
 
 func log_current_field():
@@ -1048,14 +1147,20 @@ func log_current_hand(hand):
 	console_log("""
 	Bot's Hand
 	%s | %s | %s | %s | %s"""%[hand_slots[0],hand_slots[1],hand_slots[2],hand_slots[3],hand_slots[4]])
+
 func get_winner_name()->String:
 	var result:String =  ""
+	if surrendered != "":
+		return player_data.name if surrendered == enemy_data.name else enemy_data.name
+	if (enemy_stats.hp == 0 and player_stats.hp == 0) or is_disconnect:
+		is_disconnect = true
+		return "Draw"
 	if player_stats.hp > 0:
 		if demo:
 			result = "Nate"
 		else:
 			result = SaveState.party.player.name
-	else:
+	elif enemy_stats.hp > 0:
 		result = Loc.tr(enemy_data.name)
 	return result
 
@@ -1081,7 +1186,6 @@ func build_demo_deck(_team:int)->Array:
 			card.form = "res://data/monster_forms/apocrowlypse.tres"
 		deck.push_back(card.duplicate())
 
-#	deck.shuffle()
 	return deck
 
 func animate_heart_damage(team):
@@ -1121,14 +1225,28 @@ func get_player_deck()->Array:
 				result.push_back(card.duplicate())
 	return result
 
-
 func animate_hover_enter(node):
 	if tween.is_active():
 		yield(tween,"tween_completed")
 	tween.interpolate_property(node,"rect_scale",rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_CIRC,Tween.EASE_IN)
 	tween.start()
+
 func animate_hover_exit(node):
 	if tween.is_active():
 		yield(tween,"tween_completed")
 	tween.interpolate_property(node,"rect_scale",rect_scale,Vector2.ONE,.3,Tween.TRANS_BOUNCE,Tween.EASE_OUT)
 	tween.start()
+
+func _on_Surrender_pressed():
+	is_surrendering = true
+	var result = yield(MenuHelper.confirm("Are you sure you want to give up?"),"completed")
+	if current_focus_button:current_focus_button.grab_focus()
+	if result:
+		surrendered = player_data.name
+		end_game()
+		if net_request and !net_request.closed:
+			Net.send_rpc(net_request.remote_id,self,"_remote_surrender",[surrendered])
+
+func _remote_surrender(surrender_id):
+	surrendered = surrender_id
+	end_game()

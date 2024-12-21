@@ -28,7 +28,6 @@ margin_right = 302.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 2 )
 text = "ONLINE_REQUEST_UI_TRADE_TAPE_LABEL_LOCAL"
-align = 1
 clip_text = true
 
 [node name="LocalCardButton" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 1 )]
@@ -67,20 +66,31 @@ margin_right = 302.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 2 )
 text = "ONLINE_REQUEST_UI_TRADE_TAPE_LABEL_REMOTE"
-align = 1
+align = 2
 clip_text = true
 
-[node name="RemoteCardButton" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2" index="1" instance=ExtResource( 1 )]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2" index="1"]
 margin_top = 42.0
 margin_right = 302.0
 margin_bottom = 332.0
 
-[node name="Card" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/RemoteCardButton" index="0"]
+[node name="Control" type="Control" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/HBoxContainer" index="0"]
+margin_right = 73.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+
+[node name="RemoteCardButton" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/HBoxContainer" index="1" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+margin_left = 77.0
+margin_right = 302.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+
+[node name="Card" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/HBoxContainer/RemoteCardButton" index="0"]
 visible = true
 
-[node name="CardBack" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/RemoteCardButton" index="2"]
+[node name="CardBack" parent="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/HBoxContainer/RemoteCardButton" index="2"]
 visible = false
 
 [editable path="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer/LocalCardButton"]
-[editable path="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/RemoteCardButton"]
+[editable path="VBoxContainer/VisualsContainer/HBoxContainer/VBoxContainer2/HBoxContainer/RemoteCardButton"]

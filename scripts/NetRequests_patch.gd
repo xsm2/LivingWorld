@@ -29,7 +29,8 @@ static func patch():
 static func get_code(block:String)->String:
 	var code_blocks:Dictionary = {}
 	code_blocks["add_kind"] = """
-	"trade_card":preload("res://mods/LivingWorld/scripts/NetRequestTradeCard.gd"), 
+	"trade_card":preload("res://mods/LivingWorld/scripts/NetRequestTradeCard.gd"),
+	"card_battle":preload("res://mods/LivingWorld/scripts/NetRequestCardBattle.gd"),
 	"""		
 	return code_blocks[block]
 

@@ -329,3 +329,7 @@ ONLINE_REQUEST_RECEIVED_CARD_TRADE,{remote_player} has offered to trade a {speci
 ONLINE_REQUEST_CLOSED_COMPLETE_TRADE_CARD,"The trade went through, {remote_player}'s {species2} card is now in your collection!"
 LIVINGWORLD_UI_CARD_RESERVED,This card is currently reserved for a trade offer.
 LIVINGWORLD_UI_OFFER_CARD,Offer Card
+ONLINE_REQUEST_UI_CARD_BATTLE_ACCEPT,Accept Challenge
+ONLINE_REQUEST_ACTION_card_battle,Card Battle
+ONLINE_REQUEST_CLOSED_COMPLETE_BATTLE_DRAW,Your Card Battle with {remote_player} ended in a draw!
+ONLINE_NOTIFICATION_CARD_BATTLE_STARTING,{player} and {other_player} are having a card battle!
