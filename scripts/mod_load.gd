@@ -1,5 +1,8 @@
 extends ContentInfo
 
+export (Array, PackedScene) var title_popups:Array
+export (String) var title_popup_flag:String
+
 const settings_path = "user://LivingWorldSettings.cfg"
 
 var recruit_tracker:Array = []
@@ -43,6 +46,15 @@ const rangerdataparser = preload("res://mods/LivingWorld/scripts/RangerDataParse
 const partnercontroller = preload("res://nodes/partners/PartnerController.tscn")
 const followertemplate = preload("res://mods/LivingWorld/nodes/FollowerTemplate.tscn")
 const jsondataparser = preload("res://mods/LivingWorld/scripts/RangerDataParser.gd")
+
+
+
+func on_title_screen():
+	if title_popups.size() > 0 and not UserSettings.misc_data.has(title_popup_flag):
+		yield (MenuHelper.show_tutorial_box(name, title_popups), "completed")
+		UserSettings.misc_data[title_popup_flag] = true
+		UserSettings.save_settings()
+
 func _init():
 	levelmap_patch.patch()
 	encounterconfig_patch.patch()

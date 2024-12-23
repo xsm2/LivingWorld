@@ -76,16 +76,13 @@ static func get_code(block:String)->String:
 	code_blocks["change_remoteplayer"] = """
 		var rp = create_modded_remote_player(avatar.id)
 		rp.net_id = avatar.id
-		var rp_info = Net.avatars.get_avatar_info(avatar.id)
-		print("Checking transform data: %s %s"%[rp_info.transform_index,rp_info.use_monster_form])		
+		var rp_info = Net.avatars.get_avatar_info(avatar.id)	
 		if rp_info.transform_index >= 0 and rp_info.use_monster_form:
-			print("Transformation required")
 			call_deferred("set_player_form",rp,0,rp_info.transform_index,rp_info.use_monster_form)
 	"""
 	code_blocks["change_remoteplayer2"] = """
 		var rp = create_modded_remote_player(id)
-		rp.net_id = id
-		print("Checking transform data: %s %s"%[avatar.transform_index,avatar.use_monster_form])		
+		rp.net_id = id	
 		if avatar.transform_index >= 0 and avatar.use_monster_form:
 			call_deferred("set_player_form",rp,0,avatar.transform_index,avatar.use_monster_form)
 	"""

@@ -333,3 +333,4 @@ ONLINE_REQUEST_UI_CARD_BATTLE_ACCEPT,Accept Challenge
 ONLINE_REQUEST_ACTION_card_battle,Card Battle
 ONLINE_REQUEST_CLOSED_COMPLETE_BATTLE_DRAW,Your Card Battle with {remote_player} ended in a draw!
 ONLINE_NOTIFICATION_CARD_BATTLE_STARTING,{player} and {other_player} are having a card battle!
+LIVINGWORLD_MP_POPUP1,Living World is now online!\n\n-Transform with your friends!\n-Raid with NPCs in expanded battles!\n-Trade cards\n-Challenge your friends to card battles!\n\nAll without leaving the comfort of your bed!

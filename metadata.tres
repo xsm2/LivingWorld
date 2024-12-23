@@ -1,14 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://mods/LivingWorld/translations/mod_translations.en.translation" type="Translation" id=1]
 [ext_resource path="res://mods/LivingWorld/scripts/mod_load.gd" type="Script" id=2]
+[ext_resource path="res://mods/LivingWorld/title_popups/MP_Update1.tscn" type="PackedScene" id=3]
 
 [resource]
 script = ExtResource( 2 )
 id = "LivingWorldMod"
 name = "Living World"
 version_code = 7
-version_string = "1.0.7"
+version_string = "1.1.0"
 author = "NCrafters"
 save_file_format_tag = ""
 save_file_format_tag_version = 0
@@ -17,3 +18,5 @@ disable_network_multiplayer = false
 modified_files = [ "res://nodes/warp_region/WarpRegion.gd", "res://nodes/warp_region/WarpTarget.gd", "res://world/core/LevelMap.gd", "res://nodes/encounter_config/EncounterConfig.gd", "res://battle/backgrounds/BattleBackground.gd", "res://world/objects/spawner/Spawner.gd", "res://world/quest_scenes/passive/RogueFusion.gd", "res://world/objects/campsite/Camping.gd", "res://data/item_scripts/StickerItem.gd", "res://menus/inventory/InventoryDetailPanel.gd", "res://world/player/PlayerController.gd", "res://models/titlescreen/TitleScreenCampsite.tscn", "res://menus/settings/SettingsMenu.gd", "res://world/player/Interactor.gd", "res://world/behaviors/generic_npc/CaptainNPCBehavior.gd", "res://menus/map_pause/MapPauseMenu.gd", "res://world/core/ConditionalLayer.gd", "res://world/objects/static_physics/town_bench/town_bench.tscn", "res://world/objects/static_physics/tree_1/AutumnTree1.tscn", "res://world/objects/static_physics/tree_1/Tree1.tscn", "res://world/objects/static_physics/tree_1/Tree2.tscn", "res://world/objects/static_physics/tree_1/AutumnTree2.tscn", "res://world/objects/static_physics/marsh_tree/MarshTree3.tscn", "res://world/objects/static_physics/marsh_tree/MarshTree1.tscn", "res://world/objects/static_physics/marsh_tree/MarshTree2.tscn", "res://world/objects/static_physics/dead_tree/DeadTree4.tscn", "res://world/objects/static_physics/dead_tree/DeadTree3.tscn", "res://world/objects/static_physics/dead_tree/DeadTree2tscn", "res://world/objects/static_physics/dead_tree/DeadTree1tscn", "res://world/objects/static_physics/BlossomTree1/BlossomTree1.tscn", "res://world/objects/static_physics/player_home/PlayerBed.tscn", "res://world/behaviors/generic_npc/BattleNPCBehavior.gd", "res://nodes/partners/UnlockedPartnerSpawner.gd", "res://world/core/RandomDailyConditionalLayer.gd", "res://global/network/INetAvatars.gd", "res://global/network/NetAvatars.gd", "res://world/player/RemotePlayerController.gd", "res://global/network/NetRequestRaid.gd", "res://nodes/actions/RaidBattleAction.gd", "res://menus/net_multiplayer/NetInfoPlayer_ContextMenu.gd", "res://global/network/NetRequests.gd", "res://menus/net_multiplayer/NetMultiplayer_ConnectedUI.gd", "res://world/maps/gauntlet/CarriageScene.gd" ]
 modified_dirs = [  ]
 translations = [ ExtResource( 1 ) ]
+title_popups = [ ExtResource( 3 ) ]
+title_popup_flag = "livingworld_mp"
