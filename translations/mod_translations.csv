@@ -1,336 +1,348 @@
-﻿id,en
-RECRUIT_IDLE_DIALOG_1,Some monsters are actually pretty shy. [pause]I think I can relate.
-RECRUIT_IDLE_DIALOG_2,"{player}, have you ever tried being a Traffikrab? [pause]Like [wave amp=30 freq=10]really being[/wave] a Traffikrab?"
-RECRUIT_IDLE_DIALOG_3,It's an experience.
-RECRUIT_IDLE_DIALOG_4,Hey there! [pause]Record anything interesting today?
-RECRUIT_IDLE_DIALOG_5,There have been more floods lately. 
-RECRUIT_IDLE_DIALOG_6,Sometimes[pause] I just like dashing through the forest! 
-RECRUIT_IDLE_DIALOG_7,"I picked up a strange sticker the other day.[pause] It doesn't seem to do anything, but my opponent always looks [wave amp=30 freq=10]so annoyed[/wave]!"
-RECRUIT_IDLE_DIALOG_8,I still have no idea how I got here.[pause] I'm not sure I want to go back though!
-RECRUIT_IDLE_DIALOG_9,"Harbourtown could use some new shops.[pause] Coffee is great[pause], but I'd do anything for a new pair of shoes!"
-RECRUIT_IDLE_DIALOG_10,I was battling this ranger the other day[pause] and he transformed into a Khepri and used Headshot like [wave amp=30 freq=15]7 times in a row[/wave]. I didn't even get a turn!
-RECRUIT_IDLE_DIALOG_11,What are we going to do if the Mall runs out of tapes?[pause] I don't even want to think about it!
-RECRUIT_IDLE_DIALOG_12,I was in my bathtub when I suddenly appeared here…[pause] I didn't even get to rinse my hair!
-RECRUIT_IDLE_DIALOG_13,Do you think the monsters here might be…[pause][wave amp=30 freq=15]edible[/wave]?
-RECRUIT_IDLE_DIALOG_14,The most incredible thing washed up on the beach last night…[pause] It was a cartridge of my favorite childhood game![pause] Now if only I could find the [wave amp=30 freq=15]game console[/wave] to use it with...
-RECRUIT_IDLE_DIALOG_15,I heard the mall is haunted![pause] I can't wait to bring a ghost home as a pet!
-RECRUIT_IDLE_DIALOG_16,"The other night, I gazed out into the infinite void of the ocean.[pause] It called to me.[pause] It said [wave amp=30 freq=10]""bikini season is only 4 months away""[/wave]![pause] Oh the horror!"
-RECRUIT_IDLE_DIALOG_17,"There's this rumor[pause], if you play your tapes backwards it would summon a demon god!"
-RECRUIT_IDLE_DIALOG_18,I had a brilliant idea![pause] I'm going to use two cassette players to play two different tapes![pause] Do you think I'll fuse with myself?
-RECRUIT_IDLE_DIALOG_19,Cassettes?[pause] I prefer MP3 players myself.
-RECRUIT_IDLE_DIALOG_20,How did I even get here? [pause]Last thing I remember was getting hit by a truck!
-RECRUIT_IDLE_DIALOG_21,"I used to be a great ranger like yourself, but then a Nevermort spit on my knee!"
-RECRUIT_IDLE_DIALOG_22,
-RECRUIT_IDLE_DIALOG_23,
-RECRUIT_IDLE_DIALOG_24,
-RECRUIT_IDLE_DIALOG_25,
-RECRUIT_IDLE_DIALOG_26,
-RECRUIT_PASSIVE_ROGUE1,There's been another rogue sighting![pause] We need all available rangers!
-RECRUIT_PASSIVE_ROGUE2,I'm not sure I can take this one alone! [pause] Can anyone lend a hand?
-RECRUIT_PASSIVE_ROGUE3,That rogue is getting out of control! Where are the captains!?
-RECRUIT_PASSIVE_ROGUE4,This rogue already killed my partner! [pause] He was just 3 days from retirement too!
-RECRUIT_PASSIVE_ROGUE5,"I'll help put this rogue down, but don't expect me to hang around if things go south!"
-RECRUIT_PASSIVE_ROGUE6,We can't let this rogue get too close to town!
-RECRUIT_MENU_OPTION1,Invite {pawn} to Party
-RECRUIT_MENU_OPTION2,Fight {pawn}
-RECRUIT_MENU_OPTION3,[color=#1fba33]Trade Stickers[/color]
-RECRUIT_MENU_OPTION5,Play Card Game
-RECRUIT_MENU_OPTION4,Goodbye!
-RECRUIT_MENU_PLAYCARDS1,A card game on a weird interdimensional island filled with dangerous monsters?[pause][pause] Of course I'll play!
-RECRUIT_MENU_PLAYCARDS2,"Ok[pause], but I'll have you know I'm pretty good at these!"
-RECRUIT_MENU_PLAYCARDS3,Let's stake our livelyhood and the fate of our world...[pause] on a card game!
-RECRUIT_MENU_PLAYCARDS4,Sounds like a great way to take my mind off the impending doom and existential dread!
-RECRUIT_MENU_PLAYCARDS5,I spent all night building my deck![pause] Time to take it for a spin!
-RECRUIT_PLAYCARDS_LOSE1,"Aw, dang it. I gotta find better cards."
-RECRUIT_PLAYCARDS_LOSE2,I knew I should have swapped my stance on the last card!
-RECRUIT_PLAYCARDS_LOSE3,Next time I'll use more remaster combos!
-RECRUIT_PLAYCARDS_LOSE4,"Argh! Fine[pause], you can have my card!"
-RECRUIT_PLAYCARDS_LOSE5,I'm not going to be a sore loser about it.[pause] Here's your prize.
-RECRUIT_PLAYCARDS_LOSE6,I'm definitely not going to obsess over this later.
-RECRUIT_PLAYCARDS_WIN1,"It's all in the heart of the cards, you know?"
-RECRUIT_PLAYCARDS_WIN2,Shift your stance into Defending when you're low on health! After blocking damage you'll heal for the leftover defense points!
-RECRUIT_PLAYCARDS_WIN3,Ha! I've still got it![pause] It's all about Balance!
-RECRUIT_PLAYCARDS_WIN4,Did you know?[pause] You keep your Remaster Bonus even if your next card causes you to change stance!
-RECRUIT_PLAYCARDS_WIN5,Alright![pause] I'll become a champion in no time!
-RECRUIT_PLAYCARDS_WIN6,"Playing all the cards for a full remaster gives greater bonuses than partial remasters, but they can be so hard to setup!"
-RECRUIT_MENU_INVITE_ACCEPT1,"Sure, I've got some free time!"
-RECRUIT_MENU_INVITE_ACCEPT2,"I guess I can lend a hand, if you [wave amp=30 freq=10]really[/wave] need it."
-RECRUIT_MENU_INVITE_ACCEPT3,"We're not doing anything too dangerous[pause], are we?"
-RECRUIT_MENU_INVITE_REJECT1,"It seems like you've got your hands full, maybe later! "
-RECRUIT_MENU_INVITE_REJECT2,I'm a bit anxious around this many people. Can we hang out some other time?
-RECRUIT_MENU_INVITE_REJECT3,Lose the extra pair of hands first.
-RECRUIT_MENU_GOODBYE1,See you around!
-RECRUIT_MENU_GOODBYE2,"Don't go too far, in case I need help…"
-RECRUIT_MENU_GOODBYE3,"Fine, I was in the middle of something anyway. "
-RECRUIT_MENU_CHALLENGE_ACCEPT1,"Sure, I could use the warm up!"
-RECRUIT_MENU_CHALLENGE_ACCEPT2,"Alright, but don't blame me for what happens next."
-RECRUIT_MENU_CHALLENGE_ACCEPT3,"You'll go easy on me[pause], right?"
-RECRUIT_CHALLENGE_WIN1,That was more of a workout than I expected!
-RECRUIT_CHALLENGE_WIN2,I was still getting warmed up.
-RECRUIT_CHALLENGE_WIN3,"{player}, you really don't pull your punches do you?"
-RECRUIT_MENU_CHALLENGE_REJECT1,I'm still catching my breath from our last round! Maybe we can go again tomorrow?
-RECRUIT_MENU_CHALLENGE_REJECT2,Are you [wave amp=30 freq=10]trying[/wave] to humiliate me? Go pick on somebody else for a while.
-RECRUIT_MENU_CHALLENGE_REJECT3,"I don't think I can keep up with you, {player}. I need some time to rethink my strategy!"
-FOLLOWER_DEFAULT_INTERACTION,[i]Dismiss {pawn} from your party?[/i]
-FOLLOWER_IDLE_DIALOG1,"Hey {player}, need something?"
-FOLLOWER_IDLE_DIALOG2,You and {partner} seem like a great team. I hope I can find somebody like that!
-FOLLOWER_IDLE_DIALOG3,I heard some weird stuff happens here in {region_name}. Maybe we can wrap up and go hang out at the Café?
-FOLLOWER_IDLE_DIALOG4,How long have you been using that {first_tape_name} tape? We should go record one for me to try out!
-FOLLOWER_IDLE_DIALOG5,How's it going?
-FOLLOWER_IDLE_DIALOG6,I'm so pumped! What's next?
-FOLLOWER_MENU_OPTION1,Yes
-FOLLOWER_MENU_OPTION2,No
-FOLLOWER_DISMISSED1,"Darn, things were just starting to get interesting!"
-FOLLOWER_DISMISSED2,"Oh, alright. I'll go work on my sticker collection then."
-FOLLOWER_DISMISSED3,"Done already? Alright, I'll see you around then!"
-RECRUIT_TRADE_OFFER1,I really need [color=#{request_rarity}][{trade_request}][/color] to complete my newest strategy. I'm willing to offer [color=#{offer_rarity}][{trade_offer}][/color] in exchange!
-RECRUIT_TRADE_OFFER2,I've been looking everywhere for [color=#{request_rarity}][{trade_request}][/color]! If you're interested I'll trade [color=#{offer_rarity}][{trade_offer}][/color] for it.
-RECRUIT_TRADE_OFFER3,"If you've got any spare [color=#{request_rarity}][{trade_request}][/color] stickers laying around, I'll gladly give you my [color=#{offer_rarity}][{trade_offer}][/color] for it."
-RECRUIT_TRADE_OFFER4,"[color=#{request_rarity}][{trade_request}][/color] is the missing piece to my perfect winning strategy! You can have [color=#{offer_rarity}][{trade_offer}][/color] for it, if you promise not to tell anybody about my amazing setup!"
-RECRUIT_TRADE_OFFER5,Would you be willing to trade [color=#{request_rarity}][{trade_request}][/color] for my [color=#{offer_rarity}][{trade_offer}][/color] sticker?
-RECRUIT_TRADE_ACCEPTED1,"Finally, this [color=#{request_rarity}]{trade_request}[/color] sticker will make me invincible!"
-RECRUIT_TRADE_ACCEPTED2,Thanks! I hope [color=#{offer_rarity}][{trade_offer}][/color] is useful to you!
-RECRUIT_TRADE_ACCEPTED3,What a steal! I would have gladly traded [wave amp=30 freq=10]two[/wave] [color=#{offer_rarity}][{trade_offer}][/color] stickers!
-RECRUIT_TRADE_REJECTED1,What kind of fool do you take me for? That's not [color=#{request_rarity}][{trade_request}][/color]!
-RECRUIT_TRADE_REJECTED2,If you didn't have [color=#{request_rarity}][{trade_request}][/color] all you had to do was say so…
-RECRUIT_TRADE_REJECTED3,What am I supposed to do with this? I really needed [color=#{request_rarity}][{trade_request}][/color] to complete my collection!
-RECRUIT_TRADE_MENU_OPTION1,"Sure, here you go!"
-RECRUIT_TRADE_MENU_OPTION2,No way!
-RECRUIT_TRADE_CANCEL1,Dang it! Now what am I going to do?!
-RECRUIT_TRADE_CANCEL2,"Oh, okay. Thanks for considering it."
-RECRUIT_TRADE_CANCEL3,I guess I'll have to keep checking the sticker merchants…
-TRADE_STICKER_UI_USE,Trade Sticker
-LIVINGWORLD_SETTINGS_UI_ENCOUNTERS,NPCs Join Raids:
-LIVINGWORLD_SETTINGS_UI_MAGNETISM,NPC Magnetism Ability
-LIVINGWORLD_SETTINGS_UI_BACKUP_STATUS,NPC Status Bar
-LIVINGWORLD_SETTINGS_UI_CAPTAIN_PATROL,Captains Engage Nearby Fusions
-UI_SETTINGS_KEYBOARD_livingworldmod_transform,Overworld Transform
-LIVINGWORLD_SETTINGS_UI_BEHAVIOR_SECTION,Behavior
-LIVINGWORLD_SETTINGS_UI_WORLD_SECTION,World
-LIVINGWORLD_SETTINGS_UI_BATTLE_SECTION,Battle
-LIVINGWORLD_SETTINGS_UI_BATTLESPRITE_OPTION1,Default
-LIVINGWORLD_SETTINGS_UI_BATTLESPRITE_OPTION2,Battle Sprite
-LIVINGWORLD_SETTINGS_UI_BATTLESPRITES,Partner Portrait
-LIVINGWORLD_SETTINGS_UI_CUSTOM_RECRUITS,Spawn Custom Trainees (Arena Archives)
-LIVINGWORLD_SETTINGS_UI_POPULATION,NPC Population:
-CAPTAIN_LUNCH_MENU,Out To Lunch.
-CAPTAIN_LUNCH_MENU2,Wait for the Captain to return?
-CAPTAIN_LUNCH_OPTION1,Yes
-CAPTAIN_LUNCH_OPTION2,No
-KAYLEIGH_INVITE_ACCEPT1,Of course! Sound like fun!
-KAYLEIGH_IDLE_RECRUIT_DIALOG1,"It's a lot of work, but daily patrols are important for the town's safety!"
-KAYLEIGH_IDLE_RECRUIT_DIALOG2,"Hi {player}, do anything interesting today?"
-KAYLEIGH_IDLE_RECRUIT_DIALOG3,There's been a lot of new faces washing up on the shore lately.
-KAYLEIGH_IDLE_RECRUIT_DIALOG4,Let's do everything we can to keep the town safe!
-KAYLEIGH_IDLE_RECRUIT_DIALOG5,Have you checked the sticker merchants today? They're bound to have some cool stuff you could use!
-KAYLEIGH_MENU_CHALLENGE_ACCEPT1,Right! Let's see how strong you've gotten!
-KAYLEIGH_CHALLENGE_WIN1,You're so much stronger now!
-KAYLEIGH_MENU_CHALLENGE_REJECT1,"I need to fix up my tapes first, sorry! Maybe later?"
-KAYLEIGH_TRADE_OFFER1,"I'd love to find [color=#{request_rarity}][{trade_request}][/color] for my tapes![pause] If you have one, could you trade it to me for this [color=#{offer_rarity}][{trade_offer}][/color] sticker?"
-KAYLEIGH_TRADE_ACCEPTED1,Thanks a million! This is exactly what I needed!
-KAYLEIGH_TRADE_REJECTED1,That doesn't really look like the sticker I needed…
-KAYLEIGH_CARDS_ACCEPT1,"That sounds fun![pause] Sure, let's play!"
-KAYLEIGH_CARDS_LOSE1,That was so fun![pause] You were great![pause] Here's one of my cards to add to your deck!
-KAYLEIGH_CARDS_WIN1,That was brilliant![pause] I can't wait to play more!
-KAYLEIGH_TRADE_CANCEL1,"Aw, alright. I'll keep looking then!"
-KAYLEIGH_PASSIVES_ROGUES_MESSAGE1,I'm gonna need a hand with this one!
-KAYLEIGH_MENU_GOODBYE1,See ya!
-BARKLEY_IDLE_RECRUIT_DIALOG1,Arf!
-BARKLEY_IDLE_RECRUIT_DIALOG2,[i]Barkley seems happy to see you![/i]
-BARKLEY_IDLE_RECRUIT_DIALOG3,[i]Barkley is curiously sniffing his cassette player.[/i]
-BARKLEY_IDLE_RECRUIT_DIALOG4,Arf?
-BARKLEY_IDLE_RECRUIT_DIALOG5,[i]Barkley is enjoying the weather in {region_name}.[/i]
-BARKLEY_IDLE_RECRUIT_DIALOG6,[i]There's a glint in Barkley's eye. He's filled with determination![/i]
-BARKLEY_IDLE_RECRUIT_DIALOG7,[i]You happily pet Barkley. He's been a good boy![/i]
-BARKLEY_PARTY_INVITE_ACCEPT1,Arf Arf!
-BARKLEY_PARTY_INVITE_ACCEPT2,[i]Barkley is excited to play with you![/i]
-BARKLEY_CHALLENGE_REJECT1,[wave amp=30 freq=10]Awoo…[/wave]
-BARKLEY_CHALLENGE_REJECT2,[i]He appears too tired for another match.[/i]
-BARKLEY_CHALLNEGE_ACCEPTED1,Arf! Arf!
-BARKLEY_CHALLNEGE_ACCEPTED2,[i]His tail wags back and forth with vigor and excitement![/i]
-BARKLEY_CHALLENGE_WIN1,*whine*
-BARKLEY_TRADE_OFFER1,Arf?
-BARKLEY_TRADE_OFFER2,[i]Barkley paws intently at a [color=#{request_rarity}][{trade_request}][/color] sticker.[pause] He places a [color=#{offer_rarity}][{trade_offer}][/color] sticker at your feet. Is this a trade request?[/i]
-BARKLEY_TRADE_ACCEPTED1,Arf Arf!
-BARKLEY_TRADE_ACCEPTED2,[i]He wags his tail happily as he attempts to place the sticker on a tape.[pause] It seems he's satisfied with this exchange![/i]
-BARKLEY_TRADE_REJECTED1,[wave amp=30 freq=10]Grr…[/wave] Arf!
-BARKLEY_TRADE_REJECTED2,[i]He looks frustrated. Maybe you misunderstood his request?[/i]
-BARKLEY_CARDS_ACCEPT1,Arf?
-BARKLEY_CARDS_LOSE1,Arf!
-BARKLEY_CARDS_WIN1,Arf Arf!
-BARKLEY_TRADE_CANCEL,[i]He seems dissapointed.[/i]
-BARKLEY_PASSIVE_ROGUES_MESSAGE1,Arf Arf! [wave amp=30 freq=10]Grr…[/wave]!
-BARKLEY_LEAVE1,Arf!
-EUGENE_INVITE_ACCEPT1,The dynamic crime fighting…[pause] trio?! This is gonna be wild!
-EUGENE_IDLE_RECRUIT_DIALOG1,"Hey {player}, you out on patrol too? "
-EUGENE_IDLE_RECRUIT_DIALOG2,It's pretty wild out here! There's a ton of new people ready to help out.
-EUGENE_IDLE_RECRUIT_DIALOG3,I got all these crazy stickers from one of the merchants.[pause] I'm gonna be unstoppable!
-EUGENE_IDLE_RECRUIT_DIALOG4,"I was thinking of trying out a few new battle poses later.[pause] What? Don’t give me that look, it's totally important!"
-EUGENE_IDLE_RECRUIT_DIALOG5,"We gotta do more supply runs, can't afford to run low on tapes out there!"
-EUGENE_CHALLENGE_REJECTED1,"I'd gladly show you a few moves[pause], but I gotta finish up here first. Let's hang later!"
-EUGENE_CHALLENGE_ACCEPTED1,Lookin' to learn a few tricks from me? You got it!
-EUGENE_CHALLENGE_WIN1,Dang! You got [wave amp=30 freq=10]way[/wave] better at this!
-EUGENE_TRADE_OFFER1,"{player}[pause], buddy. I've [wave amp=30 freq=10]gotta[/wave] have [color=#{request_rarity}][{trade_request}][/color]![pause] I'll give ya this [color=#{offer_rarity}][{trade_offer}][/color] sticker if you got any!"
-EUGENE_TRADE_ACCEPTED1,Momentous! Now nothing can slow me down!
-EUGENE_TRADE_REJECTED1,"Aw man, come on! You know that's what I need! "
-EUGENE_TRADE_CANCEL1,"[wave amp=30 freq=10]Fine[/wave][pause], I get it. I'll just keep battling until I earn one!"
-EUGENE_CARDS_ACCEPT1,Dude![pause] Of course I'm down to play this![pause] I love collectible card games!
-EUGENE_CARDS_LOSE1,"Ugh![pause] I was just about to draw my ace![pause] Ah well[pause], I'll get it next time![pause] Here's your reward!"
-EUGENE_CARDS_WIN1,Badass![pause] That was great![pause] Hit me up if you wanna play another round!
-EUGENE_LEAVE1,See ya!
-EUGENE_PASSIVE_ROGUES_MESSAGE1,It's another wild one![pause] I'm taking it down!
-FELIX_INVITE_ACCEPT1,Yeah. Sounds like a good time. 
-FELIX_IDLE_RECRUIT_DIALOG1,Hey there. Not working too hard I hope?
-FELIX_IDLE_RECRUIT_DIALOG2,"I sketeched this weird monster the other day. Their anatomy was so unorthodox, I couldn't help but get inspired. "
-FELIX_IDLE_RECRUIT_DIALOG3,"I broke another pencil rewinding my tape today[pause]. I always keep a spare[pause], but I usually save it for my sketches. "
-FELIX_IDLE_RECRUIT_DIALOG4,"You know[pause], it's not so bad here![pause] Aside from the wild monsters, it's actually pretty relaxing."
-FELIX_IDLE_RECRUIT_DIALOG5,Hey.[pause] I was just enjoying the weather.
-FELIX_CHALLENGE_REJECTED1,"Actually, I could use a break. Let's pick this up later."
-FELIX_CHALLENGE_ACCEPTED1,"Sure, I could use the practice. "
-FELIX_CHALLENGE_WIN1,"Wow[pause], you're really something else. "
-FELIX_TRADE_OFFER1,I could use an extra [color=#{request_rarity}][{trade_request}][/color] sticker.[pause] Maybe you'd be willing to trade for my [color=#{offer_rarity}][{trade_offer}][/color] sticker?
-FELIX_TRADE_REJECTED1,"Hmm[pause], I don't think that's it.[pause] That's alright, I can probably get it from the merchant stalls."
-FELIX_TRADE_ACCEPTED1,"This should smooth things out for me.[pause] I appreciate it, {player}. "
-FELIX_CARDS_ACCEPT1,"Woah![pause] Check out the artwork on these cards.[pause] Sure, I'll play a round."
-FELIX_CARDS_LOSE1,"Good game.[pause] Here[pause], you can have this."
-FELIX_CARDS_WIN1,Rad![pause] That was pretty fun.[pause] Let's play again sometime.
-FELIX_TRADE_CANCEL1,"Oh[pause], no worries.[pause] I'm sure I'll find one eventually."
-FELIX_PASSIVE_ROGUES_MESSAGE1,Looks like another rogue on the loose. I can help!
-FELIX_LEAVE1,Take care.
-MEREDITH_INVITE_ACCEPT1,"Yeah[pause], alright.[pause] I can make time for that."
-MEREDITH_IDLE_RECRUIT_DIALOG1,"Uh[pause], hey there. "
-MEREDITH_IDLE_RECRUIT_DIALOG2,So.[pause] Is it just me or…[pause] are there more people here than usual?
-MEREDITH_IDLE_RECRUIT_DIALOG3,"Hey, {player}.[pause] Did you need something?"
-MEREDITH_IDLE_RECRUIT_DIALOG4,"Some[pause], uh[pause], odd stuff has been washing up on the beach lately."
-MEREDITH_IDLE_RECRUIT_DIALOG5,Hmm…[pause] I think I'll go record a new tape later.
-MEREDITH_CHALLENGE_ACCEPTED1,"Urgh. Fine. I'll humor you this one time, mate."
-MEREDITH_CHALLENGE_REJECTED1,"I[pause], uh…[pause] got something I gotta do first, mate."
-MEREDITH_CHALLENGE_WIN1,"Alright, fine.[pause] You earned that one."
-MEREDITH_TRADE_OFFER1,"So[pause], if you've got any [color=#{request_rarity}][{trade_request}][/color] stickers laying around.[pause] I wouldn't mind trading my [color=#{offer_rarity}][{trade_offer}][/color] for it. If you're interested."
-MEREDITH_TRADE_ACCEPTED1,"Thanks, mate.[pause] I needed this one."
-MEREDITH_TRADE_REJECTED1,Urgh.[pause] I'm pretty sure I was clear on which bloody sticker I needed.
-MEREDITH_TRADE_CANCEL1,"Yeah[pause], I figured as much."
-MEREDITH_CARDS_ACCEPT1,Uhm.[pause] When did a whole bloody card game wash up on shore?
-MEREDITH_CARDS_LOSE1,"Well[pause], that was[pause] interesting.[pause] I guess[pause], here's your reward."
-MEREDITH_CARDS_WIN1,"Heh[pause], I guess I'm pretty good at this."
-MEREDITH_LEAVE1,"Take care, mate."
-MEREDITH_PASSIVE_ROGUES_MESSAGE1,Not another one![pause] Can somebody just…[pause] urgh! Somebody help me out here!
-VIOLA_INVITE_ACCEPT1,Splendid![pause] A new adventure awaits us!
-VIOLA_IDLE_RECRUIT_DIALOG1,"I am glad to see you well, friend!"
-VIOLA_IDLE_RECRUIT_DIALOG2,I can see the allure to this new lifestyle. 
-VIOLA_IDLE_RECRUIT_DIALOG3,Another fine day for adventure! 
-VIOLA_IDLE_RECRUIT_DIALOG4,May this day find you well!
-VIOLA_IDLE_RECRUIT_DIALOG5,Greetings friend!
-VIOLA_CHALLENGE_ACCEPTED1,You mean to test thy mettle against a worthy opponent? I humbly accept your request!
-VIOLA_CHALLENGE_REJECTED1,"Alas, I fear my current condition would not make our sparring worthwhile. I require a moment of respite."
-VIOLA_CHALLENGE_WIN1,"Pray tell, where did you learn such impressive feats?"
-VIOLA_TRADE_OFFER1,"If I may, I require one [color=#{request_rarity}][{trade_request}][/color] sticker to improve upon my current ability. If you would be willing to part with one, I offer thee my [color=#{offer_rarity}][{trade_offer}][/color] in exchange!"
-VIOLA_TRADE_ACCEPTED1,You have my gratitude!
-VIOLA_TRADE_REJECTED1,"Alas, dear friend. This does not resemble the item I requested."
-VIOLA_TRADE_CANCEL1,"Fear not, I am resourceful enough to procure one through other means!"
-VIOLA_LEAVE1,Fare thee well!
-VIOLA_CARDS_ACCEPT1,A game of chance and skill played on small sheets of paper?[pause] How fascinating! 
-VIOLA_CARDS_LOSE1,Marvelous! I do believe it is customary to reward the victor with a card from the defeated's arsenal?
-VIOLA_CARDS_WIN1,How joyous! I would gladly engage in more of these leisure activities!
-VIOLA_PASSIVE_ROGUES_MESSAGE1,Rogues have been sighted upon the horizon! Let us show thy fiends our true mettle!
-FRANKIE_CARDS_ACCEPT1,Oh oh oh! I've played tons of these back home!
-FRANKIE_CARDS_LOSE1,Yes! Ha ha! I've still got it!
-FRANKIE_CARDS_WIN1,"You were amazing![pause][pause] Ok ok, [wave amp=30 freq=10]Duelist Kingdom[/wave] rules apply so here's one of my cards! "
-FRANKIE_PARTY_INVITE1,Joining the hero's party?! I'm another step closer to legendary status!
-FRANKIE_IDLE_RECRUIT_DIALOG1,"I accept all quests, no matter [wave amp=30 freq=10]how[/wave] small![pause] You never know which one will move the plot forward!"
-FRANKIE_IDLE_RECRUIT_DIALOG2,"Usually, in this type of Isekai, I would have some unique ability or abnormally high stat![pause] But I feel…[pause][pause] normal?"
-FRANKIE_IDLE_RECRUIT_DIALOG3,"""In Another World As {frankie_tape}!"". It's a pretty catchy title, right?![pause] I might write a fic about it later!"
-FRANKIE_IDLE_RECRUIT_DIALOG4,"We should write our own theme song![pause][pause] Something catchy like Card Captors![pause]…You had Card Captors on your world[pause], right?"
-FRANKIE_IDLE_RECRUIT_DIALOG5,"I tried rewinding my tape with my pinkie[pause], but for some reason it still didn't work… [pause]It's like there's some weird [wave amp=30 freq=10]game logic[/wave] that forces me to use pencils!"
-FRANKIE_CHALLENGE_ACCEPTED1,I've had a lot of time to train [wave amp=30 freq=10]off screen[/wave]![pause] It's time to show off my new special attack![pause][wave amp=30 freq=10] {frankie_attack}![/wave]
-FRANKIE_CHALLENGE_REJECTED1,I need to finish my training montage first!
-FRANKIE_CHALLENGE_WIN1,Ow…[pause] I think I bit my tongue. 
-FRANKIE_TRADE_OFFER1,"If I could just get my hands on one more [color=#{request_rarity}][{trade_request}][/color] sticker, my PvP build would be [wave amp=30 freq=10]so broken[/wave]! I've got an extra [color=#{offer_rarity}][{trade_offer}][/color] I can trade for it!"
-FRANKIE_TRADE_ACCEPTED1,Yes! Finally! I'm completely unstoppable now! [pause]You don't know what PvP is do you...?
-FRANKIE_TRADE_REJECTED1,"{player}[pause], I know[pause] that you know[pause] that's not the right sticker…[pause] It's like you're just testing dialog options in a Visual Novel."
-FRANKIE_TRADE_CANCEL1,Back to the grind then.
-FRANKIE_LEAVE1,See ya!
-FRANKIE_PASSIVE_ROGUES_MESSAGE1,[wave amp=30 freq=10]Ahhhh!!![/wave] I'm making a big heroic entrance! 
-VIN_IDLE_RECRUIT_DIALOG1,"Captain, I can't decide between Headshot and Last Rites…"
-VIN_IDLE_RECRUIT_DIALOG2,Mourningtown has been trying to get more involved in day to day Ranger activities. [pause]I'm going to keep doing my part!
-VIN_IDLE_RECRUIT_DIALOG3,Training has been so hard lately![pause] I don't know where Frankie gets all that energy from.
-VIN_IDLE_RECRUIT_DIALOG4,"I'm going to get stronger! I'll make sure Mourningtown can hold their heads up high again, one day."
-VIN_IDLE_RECRUIT_DIALOG5,Hey Captain! Did you need something?
-VIN_CHALLENGE_ACCEPTED1,I'll show you how strong I've become!
-VIN_CHALLENGE_REJECTED1,I think I sprained something. Let's pick this up again later.
-VIN_CHALLENGE_WIN1,Dang it. I was so sure I had you that time!
-VIN_TRADE_OFFER1,[color=#{request_rarity}][{trade_request}][/color] would be a great addition to my arsenal. I can trade you this [color=#{offer_rarity}][{trade_offer}][/color] for it.
-VIN_TRADE_ACCEPTED1,Great! I'll be taking down Rogues in half the time with this setup!
-VIN_TRADE_REJECTED1,That's not it. I'll just get it myself.
-VIN_TRADE_CANCEL1,"Alright, thanks for checking. "
-VIN_LEAVE1,See ya around.
-VIN_PASSIVE_ROGUES_MESSAGE1,I'll put this Rogue down in no time!
-VIN_CARDS_ACCEPT1,"I uh..[pause] What?[pause][pause] Alright, I guess I'll play."
-VIN_CARDS_WIN1,"Hey, I'm not half bad at this!"
-VIN_PARTY_INVITE1,You need my help on an important quest?[pause] Of course I can lend you my strength!
-VIN_CARDS_LOSE1,"Well[pause], I didn't really know what I was doing there."
-SUNNY_IDLE_RECRUIT_DIALOG1,Hey…
-SUNNY_IDLE_RECRUIT_DIALOG2,The sun…[pause] It feels…[pause] [wave amp=30 freq=15]Different.[/wave]
-SUNNY_IDLE_RECRUIT_DIALOG3,I think… [pause]I'll shop for…[pause] new stickers later.
-SUNNY_IDLE_RECRUIT_DIALOG4,{player}… [pause]How are you…?
-SUNNY_IDLE_RECRUIT_DIALOG5,…[pause]You've all been…[pause]very accepting…[pause]
-SUNNY_CHALLENGE_ACCEPTED1,I'm stronger…[pause] this time.
-SUNNY_CHALLENGE_REJECTED1,I…[pause] I need to rest.
-SUNNY_CHALLENGE_WIN1,I…[pause] lost.
-SUNNY_TRADE_OFFER1,Can I…[pause] Do you have…[pause] any [color=#{request_rarity}][{trade_request}][/color] stickers... [pause] I could…[pause] trade you my [color=#{offer_rarity}][{trade_offer}][/color] sticker…[pause] if you want.
-SUNNY_TRADE_ACCEPTED1,Thank…[pause]you.
-SUNNY_TRADE_REJECTED1,That's…[pause] not it…
-SUNNY_TRADE_CANCEL1,Ok…
-SUNNY_LEAVE1,…[pause]Thanks.
-SUNNY_CARDS_ACCEPT1,Sure…[pause] That sounds…[pause] fun.
-SUNNY_CARDS_LOSE1,"Ha ha…[pause] good game…[pause] Here, take…[pause] this."
-SUNNY_CARDS_WIN1,I won…[pause]!
-SUNNY_PARTY_INVITE,Sure…[pause] I'd like that…
-SUNNY_PASSIVE_ROGUES_MESSAGE1,I…[pause] think I've got this…[pause]!
-LIVINGWORLD_CARDS_UI_ATTACK,Attacking
-LIVINGWORLD_CARDS_UI_DEFENSE,Defending
-LIVINGWORLD_CARDS_UI_NEUTRAL,Balanced
-LIVINGWORLD_UI_CARDCOLLECTION,Card Collection
-LIVINGWORLD_UI_DECKCOUNT_ERROR,Your Deck must have 25 cards. 
-LIVINGWORLD_SETTINGS_UI_CARDS_SECTION,Card Game
-LIVINGWORLD_SETTINGS_UI_CARD_ENEMY_THOUGHTS,Enemy Thinking Animation
-LIVINGWORLD_PASSIVE_CARDREWARD,A new card has been added to your collection!
-LIVINGWORLD_TRANSFORM_PROMPT,Which form will you use?
-LIVINGWORLD_BENCH_MENU,Take a seat?
-LIVINGWORLD_SETTINGS_UI_OVERSPILL,Overspill Damage
-LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS,Full Remaster Bonus!
-LIVINGWORLD_CARDS_UI_REMASTER_BONUS,Remaster Bonus!
-LIVINGWORLD_SETTINGS_UI_VINEBALL,NPCs Vineball Ability:
-LIVINGWORLD_SETTINGS_UI_USEITEMS,NPCs Use Items
-LIVINGWORLD_SETTINGS_UI_RECORDABLE,NPCs Record Encounters
-LIVINGWORLD_SETTINGS_UI_STATUS_OPTION_ENABLED,Show
-LIVINGWORLD_SETTINGS_UI_STATUS_OPTION_DISABLED,Hidden
-CLEEO_PASSIVE_ROGUE1,I'm not risking my batteries for these [wave amp=30 freq=15]humans[/wave]. I can't just let that rogue run amok either.
-ZEDD_PASSIVE_ROGUE1,That rogue's going to pay for interrupting my sle…[pause]er astral plane business!
-WALLACE_PASSIVE_ROGUE1,Let's wall this one off before it gets a chance to wreck the place!
-CODEY_PASSIVE_ROGUE1,That rogue is the perfect test for my new mods! 
-BUFFY_PASSIVE_ROGUE1,Another wild rogue? [pause]I guess I'll be getting some extra reps in today!
-CYBIL_PASSIVE_ROGUE1,This one's gonna be a wild time! [pause] The whole town's gonna be hearing this!
-PENNY_PASSIVE_ROGUE1,There won't be any second wind for this rogue! [pause]Time to work!
-GLADIOLA_PASSIVE_ROGUE1,A perfect chance to sharpen my blades! [pause] This rogue better put up a good fight!
-HEATHER_PASSIVE_ROGUE1,This just in! [pause] Our very own local reporter is just arriving on the scene of another wild rogue battle!
-JUDAS_PASSIVE_ROGUE1,"I'll buy some time! [pause]Everyone, make sure you're prepared. That rogue looks dangerous!"
-LODESTEIN_PASSIVE_ROGUE1,Don't let it get near the electric grids! Let's keep this rogue grounded!
-SKIP_PASSIVE_ROGUE1,This is really cutting into my treasure hunting time! [pause]I hope this rogue has something interesting for me!
-TRADE_CARDS_BTN,Trade Cards
-CARD_BATTLE_BTN,Card Battle
-ONLINE_REQUEST_CARDTRADE_PROMPT,Choose a Card to trade with {remote_player}
-ONLINE_REQUEST_ACTION_trade_card,Card Trade
-ONLINE_REQUEST_UI_TRADE_CARD_MAKE_OFFER,Offer Card
-ONLINE_NOTIFICATION_TRADED_CARDS,{player} and {other_player} traded cards
-ONLINE_REQUEST_SENT_CARD_TRADE,You have offered to trade your {species1} card to {remote_player}!
-ONLINE_REQUEST_SENT_CARD_TRADE2,{remote_player} has offered a {species2} card for your {species1} card.
-ONLINE_REQUEST_RECEIVED_CARD_TRADE,{remote_player} has offered to trade a {species1} card with you!
-ONLINE_REQUEST_CLOSED_COMPLETE_TRADE_CARD,"The trade went through, {remote_player}'s {species2} card is now in your collection!"
-LIVINGWORLD_UI_CARD_RESERVED,This card is currently reserved for a trade offer.
-LIVINGWORLD_UI_OFFER_CARD,Offer Card
-ONLINE_REQUEST_UI_CARD_BATTLE_ACCEPT,Accept Challenge
-ONLINE_REQUEST_ACTION_card_battle,Card Battle
-ONLINE_REQUEST_CLOSED_COMPLETE_BATTLE_DRAW,Your Card Battle with {remote_player} ended in a draw!
-ONLINE_NOTIFICATION_CARD_BATTLE_STARTING,{player} and {other_player} are having a card battle!
-LIVINGWORLD_MP_POPUP1,Living World is now online!\n\n-Transform with your friends!\n-Raid with NPCs in expanded battles!\n-Trade cards\n-Challenge your friends to card battles!\n\nAll without leaving the comfort of your bed!
+﻿id,en,fr
+RECRUIT_IDLE_DIALOG_1,Some monsters are actually pretty shy. [pause]I think I can relate.,Certains monstres sont en fait plutôt timides. [pause]Je pense que je comprends.
+RECRUIT_IDLE_DIALOG_2,"{player}, have you ever tried being a Traffikrab? [pause]Like [wave amp=30 freq=10]really being[/wave] a Traffikrab?","{player}, as-tu déjà essayé de devenir un Traficrabe ? [pause]Genre, [wave amp=30 freq=10]vraiment devenir[/wave] un Traficrabe ?"
+RECRUIT_IDLE_DIALOG_3,It's an experience.,C’est toute une expérience.
+RECRUIT_IDLE_DIALOG_4,Hey there! [pause]Record anything interesting today?,"Salut ! [pause]Tu as fait des enregistrements intéressants, aujourd’hui ?"
+RECRUIT_IDLE_DIALOG_5,There have been more floods lately. ,Il y a eu plus d’inondations depuis peu.
+RECRUIT_IDLE_DIALOG_6,Sometimes[pause] I just like dashing through the forest! ,"Parfois, [pause] j’aime bien simplement courir à travers la forêt !"
+RECRUIT_IDLE_DIALOG_7,"I picked up a strange sticker the other day.[pause] It doesn't seem to do anything, but my opponent always looks [wave amp=30 freq=10]so annoyed[/wave]!","J’ai mis la main sur un drôle d’autocollant l’autre jour. [pause]Il n’a pas l’air de faire quoi que ce soit, mais mes adversaires ont toujours l’air [wave amp=30 freq=10]très agacés[/wave] !"
+RECRUIT_IDLE_DIALOG_8,I still have no idea how I got here.[pause] I'm not sure I want to go back though!,"Je n’ai toujours pas la moindre idée de comment je suis arrivé ici.[pause]Pas sûr d’avoir envie de rentrer, cependant!"
+RECRUIT_IDLE_DIALOG_9,"Harbourtown could use some new shops.[pause] Coffee is great[pause], but I'd do anything for a new pair of shoes!","Ce serait bien d’avoir quelques magasins de plus à Port-la-Ville.[pause] Le café, c’est super, [pause] mais je ferais n’importe quoi pour une nouvelle paire de chaussures !"
+RECRUIT_IDLE_DIALOG_10,I was battling this ranger the other day[pause] and he transformed into a Khepri and used Headshot like [wave amp=30 freq=15]7 times in a row[/wave]. I didn't even get a turn!,Je me suis battu contre un Veilleur l’autre jour[pause] et il s’est transformé en Khépri et a m’attaqué avec Tir à la tête [wave amp=30 freq=15]7 fois de suite[/wave]. Je n’ai même pas eu droit à mon tour !
+RECRUIT_IDLE_DIALOG_11,What are we going to do if the Mall runs out of tapes?[pause] I don't even want to think about it!,Qu’est-ce qu’on va faire si la Galerie tombe à court de cassettes ?[pause] Je n’ai même pas envie d’y penser !
+RECRUIT_IDLE_DIALOG_12,I was in my bathtub when I suddenly appeared here…[pause] I didn't even get to rinse my hair!,J’étais dans ma baignoire quand je suis soudainement apparu ici…[pause] Je n’ai même pas pu me rincer les cheveux !
+RECRUIT_IDLE_DIALOG_13,Do you think the monsters here might be…[pause][wave amp=30 freq=15]edible[/wave]?,Tu penses que les monstres ici pourraient être… [pause][wave amp=30 freq=15]comestibles[/wave] ?
+RECRUIT_IDLE_DIALOG_14,The most incredible thing washed up on the beach last night…[pause] It was a cartridge of my favorite childhood game![pause] Now if only I could find the [wave amp=30 freq=15]game console[/wave] to use it with...,Quelque chose d’incroyable s’est échoué sur la plage la nuit dernière...[pause] Une cartouche de mon jeu préféré de mon enfance ![pause] Il me manque juste la [wave amp=30 freq=15]console[/wave] pour y jouer…
+RECRUIT_IDLE_DIALOG_15,I heard the mall is haunted![pause] I can't wait to bring a ghost home as a pet!,J’ai entendu dire que la Galerie est hantée ![pause] Je suis impatient de ramener un fantôme de compagnie à la maison !
+RECRUIT_IDLE_DIALOG_16,"The other night, I gazed out into the infinite void of the ocean.[pause] It called to me.[pause] It said [wave amp=30 freq=10]""bikini season is only 4 months away""[/wave]![pause] Oh the horror!","La nuit dernière, j’ai regardé l’infini de l’océan.[pause] Il m’appelait. [pause]Il m’a dit...[wave amp=30 freq=10] « la saison des maillots de bain est dans 4 mois seulement »[/wave]![pause] Horreur !"
+RECRUIT_IDLE_DIALOG_17,"There's this rumor[pause], if you play your tapes backwards it would summon a demon god!","Il y a une rumeur comme quoi,[pause] si tu joues une cassette à l’envers,[pause] tu pourrais invoquer un dieu démon !"
+RECRUIT_IDLE_DIALOG_18,I had a brilliant idea![pause] I'm going to use two cassette players to play two different tapes![pause] Do you think I'll fuse with myself?,J’ai eu une idée de géne ![pause] Je vais utiliser deux lecteurs de cassette pour jouer deux cassettes différentes ![pause] Peut-être que je fusionnerais avec moi-même ?
+RECRUIT_IDLE_DIALOG_19,Cassettes?[pause] I prefer MP3 players myself.,"Des cassettes ?[pause] Personnellement, je préfère les lecteurs MP3."
+RECRUIT_IDLE_DIALOG_20,How did I even get here? [pause]Last thing I remember was getting hit by a truck!,Comment est-ce que je suis arrivé ici ?[pause] La dernière chose dont je me souvienne est de m’être fait renverser par un camion !
+RECRUIT_IDLE_DIALOG_21,"I used to be a great ranger like yourself, but then a Nevermort spit on my knee!","Moi aussi, j’étais un Veilleur autrefois, et puis un Corbomort m’a craché sur le genou !"
+RECRUIT_IDLE_DIALOG_22,,
+RECRUIT_IDLE_DIALOG_23,,
+RECRUIT_IDLE_DIALOG_24,,
+RECRUIT_IDLE_DIALOG_25,,
+RECRUIT_IDLE_DIALOG_26,,
+RECRUIT_PASSIVE_ROGUE1,There's been another rogue sighting![pause] We need all available rangers!,On a signalé une fusion rebelle ![pause] On a besoin de tous les Veilleurs disponibles !
+RECRUIT_PASSIVE_ROGUE2,I'm not sure I can take this one alone! [pause] Can anyone lend a hand?,Je suis pas sûr de pouvoir me mesurer à celle-ci par moi-même ![pause] Est-ce que quelqu’un peut me prêter main forte ?
+RECRUIT_PASSIVE_ROGUE3,That rogue is getting out of control! Where are the captains!?,Cette fusion est hors de contrôle ! Où sont les capitaines ?!
+RECRUIT_PASSIVE_ROGUE4,This rogue already killed my partner! [pause] He was just 3 days from retirement too!,Cette fusion a déjà fait la peau à mon partenaire ![pause] Dire qu’il était à 3 jours de sa retraite!
+RECRUIT_PASSIVE_ROGUE5,"I'll help put this rogue down, but don't expect me to hang around if things go south!","J’aiderai à mettre cette fusion au tapis, mais il ne faut pas s’attendre à ce que je reste lorsque les choses tourneront au vinaigre !"
+RECRUIT_PASSIVE_ROGUE6,We can't let this rogue get too close to town!,On ne peut pas laisser cette fusion rebelle s’approcher de la ville !
+RECRUIT_MENU_OPTION1,Invite {pawn} to Party,Inviter {pawn} au groupe
+RECRUIT_MENU_OPTION2,Fight {pawn},Se battre contre {pawn}
+RECRUIT_MENU_OPTION3,[color=#1fba33]Trade Stickers[/color],[color=#1fba33]Échanger des autocollants[/color]
+RECRUIT_MENU_OPTION5,Play Card Game,Jouer aux cartes
+RECRUIT_MENU_OPTION4,Goodbye!,Au revoir !
+RECRUIT_MENU_PLAYCARDS1,A card game on a weird interdimensional island filled with dangerous monsters?[pause][pause] Of course I'll play!,Jouer aux cartes sur une île zarbi interdimensionelle remplie de dangereux monstres ?[pause][pause] Bien sûr que je suis partant !
+RECRUIT_MENU_PLAYCARDS2,"Ok[pause], but I'll have you know I'm pretty good at these!","OK,[pause] mais je te ferai savoir que je suis plutôt bon !"
+RECRUIT_MENU_PLAYCARDS3,Let's stake our livelyhood and the fate of our world...[pause] on a card game!,Jouons notre vie et le destin de notre monde…[pause] sur une partie de cartes !
+RECRUIT_MENU_PLAYCARDS4,Sounds like a great way to take my mind off the impending doom and existential dread!,Ça sonne comme une excellente façon de me changer les idées loin de la marche incessante du temps et de la terreur existentielle !
+RECRUIT_MENU_PLAYCARDS5,I spent all night building my deck![pause] Time to take it for a spin!,J’ai passé toute la nuit à construire mon deck ![pause] C’est l’heure de le mettre à l’épreuve !
+RECRUIT_PLAYCARDS_LOSE1,"Aw, dang it. I gotta find better cards.",Mince… Je devrais trouver de meilleures cartes.
+RECRUIT_PLAYCARDS_LOSE2,I knew I should have swapped my stance on the last card!,J’étais sûr que j’aurais dû changer ma posture sur la dernière carte !
+RECRUIT_PLAYCARDS_LOSE3,Next time I'll use more remaster combos!,"La prochaîne fois, j’utiliserais plus de combos rematricage !"
+RECRUIT_PLAYCARDS_LOSE4,"Argh! Fine[pause], you can have my card!","Argh! Bon,[pause] j’ai compris, tu peux prendre cette carte!"
+RECRUIT_PLAYCARDS_LOSE5,I'm not going to be a sore loser about it.[pause] Here's your prize.,Je ne vais pas faire le mauvais perdant.[pause] Voilà ta récompense.
+RECRUIT_PLAYCARDS_LOSE6,I'm definitely not going to obsess over this later.,Je ne vais certainement pas m’obséder avec ça plus tard.
+RECRUIT_PLAYCARDS_WIN1,"It's all in the heart of the cards, you know?","Tout dépend de l’âme des cartes, tu sais ?"
+RECRUIT_PLAYCARDS_WIN2,Shift your stance into Defending when you're low on health! After blocking damage you'll heal for the leftover defense points!,"Passe en posture défensive lorsque tes PV sont bas ! Après avoir bloqué des dégats, tu te soigneras avec les points de défense qu’il te reste !"
+RECRUIT_PLAYCARDS_WIN3,Ha! I've still got it![pause] It's all about Balance!,Héhé ! Je n’ai pas perdu la main ![pause] C’est une question d’équilibre !
+RECRUIT_PLAYCARDS_WIN4,Did you know?[pause] You keep your Remaster Bonus even if your next card causes you to change stance!,"Le savais-tu ?[pause] Même si ta prochaine carte te fait changer de posture, tu gardes ton bonus de rematriciage !"
+RECRUIT_PLAYCARDS_WIN5,Alright![pause] I'll become a champion in no time!,Super ![pause] Je vais devenir un champion en deux temps trois mouvements !
+RECRUIT_PLAYCARDS_WIN6,"Playing all the cards for a full remaster gives greater bonuses than partial remasters, but they can be so hard to setup!","Jouer toutes les cartes pour un rematriciage complet procuire des bonus supérieurs à un rematriciage partiel, mais ils peuvent être si durs à mettre en place !"
+RECRUIT_MENU_INVITE_ACCEPT1,"Sure, I've got some free time!","Pourquoi pas, j’ai du temps libre !"
+RECRUIT_MENU_INVITE_ACCEPT2,"I guess I can lend a hand, if you [wave amp=30 freq=10]really[/wave] need it.","J’imagine que je peux t’aider, si tu en as [wave amp=30 freq=10]vraiment[/wave] besoin."
+RECRUIT_MENU_INVITE_ACCEPT3,"We're not doing anything too dangerous[pause], are we?","On ne va rien faire de trop dangereux, [pause]si?"
+RECRUIT_MENU_INVITE_REJECT1,"It seems like you've got your hands full, maybe later! ","On dirait que ton groupe est déjà bien fourni, peut-être plus tard!"
+RECRUIT_MENU_INVITE_REJECT2,I'm a bit anxious around this many people. Can we hang out some other time?,Je suis un peu anxieux autour d’autant de gems. On pourrait se voir une autre fois ?
+RECRUIT_MENU_INVITE_REJECT3,Lose the extra pair of hands first.,Fais une place dans ton groupe d’abord.
+RECRUIT_MENU_GOODBYE1,See you around!,À la revoyure !
+RECRUIT_MENU_GOODBYE2,"Don't go too far, in case I need help…","Ne t’en va pas trop loin, au cas où j’ai besoin d’aide…"
+RECRUIT_MENU_GOODBYE3,"Fine, I was in the middle of something anyway. ","Bien; j’étais occupé par autre chose, de toute façon."
+RECRUIT_MENU_CHALLENGE_ACCEPT1,"Sure, I could use the warm up!","Ça tombe bien, j’avais besoin d’un échauffement !"
+RECRUIT_MENU_CHALLENGE_ACCEPT2,"Alright, but don't blame me for what happens next.","D’accord, mais ne me blâme pas pour ce qui risque d’arriver."
+RECRUIT_MENU_CHALLENGE_ACCEPT3,"You'll go easy on me[pause], right?","N’y vas pas trop fort,[pause] hein ?"
+RECRUIT_CHALLENGE_WIN1,That was more of a workout than I expected!,Je ne pensais pas suer autant !
+RECRUIT_CHALLENGE_WIN2,I was still getting warmed up.,J’étais encore en train de m’échauffer.
+RECRUIT_CHALLENGE_WIN3,"{player}, you really don't pull your punches do you?","{player}, tu ne retiens vraiment pas tes coups, hein?"
+RECRUIT_MENU_CHALLENGE_REJECT1,I'm still catching my breath from our last round! Maybe we can go again tomorrow?,Je suis encore en train de récupérer mon souffle après notre dernier duel ! Peut-être qu’on peut remettre ça demain ?
+RECRUIT_MENU_CHALLENGE_REJECT2,Are you [wave amp=30 freq=10]trying[/wave] to humiliate me? Go pick on somebody else for a while.,Est-ce que tu fais [wave amp=30 freq=10]exprès[/wave] de chercher à m’humilier ? Va chercher quelqu’un d’autre à frapper maintenant.
+RECRUIT_MENU_CHALLENGE_REJECT3,"I don't think I can keep up with you, {player}. I need some time to rethink my strategy!","Je ne pense pas pouvoir t’arriver à la cheville, {player}. J’ai besoin de temps pour réfléchir à ma stratégie !"
+FOLLOWER_DEFAULT_INTERACTION,[i]Dismiss {pawn} from your party?[/i],[i]Renvoyer {pawn} du groupe ?[/i]
+FOLLOWER_IDLE_DIALOG1,"Hey {player}, need something?","Salut, {player}, besoin de quelque chose ?"
+FOLLOWER_IDLE_DIALOG2,You and {partner} seem like a great team. I hope I can find somebody like that!,"Toi et {partner}, vous avez l’air de faire une excellente équipe. J’espère rencontrer quelqu’un comme ça, moi aussi !"
+FOLLOWER_IDLE_DIALOG3,I heard some weird stuff happens here in {region_name}. Maybe we can wrap up and go hang out at the Café?,J’ai entendu dire que des choses étranges se passent souvent ici à {region_name}. Peut-être qu’on devrait remballer et aller se reposer au Café ?
+FOLLOWER_IDLE_DIALOG4,How long have you been using that {first_tape_name} tape? We should go record one for me to try out!,"Depuis combien de temps est-ce que tu te sers de cette cassette {first_tape_name} ? On devrait aller en enregistrer une, que je puisse essayer aussi !"
+FOLLOWER_IDLE_DIALOG5,How's it going?,Comment ça va?
+FOLLOWER_IDLE_DIALOG6,I'm so pumped! What's next?,"Je suis pompé à bloc ! C’est quoi, la suite ?"
+FOLLOWER_MENU_OPTION1,Yes,Oui
+FOLLOWER_MENU_OPTION2,No,Non
+FOLLOWER_DISMISSED1,"Darn, things were just starting to get interesting!","Zut, les choses commençaient à devenir intéressantes !"
+FOLLOWER_DISMISSED2,"Oh, alright. I'll go work on my sticker collection then.","Ah, d’accord. Je vais aller travailler sur ma collection d’autocollants, alors."
+FOLLOWER_DISMISSED3,"Done already? Alright, I'll see you around then!","Déjà fini ? D’accord, à plus tard alors !"
+RECRUIT_TRADE_OFFER1,I really need [color=#{request_rarity}][{trade_request}][/color] to complete my newest strategy. I'm willing to offer [color=#{offer_rarity}][{trade_offer}][/color] in exchange!,J’ai vraiment besoin de [color=#{request_rarity}][{trade_request}][/color] pour compléter ma nouvelle stratégie. Je peux t’offrir [color=#{offer_rarity}][{trade_offer}][/color] en échange!
+RECRUIT_TRADE_OFFER2,I've been looking everywhere for [color=#{request_rarity}][{trade_request}][/color]! If you're interested I'll trade [color=#{offer_rarity}][{trade_offer}][/color] for it.,"Je cherche partout où je peux [color=#{request_rarity}][{trade_request}][/color]! Si tu en as un, je te propose [color=#{offer_rarity}][{trade_offer}][/color] en échange."
+RECRUIT_TRADE_OFFER3,"If you've got any spare [color=#{request_rarity}][{trade_request}][/color] stickers laying around, I'll gladly give you my [color=#{offer_rarity}][{trade_offer}][/color] for it.","Si tu as un autocollant [color=#{request_rarity}][{trade_request}][/color] en rab’, je serai ravi de t’offrir [color=#{offer_rarity}][{trade_offer}][/color] en échange."
+RECRUIT_TRADE_OFFER4,"[color=#{request_rarity}][{trade_request}][/color] is the missing piece to my perfect winning strategy! You can have [color=#{offer_rarity}][{trade_offer}][/color] for it, if you promise not to tell anybody about my amazing setup!","[color=#{request_rarity}][{trade_request}][/color] est la dernière pièce du puzzle pour ma stratégie parfaite ! Je t’échange [color=#{offer_rarity}][{trade_offer}][/color] pour un exemplaire, si tu promets de ne parler à personne de mon idée de génie !"
+RECRUIT_TRADE_OFFER5,Would you be willing to trade [color=#{request_rarity}][{trade_request}][/color] for my [color=#{offer_rarity}][{trade_offer}][/color] sticker?,Serais-tu prêt à échanger ton autocollant [color=#{request_rarity}][{trade_request}][/color] contre mon autocollant [color=#{offer_rarity}][{trade_offer}][/color] ?
+RECRUIT_TRADE_ACCEPTED1,"Finally, this [color=#{request_rarity}]{trade_request}[/color] sticker will make me invincible!",Enfin ! Cet autocollant [color=#{request_rarity}]{trade_request}[/color] me rendra invincible !
+RECRUIT_TRADE_ACCEPTED2,Thanks! I hope [color=#{offer_rarity}][{trade_offer}][/color] is useful to you!,Merci ! J’espère que [color=#{offer_rarity}][{trade_offer}][/color] te sera utile !
+RECRUIT_TRADE_ACCEPTED3,What a steal! I would have gladly traded [wave amp=30 freq=10]two[/wave] [color=#{offer_rarity}][{trade_offer}][/color] stickers!,Quelle affaire! J’aurais volontiers échangé [wave amp=30 freq=10]deux[/wave] autocollants [color=#{offer_rarity}][{trade_offer}][/color] !
+RECRUIT_TRADE_REJECTED1,What kind of fool do you take me for? That's not [color=#{request_rarity}][{trade_request}][/color]!,Tu me prends pour un idiot ? Ce n’est pas du tout [color=#{request_rarity}][{trade_request}][/color]!
+RECRUIT_TRADE_REJECTED2,If you didn't have [color=#{request_rarity}][{trade_request}][/color] all you had to do was say so…,"Si tu n’avais pas [color=#{request_rarity}][{trade_request}][/color], il suffisait de le dire…"
+RECRUIT_TRADE_REJECTED3,What am I supposed to do with this? I really needed [color=#{request_rarity}][{trade_request}][/color] to complete my collection!,Qu’est-ce que je suis censé faire de ça ? J’avais vraiment besoin de [color=#{request_rarity}][{trade_request}][/color] pour compléter ma collection !
+RECRUIT_TRADE_MENU_OPTION1,"Sure, here you go!","Bien sûr, tiens !"
+RECRUIT_TRADE_MENU_OPTION2,No way!,"Ah, non !"
+RECRUIT_TRADE_CANCEL1,Dang it! Now what am I going to do?!,"Zut ! Qu’est-ce que je vais faire, alors?"
+RECRUIT_TRADE_CANCEL2,"Oh, okay. Thanks for considering it.","Ah, d’accord. Merci d’avoir considéré."
+RECRUIT_TRADE_CANCEL3,I guess I'll have to keep checking the sticker merchants…,J’imagine que je vais devoir continuer de vérifier les stocks des marchands d’autocollants…
+TRADE_STICKER_UI_USE,Trade Sticker,Échanger autocollant
+LIVINGWORLD_SETTINGS_UI_ENCOUNTERS,NPCs Join Raids:,Les PNJ participent aux raids
+LIVINGWORLD_SETTINGS_UI_MAGNETISM,NPC Magnetism Ability,Les PNJ ont électromagnétisme
+LIVINGWORLD_SETTINGS_UI_BACKUP_STATUS,NPC Status Bar,Barre de statut PNJ
+LIVINGWORLD_SETTINGS_UI_CAPTAIN_PATROL,Captains Engage Nearby Fusions,Les capitaines attaquent les fusions rebelles
+UI_SETTINGS_KEYBOARD_livingworldmod_transform,Overworld Transform,Transformation hors combat
+LIVINGWORLD_SETTINGS_UI_BEHAVIOR_SECTION,Behavior,Comportement
+LIVINGWORLD_SETTINGS_UI_WORLD_SECTION,World,Monde
+LIVINGWORLD_SETTINGS_UI_BATTLE_SECTION,Battle,Combat
+LIVINGWORLD_SETTINGS_UI_BATTLESPRITE_OPTION1,Default,Par défaut
+LIVINGWORLD_SETTINGS_UI_BATTLESPRITE_OPTION2,Battle Sprite,Apparence de combat
+LIVINGWORLD_SETTINGS_UI_BATTLESPRITES,Partner Portrait,Portrait de partenaire
+LIVINGWORLD_SETTINGS_UI_CUSTOM_RECRUITS,Spawn Custom Trainees (Arena Archives),Apparition recrues customisées (Arena Archives)
+LIVINGWORLD_SETTINGS_UI_POPULATION,NPC Population:,Population PNJ
+CAPTAIN_LUNCH_MENU,Out To Lunch.,Parti déjeuner.
+CAPTAIN_LUNCH_MENU2,Wait for the Captain to return?,Attendre le retour du capitaine ?
+CAPTAIN_LUNCH_OPTION1,Yes,Oui
+CAPTAIN_LUNCH_OPTION2,No,Non
+KAYLEIGH_INVITE_ACCEPT1,Of course! Sound like fun!,Bien sûr ! Ça sonne fun !
+KAYLEIGH_IDLE_RECRUIT_DIALOG1,"It's a lot of work, but daily patrols are important for the town's safety!","C’est beaucoup de travail, mais les patrouilles quotidiennes sont importantes pour la sécurité de la ville !"
+KAYLEIGH_IDLE_RECRUIT_DIALOG2,"Hi {player}, do anything interesting today?","Salut, {player}, as-tu fait quelque chose d’intéressant aujourd’hui ?"
+KAYLEIGH_IDLE_RECRUIT_DIALOG3,There's been a lot of new faces washing up on the shore lately.,Il y a eu pas mal de nouvelles têtes s’échouant sur la plage depuis peu.
+KAYLEIGH_IDLE_RECRUIT_DIALOG4,Let's do everything we can to keep the town safe!,Faisons tout notre possible pour assurer la sécurité de la ville !
+KAYLEIGH_IDLE_RECRUIT_DIALOG5,Have you checked the sticker merchants today? They're bound to have some cool stuff you could use!,As-tu fait une visite chez les marchands d’autocollants aujourd’hui ? Ils pourraient avoir des produits intéressants !
+KAYLEIGH_MENU_CHALLENGE_ACCEPT1,Right! Let's see how strong you've gotten!,Ouais ! Voyons à quel point tu as gagné en force !
+KAYLEIGH_CHALLENGE_WIN1,You're so much stronger now!,Tu es tellement plus fort maintenant !
+KAYLEIGH_MENU_CHALLENGE_REJECT1,"I need to fix up my tapes first, sorry! Maybe later?","J’ai besoin de réparer mes cassettes d’abord, désolé ! Peut-être plus tard ?"
+KAYLEIGH_TRADE_OFFER1,"I'd love to find [color=#{request_rarity}][{trade_request}][/color] for my tapes![pause] If you have one, could you trade it to me for this [color=#{offer_rarity}][{trade_offer}][/color] sticker?","J’adorerais trouver [color=#{request_rarity}][{trade_request}][/color] pour mes cassettes ![pause] Si tu en as un, tu pourrais me l’échanger contre cet autocollant [color=#{offer_rarity}][{trade_offer}][/color] ?"
+KAYLEIGH_TRADE_ACCEPTED1,Thanks a million! This is exactly what I needed!,Merci mille fois ! C’est exactement ce dont j’avais besoin !
+KAYLEIGH_TRADE_REJECTED1,That doesn't really look like the sticker I needed…,Ça n’a pas l’air d’être l’autocollant dont j’ai besoin…
+KAYLEIGH_CARDS_ACCEPT1,"That sounds fun![pause] Sure, let's play!","Ça sonne fun ! Allons-y, jouons !"
+KAYLEIGH_CARDS_LOSE1,That was so fun![pause] You were great![pause] Here's one of my cards to add to your deck!,C’était super amusant ![pause] Tu étais excellent ! [pause]Prends une de mes cartes pour ajouter à ton deck !
+KAYLEIGH_CARDS_WIN1,That was brilliant![pause] I can't wait to play more!,C’était génial ! J’ai hâte de rejouer !
+KAYLEIGH_TRADE_CANCEL1,"Aw, alright. I'll keep looking then!","Ah, dommage. Je vais continuer de chercher, alors !"
+KAYLEIGH_PASSIVES_ROGUES_MESSAGE1,I'm gonna need a hand with this one!,"Je vais avoir besoin d’un coup de main, là !"
+KAYLEIGH_MENU_GOODBYE1,See ya!,À plus !
+BARKLEY_IDLE_RECRUIT_DIALOG1,Arf!,Ouaf !
+BARKLEY_IDLE_RECRUIT_DIALOG2,[i]Barkley seems happy to see you![/i],[i]Ouaf-Ouaf a l’air heureux de vous voir ![/i]
+BARKLEY_IDLE_RECRUIT_DIALOG3,[i]Barkley is curiously sniffing his cassette player.[/i],[i]Ouaf-Ouaf renifle curieusement son lecteur de cassettes.[/i]
+BARKLEY_IDLE_RECRUIT_DIALOG4,Arf?,Ouaf ?
+BARKLEY_IDLE_RECRUIT_DIALOG5,[i]Barkley is enjoying the weather in {region_name}.[/i],[i]Ouaf-Ouaf apprécie le temps de {region_name}.[/i]
+BARKLEY_IDLE_RECRUIT_DIALOG6,[i]There's a glint in Barkley's eye. He's filled with determination![/i],[i]Il y a une lueur dans l’oeil de Ouaf-Ouaf. Il est rempli de détermination ![/i]
+BARKLEY_IDLE_RECRUIT_DIALOG7,[i]You happily pet Barkley. He's been a good boy![/i],[i]Vous carressez Ouaf-Ouaf joyeusement. Bon chien-chien ![/i]
+BARKLEY_PARTY_INVITE_ACCEPT1,Arf Arf!,Ouaf ouaf !
+BARKLEY_PARTY_INVITE_ACCEPT2,[i]Barkley is excited to play with you![/i],[i]Ouaf-Ouaf est impatient de jouer avec vous ![/i]
+BARKLEY_CHALLENGE_REJECT1,[wave amp=30 freq=10]Awoo…[/wave],[wave amp=30 freq=10]Aaouuuh...[/wave]
+BARKLEY_CHALLENGE_REJECT2,[i]He appears too tired for another match.[/i],[i]Il a l’air trop fatigué pour un autre duel.[/i]
+BARKLEY_CHALLNEGE_ACCEPTED1,Arf! Arf!,Ouaf ouaf !
+BARKLEY_CHALLNEGE_ACCEPTED2,[i]His tail wags back and forth with vigor and excitement![/i],[i]Sa queue remue avec vigueur et entrain ![/i]
+BARKLEY_CHALLENGE_WIN1,*whine*,*pleur*
+BARKLEY_TRADE_OFFER1,Arf?,Ouaf?
+BARKLEY_TRADE_OFFER2,[i]Barkley paws intently at a [color=#{request_rarity}][{trade_request}][/color] sticker.[pause] He places a [color=#{offer_rarity}][{trade_offer}][/color] sticker at your feet. Is this a trade request?[/i],[i]Ouaf-Ouaf pointe avec ses pattes vers votre autocollant [color=#{request_rarity}][{trade_request}][/color]. [pause] Il pose un autocollant [color=#{offer_rarity}][{trade_offer}][/color] à vos pieds. S’agirait-il d’une demande d’échange ?[/i]
+BARKLEY_TRADE_ACCEPTED1,Arf Arf!,Ouaf ouaf !
+BARKLEY_TRADE_ACCEPTED2,[i]He wags his tail happily as he attempts to place the sticker on a tape.[pause] It seems he's satisfied with this exchange![/i],[i]Il remue sa queue joyeusement en collant maladroitement l’autocollant sur une cassette.[pause] Ouaf-Ouaf semble satisfait de cet échange ![/i]
+BARKLEY_TRADE_REJECTED1,[wave amp=30 freq=10]Grr…[/wave] Arf!,[wave amp=30 freq=10]Grr…[/wave] Ouaf !
+BARKLEY_TRADE_REJECTED2,[i]He looks frustrated. Maybe you misunderstood his request?[/i],[i]Il a l’air frustré. Peut-être avez-vous mal compris sa requête ?[/i]
+BARKLEY_CARDS_ACCEPT1,Arf?,Ouaf ?
+BARKLEY_CARDS_LOSE1,Arf!,Ouaf !
+BARKLEY_CARDS_WIN1,Arf Arf!,Ouaf ouaf !
+BARKLEY_TRADE_CANCEL,[i]He seems dissapointed.[/i],[i]Il semble déçu.[/i]
+BARKLEY_PASSIVE_ROGUES_MESSAGE1,Arf Arf! [wave amp=30 freq=10]Grr…[/wave]!,Ouaf ouaf ! [wave amp=30 freq=10]Grr…[/wave]
+BARKLEY_LEAVE1,Arf!,Ouaf !
+EUGENE_INVITE_ACCEPT1,The dynamic crime fighting…[pause] trio?! This is gonna be wild!,Combattre le crime en… [pause] trio ?! Ça va être mortel !
+EUGENE_IDLE_RECRUIT_DIALOG1,"Hey {player}, you out on patrol too? ","Yo, {player}, t’es en patrouille, toi aussi ?"
+EUGENE_IDLE_RECRUIT_DIALOG2,It's pretty wild out here! There's a ton of new people ready to help out.,C’est dingue ! Il y a un tas de nouveaux prêts à aider la cause.
+EUGENE_IDLE_RECRUIT_DIALOG3,I got all these crazy stickers from one of the merchants.[pause] I'm gonna be unstoppable!,J’ai dégoté plein d’autocollants de dingue chez un des marchands.[pause] Je vais être imbattable !
+EUGENE_IDLE_RECRUIT_DIALOG4,"I was thinking of trying out a few new battle poses later.[pause] What? Don’t give me that look, it's totally important!","Je pensais essayer quelques nouvelles poses de combat.[pause] Quoi ? Me regarde pas comme ça, c’est super important !"
+EUGENE_IDLE_RECRUIT_DIALOG5,"We gotta do more supply runs, can't afford to run low on tapes out there!",On devrait faire plus de sorties d’approvisionnement; on peut pas se permettre de tomber à court de cassettes !
+EUGENE_CHALLENGE_REJECTED1,"I'd gladly show you a few moves[pause], but I gotta finish up here first. Let's hang later!","J’adorerais te montrer mes techniques,[pause] mais il faut que je termine ici avant. On se voit plus tard !"
+EUGENE_CHALLENGE_ACCEPTED1,Lookin' to learn a few tricks from me? You got it!,Tu veux que je te montre quelques astuces ? Allons-y ! 
+EUGENE_CHALLENGE_WIN1,Dang! You got [wave amp=30 freq=10]way[/wave] better at this!,Waouh ! Tu t’es [wave amp=30 freq=10]vachement[/wave] amélioré!
+EUGENE_TRADE_OFFER1,"{player}[pause], buddy. I've [wave amp=30 freq=10]gotta[/wave] have [color=#{request_rarity}][{trade_request}][/color]![pause] I'll give ya this [color=#{offer_rarity}][{trade_offer}][/color] sticker if you got any!","{player}[pause], camarade. Il faut [wave amp=30 freq=10]absolument[/wave] que j’aie [color=#{request_rarity}][{trade_request}][/color]![pause] Je te donne un autocollant [color=#{offer_rarity}][{trade_offer}][/color] si tu peux m’en procurer un!"
+EUGENE_TRADE_ACCEPTED1,Momentous! Now nothing can slow me down!,"Génial ! Maintenant, plus rien ne peut m’arrêter !"
+EUGENE_TRADE_REJECTED1,"Aw man, come on! You know that's what I need! ","Roh, enfin ! Tu sais que j’en ai besoin !"
+EUGENE_TRADE_CANCEL1,"[wave amp=30 freq=10]Fine[/wave][pause], I get it. I'll just keep battling until I earn one!","[wave amp=30 freq=10]OK[/wave][pause], j’ai compris. Je vais continuer de me battre jusqu’à ce que j’en trouve un !"
+EUGENE_CARDS_ACCEPT1,Dude![pause] Of course I'm down to play this![pause] I love collectible card games!,Mec ![pause] [wave amp=30 freq=10]Bien sûr[/wave] que je suis partant pour jouer![pause] J’adore les jeux de carte à collectionner !
+EUGENE_CARDS_LOSE1,"Ugh![pause] I was just about to draw my ace![pause] Ah well[pause], I'll get it next time![pause] Here's your reward!","Raaah ![pause] J’étais sur le point de piocher ma meilleure carte ! [pause] Bon,[pause] ce sera la prochaine fois! Voilà ta récompense !"
+EUGENE_CARDS_WIN1,Badass![pause] That was great![pause] Hit me up if you wanna play another round!,Hardcore ![pause] C’était super ![pause] Viens me voir si tu veux jouer une autre partie !
+EUGENE_LEAVE1,See ya!,À plus !
+EUGENE_PASSIVE_ROGUES_MESSAGE1,It's another wild one![pause] I'm taking it down!,Une autre fusion sauvage ![pause] Je m’en charge !
+FELIX_INVITE_ACCEPT1,Yeah. Sounds like a good time. ,OK! Amusons-nous.
+FELIX_IDLE_RECRUIT_DIALOG1,Hey there. Not working too hard I hope?,"Salut. Tu ne travailles pas trop dur, j’espère ?"
+FELIX_IDLE_RECRUIT_DIALOG2,"I sketched this weird monster the other day. Their anatomy was so unorthodox, I couldn't help but get inspired. ","J’ai fait un croquis d’un monstre étrange l’autre jour. Avec une anatomie si peu orthodoxe, j’étais très inspiré."
+FELIX_IDLE_RECRUIT_DIALOG3,"I broke another pencil rewinding my tape today[pause]. I always keep a spare[pause], but I usually save it for my sketches. ","J’ai cassé un autre crayon en rembobinant ma cassette aujourd’hui.[pause] J’ai toujours un double, mais je préfère le garder pour mes croquis."
+FELIX_IDLE_RECRUIT_DIALOG4,"You know[pause], it's not so bad here![pause] Aside from the wild monsters, it's actually pretty relaxing.","C’est pas si mal, ici, en fait ![pause] Si on ignore les monstres sauvages, c’est plutôt tranquille."
+FELIX_IDLE_RECRUIT_DIALOG5,Hey.[pause] I was just enjoying the weather.,Salut.[pause] Je ne faisais qu’apprécier le beau temps.
+FELIX_CHALLENGE_REJECTED1,"Actually, I could use a break. Let's pick this up later.","En fait, j’aurais bien besoin d’une pause. Remettons-ça à plus tard."
+FELIX_CHALLENGE_ACCEPTED1,"Sure, I could use the practice. ","D’accord, l’entraînement ne serait pas de refus."
+FELIX_CHALLENGE_WIN1,"Wow[pause], you're really something else. ",Waouh ! C’était un sacré spectacle.
+FELIX_TRADE_OFFER1,I could use an extra [color=#{request_rarity}][{trade_request}][/color] sticker.[pause] Maybe you'd be willing to trade for my [color=#{offer_rarity}][{trade_offer}][/color] sticker?,J’aurai besoin d’un autocollant [color=#{request_rarity}][{trade_request}][/color] en plus. [pause] Peut-être que tu serais prêt à l’échanger contre un autocollant [color=#{offer_rarity}][{trade_offer}][/color] ?
+FELIX_TRADE_REJECTED1,"Hmm[pause], I don't think that's it.[pause] That's alright, I can probably get it from the merchant stalls.","Hmmm[pause], ce n’est pas vraiment ce que je cherche.[pause] C’est pas grave, je peux probablement le trouver dans les étalages des marchands."
+FELIX_TRADE_ACCEPTED1,"This should smooth things out for me.[pause] I appreciate it, {player}. ","Ça devrait me faciliter le travail.[pause] Merci, {player}."
+FELIX_CARDS_ACCEPT1,"Woah![pause] Check out the artwork on these cards.[pause] Sure, I'll play a round.","Waouh ! Les illustrations de ces cartes sont excellentes.[pause] D’accord, je peux faire une partie."
+FELIX_CARDS_LOSE1,"Good game.[pause] Here[pause], you can have this.","Bien joué.[pause] Tiens, [pause]tu peux prendre ceci."
+FELIX_CARDS_WIN1,Rad![pause] That was pretty fun.[pause] Let's play again sometime.,Excellent![pause] C’était plutôt fun.[pause] On devrait rejouer un jour ou l’autre.
+FELIX_TRADE_CANCEL1,"Oh[pause], no worries.[pause] I'm sure I'll find one eventually.","Ah[pause], pas de soucis.[pause] Je suis sûr que j’en trouverai un à un moment."
+FELIX_PASSIVE_ROGUES_MESSAGE1,Looks like another rogue on the loose. I can help!,On dirait qu’une fusion rebelle sème la pagaille. Prêt à aider !
+FELIX_LEAVE1,Take care.,Prends soin de toi.
+MEREDITH_INVITE_ACCEPT1,"Yeah[pause], alright.[pause] I can make time for that.","Ouais, [pause]OK, [pause], je peux prendre un peu de temps."
+MEREDITH_IDLE_RECRUIT_DIALOG1,"Uh[pause], hey there. ","Euh, [pause]salut."
+MEREDITH_IDLE_RECRUIT_DIALOG2,So.[pause] Is it just me or…[pause] are there more people here than usual?,Donc.[pause]C’est juste moi ou… [pause]il y a plus de gens que d’habitude ici ?
+MEREDITH_IDLE_RECRUIT_DIALOG3,"Hey, {player}.[pause] Did you need something?","Salut, {player}. [pause] Besoin de quelque chose ?"
+MEREDITH_IDLE_RECRUIT_DIALOG4,"Some[pause], uh[pause], odd stuff has been washing up on the beach lately.","Il y a des trucs, [pause]euh, [pause]étranges qui se retrouvent sur la plage depuis peu."
+MEREDITH_IDLE_RECRUIT_DIALOG5,Hmm…[pause] I think I'll go record a new tape later.,Hmm… [pause]je pense que j’irai enregistrer une nouvelle cassette après ça.
+MEREDITH_CHALLENGE_ACCEPTED1,"Urgh. Fine. I'll humor you this one time, mate.","Eurgh, OK, juste cette fois, pour te faire plaisir, pote."
+MEREDITH_CHALLENGE_REJECTED1,"I[pause], uh…[pause] got something I gotta do first, mate.","Euih...[pause], j’ai...[pause] quelque chose à faire avant, pote. "
+MEREDITH_CHALLENGE_WIN1,"Alright, fine.[pause] You earned that one.","OK, d’accord, [pause]t’as bien mérité ta victoire."
+MEREDITH_TRADE_OFFER1,"So[pause], if you've got any [color=#{request_rarity}][{trade_request}][/color] stickers laying around.[pause] I wouldn't mind trading my [color=#{offer_rarity}][{trade_offer}][/color] for it. If you're interested.","Donc[pause], si tu as un autocollant [color=#{request_rarity}][{trade_request}][/color] qui traîne.[pause] Ça me gênerait pas d’échanger [color=#{offer_rarity}][{trade_offer}][/color] pour. Si ça t’intéresse."
+MEREDITH_TRADE_ACCEPTED1,"Thanks, mate.[pause] I needed this one.","Merci, pote.[pause] J’avais bien besoin de celui-là."
+MEREDITH_TRADE_REJECTED1,Urgh.[pause] I'm pretty sure I was clear on which bloody sticker I needed.,Eurgh.[pause] Je pensais être claire sur quel fichu autocollant j’avais besoin ?
+MEREDITH_TRADE_CANCEL1,"Yeah[pause], I figured as much.","Ouais[pause], je m’en doutais un peu."
+MEREDITH_CARDS_ACCEPT1,Uhm.[pause] When did a whole bloody card game wash up on shore?,Erhm.[pause] Quand est-ce qu’un jeu de carte entier s’est échoué sur la plage ?
+MEREDITH_CARDS_LOSE1,"Well[pause], that was[pause] interesting.[pause] I guess[pause], here's your reward.","Bon, [pause] c’état…[pause] intéressant. [pause]. J’imagine.[pause] Voilà ta récompense."
+MEREDITH_CARDS_WIN1,"Heh[pause], I guess I'm pretty good at this.",Heh! [pause]On dirait que je suis plutôt douée…
+MEREDITH_LEAVE1,"Take care, mate.","Prends soin de toi, pote."
+MEREDITH_PASSIVE_ROGUES_MESSAGE1,Not another one![pause] Can somebody just…[pause] urgh! Somebody help me out here!,[wave amp=30 freq=10]Pas encore un autre[/wave] ! Est-ce que quelqu’un peut juste… [pause]gah! Que quelqu’un vienne m’aider !
+VIOLA_INVITE_ACCEPT1,Splendid![pause] A new adventure awaits us!,Splendide ![pause] Une nouvelle aventure nous attend !
+VIOLA_IDLE_RECRUIT_DIALOG1,"I am glad to see you well, friend!","Je suis ravie de vous voir en pleine santé, camarade !"
+VIOLA_IDLE_RECRUIT_DIALOG2,I can see the allure to this new lifestyle. ,Je peux voir l’attrait de ce nouveau style de vie.
+VIOLA_IDLE_RECRUIT_DIALOG3,Another fine day for adventure! ,Encore une magnifique journée pour l’aventure !
+VIOLA_IDLE_RECRUIT_DIALOG4,May this day find you well!,Que le destin vous sourisse en cette magnifique journée !
+VIOLA_IDLE_RECRUIT_DIALOG5,Greetings friend!,"Salutations, camarade !"
+VIOLA_CHALLENGE_ACCEPTED1,You mean to test thy mettle against a worthy opponent? I humbly accept your request!,Vous souhaitez essayer votre courage contre un adversaire formidable ? J’accepte humblement votre requête !
+VIOLA_CHALLENGE_REJECTED1,"Alas, I fear my current condition would not make our sparring worthwhile. I require a moment of respite.","Hélas, je ne suis point dans l’état d’être un adversaire de votre taille après notre dernier entraînement. Je requiers un moment de rpeos."
+VIOLA_CHALLENGE_WIN1,"Pray tell, where did you learn such impressive feats?","Dites-moi, où avez-vous appris à effectuer de tels exploits ?"
+VIOLA_TRADE_OFFER1,"If I may, I require one [color=#{request_rarity}][{trade_request}][/color] sticker to improve upon my current ability. If you would be willing to part with one, I offer thee my [color=#{offer_rarity}][{trade_offer}][/color] in exchange!","Je cherche [color=#{request_rarity}][{trade_request}][/color] pour agrandir mes capacités. Auriez-vous la clémence de m’en procurer un, en l’échange de [color=#{offer_rarity}][{trade_offer}][/color]?"
+VIOLA_TRADE_ACCEPTED1,You have my gratitude!,Vous avez ma gratitude !
+VIOLA_TRADE_REJECTED1,"Alas, dear friend. This does not resemble the item I requested.","Hélas, camarade, cela ne semble pas être l’objet de ma requête."
+VIOLA_TRADE_CANCEL1,"Fear not, I am resourceful enough to procure one through other means!","Soyez sans crainte. Par ingéniosité et conviction, je m’en procurerai un par d’autres moyens !"
+VIOLA_LEAVE1,Fare thee well!,"Au revoir, camarade !"
+VIOLA_CARDS_ACCEPT1,A game of chance and skill played on small sheets of paper?[pause] How fascinating! ,"Un jeu de chance comme d’adresse, joué sur des petits morceaux de papier ?[pause] Fascinant !"
+VIOLA_CARDS_LOSE1,Marvelous! I do believe it is customary to reward the victor with a card from the defeated's arsenal?,Splendide ! Je crois comprendre qu’il est de coutume pour le perdant de récompenser le gagnat d’une de ses cartes ?
+VIOLA_CARDS_WIN1,How joyous! I would gladly engage in more of these leisure activities!,Quelle exaltation ! Je m’engagerai avec joie dans plus de ces loisirs !
+VIOLA_PASSIVE_ROGUES_MESSAGE1,Rogues have been sighted upon the horizon! Let us show thy fiends our true mettle!,Des rebelles se trouvent à l’horizon ! Montrons à ces mécréants l’étendue de notre valeur !
+FRANKIE_CARDS_ACCEPT1,Oh oh oh! I've played tons of these back home!,
+FRANKIE_CARDS_LOSE1,Yes! Ha ha! I've still got it!,
+FRANKIE_CARDS_WIN1,"You were amazing![pause][pause] Ok ok, [wave amp=30 freq=10]Duelist Kingdom[/wave] rules apply so here's one of my cards! ",
+FRANKIE_PARTY_INVITE1,Joining the hero's party?! I'm another step closer to legendary status!,
+FRANKIE_IDLE_RECRUIT_DIALOG1,"I accept all quests, no matter [wave amp=30 freq=10]how[/wave] small![pause] You never know which one will move the plot forward!",
+FRANKIE_IDLE_RECRUIT_DIALOG2,"Usually, in this type of Isekai, I would have some unique ability or abnormally high stat![pause] But I feel…[pause][pause] normal?",
+FRANKIE_IDLE_RECRUIT_DIALOG3,"""In Another World As {frankie_tape}!"". It's a pretty catchy title, right?![pause] I might write a fic about it later!",
+FRANKIE_IDLE_RECRUIT_DIALOG4,"We should write our own theme song![pause][pause] Something catchy like Card Captors![pause]…You had Card Captors on your world[pause], right?",
+FRANKIE_IDLE_RECRUIT_DIALOG5,"I tried rewinding my tape with my pinkie[pause], but for some reason it still didn't work… [pause]It's like there's some weird [wave amp=30 freq=10]game logic[/wave] that forces me to use pencils!",
+FRANKIE_CHALLENGE_ACCEPTED1,I've had a lot of time to train [wave amp=30 freq=10]off screen[/wave]![pause] It's time to show off my new special attack![pause][wave amp=30 freq=10] {frankie_attack}![/wave],
+FRANKIE_CHALLENGE_REJECTED1,I need to finish my training montage first!,
+FRANKIE_CHALLENGE_WIN1,Ow…[pause] I think I bit my tongue. ,
+FRANKIE_TRADE_OFFER1,"If I could just get my hands on one more [color=#{request_rarity}][{trade_request}][/color] sticker, my PvP build would be [wave amp=30 freq=10]so broken[/wave]! I've got an extra [color=#{offer_rarity}][{trade_offer}][/color] I can trade for it!",
+FRANKIE_TRADE_ACCEPTED1,Yes! Finally! I'm completely unstoppable now! [pause]You don't know what PvP is do you...?,
+FRANKIE_TRADE_REJECTED1,"{player}[pause], I know[pause] that you know[pause] that's not the right sticker…[pause] It's like you're just testing dialog options in a Visual Novel.",
+FRANKIE_TRADE_CANCEL1,Back to the grind then.,
+FRANKIE_LEAVE1,See ya!,
+FRANKIE_PASSIVE_ROGUES_MESSAGE1,[wave amp=30 freq=10]Ahhhh!!![/wave] I'm making a big heroic entrance! ,
+VIN_IDLE_RECRUIT_DIALOG1,"Captain, I can't decide between Headshot and Last Rites…",
+VIN_IDLE_RECRUIT_DIALOG2,Mourningtown has been trying to get more involved in day to day Ranger activities. [pause]I'm going to keep doing my part!,
+VIN_IDLE_RECRUIT_DIALOG3,Training has been so hard lately![pause] I don't know where Frankie gets all that energy from.,
+VIN_IDLE_RECRUIT_DIALOG4,"I'm going to get stronger! I'll make sure Mourningtown can hold their heads up high again, one day.",
+VIN_IDLE_RECRUIT_DIALOG5,Hey Captain! Did you need something?,
+VIN_CHALLENGE_ACCEPTED1,I'll show you how strong I've become!,
+VIN_CHALLENGE_REJECTED1,I think I sprained something. Let's pick this up again later.,
+VIN_CHALLENGE_WIN1,Dang it. I was so sure I had you that time!,
+VIN_TRADE_OFFER1,[color=#{request_rarity}][{trade_request}][/color] would be a great addition to my arsenal. I can trade you this [color=#{offer_rarity}][{trade_offer}][/color] for it.,
+VIN_TRADE_ACCEPTED1,Great! I'll be taking down Rogues in half the time with this setup!,
+VIN_TRADE_REJECTED1,That's not it. I'll just get it myself.,
+VIN_TRADE_CANCEL1,"Alright, thanks for checking. ",
+VIN_LEAVE1,See ya around.,
+VIN_PASSIVE_ROGUES_MESSAGE1,I'll put this Rogue down in no time!,
+VIN_CARDS_ACCEPT1,"I uh..[pause] What?[pause][pause] Alright, I guess I'll play.",
+VIN_CARDS_WIN1,"Hey, I'm not half bad at this!",
+VIN_PARTY_INVITE1,You need my help on an important quest?[pause] Of course I can lend you my strength!,
+VIN_CARDS_LOSE1,"Well[pause], I didn't really know what I was doing there.",
+SUNNY_IDLE_RECRUIT_DIALOG1,Hey…,
+SUNNY_IDLE_RECRUIT_DIALOG2,The sun…[pause] It feels…[pause] [wave amp=30 freq=15]Different.[/wave],
+SUNNY_IDLE_RECRUIT_DIALOG3,I think… [pause]I'll shop for…[pause] new stickers later.,
+SUNNY_IDLE_RECRUIT_DIALOG4,{player}… [pause]How are you…?,
+SUNNY_IDLE_RECRUIT_DIALOG5,…[pause]You've all been…[pause]very accepting…[pause],
+SUNNY_CHALLENGE_ACCEPTED1,I'm stronger…[pause] this time.,
+SUNNY_CHALLENGE_REJECTED1,I…[pause] I need to rest.,
+SUNNY_CHALLENGE_WIN1,I…[pause] lost.,
+SUNNY_TRADE_OFFER1,Can I…[pause] Do you have…[pause] any [color=#{request_rarity}][{trade_request}][/color] stickers... [pause] I could…[pause] trade you my [color=#{offer_rarity}][{trade_offer}][/color] sticker…[pause] if you want.,
+SUNNY_TRADE_ACCEPTED1,Thank…[pause]you.,
+SUNNY_TRADE_REJECTED1,That's…[pause] not it…,
+SUNNY_TRADE_CANCEL1,Ok…,
+SUNNY_LEAVE1,…[pause]Thanks.,
+SUNNY_CARDS_ACCEPT1,Sure…[pause] That sounds…[pause] fun.,
+SUNNY_CARDS_LOSE1,"Ha ha…[pause] good game…[pause] Here, take…[pause] this.",
+SUNNY_CARDS_WIN1,I won…[pause]!,
+SUNNY_PARTY_INVITE,Sure…[pause] I'd like that…,
+SUNNY_PASSIVE_ROGUES_MESSAGE1,I…[pause] think I've got this…[pause]!,
+LIVINGWORLD_CARDS_UI_ATTACK,Attacking,Attaque
+LIVINGWORLD_CARDS_UI_DEFENSE,Defending,Défense
+LIVINGWORLD_CARDS_UI_NEUTRAL,Balanced,Équilibre
+LIVINGWORLD_UI_CARDCOLLECTION,Card Collection,Collection de cartes
+LIVINGWORLD_UI_DECKCOUNT_ERROR,Your Deck must have 25 cards. ,Votre deck doit avoit 25 cartes.
+LIVINGWORLD_SETTINGS_UI_CARDS_SECTION,Card Game,Jeu de cartes
+LIVINGWORLD_SETTINGS_UI_CARD_ENEMY_THOUGHTS,Enemy Thinking Animation,Animation de réflexion ennemie
+LIVINGWORLD_PASSIVE_CARDREWARD,A new card has been added to your collection!,Une nouvelle carte a été ajoutée à votre collection !
+LIVINGWORLD_TRANSFORM_PROMPT,Which form will you use?,Quelle forme voulez-vous utiliser ?
+LIVINGWORLD_BENCH_MENU,Take a seat?,Souhaitez-vous vous asseoir ?
+LIVINGWORLD_SETTINGS_UI_OVERSPILL,Overspill Damage,Dégats de débordement
+LIVINGWORLD_CARDS_UI_FULL_REMASTER_BONUS,Full Remaster Bonus!,Bonus de rematriciage complet !
+LIVINGWORLD_CARDS_UI_REMASTER_BONUS,Remaster Bonus!,Bonus de rematriciage !
+LIVINGWORLD_SETTINGS_UI_VINEBALL,NPCs Vineball Ability:,Les PNJ ont boule-lianes
+LIVINGWORLD_SETTINGS_UI_USEITEMS,NPCs Use Items,Les PNJ utilisent des objets
+LIVINGWORLD_SETTINGS_UI_RECORDABLE,NPCs Record Encounters,Les PNJ enregistrent les monstres
+LIVINGWORLD_SETTINGS_UI_STATUS_OPTION_ENABLED,Show,Visible
+LIVINGWORLD_SETTINGS_UI_STATUS_OPTION_DISABLED,Hidden,Caché
+CLEEO_PASSIVE_ROGUE1,I'm not risking my batteries for these [wave amp=30 freq=15]humans[/wave]. I can't just let that rogue run amok either.,Je ne risque pas mes batteries pour ces [wave amp=30 freq=10]humains[/wave]… mais je ne peux pas juste laisser cette fusion rebelle mettre le bazar non plus.
+ZEDD_PASSIVE_ROGUE1,"That rogue's going to pay for interrupting my sle…[pause]er, astral plane business!","Cette fusion rebelle va payer pour avoir interrompu ma sie...[pause] je veux dire, mon étude de l’onirisme !"
+WALLACE_PASSIVE_ROGUE1,Let's wall this one off before it gets a chance to wreck the place!,Enmurons ce rebelle avant qu’il ait une chance de faire du grabuge !
+CODEY_PASSIVE_ROGUE1,That rogue is the perfect test for my new mods! ,Cette fusion rebelle fera le cobaye parfait pour mes nouveaux mods !
+BUFFY_PASSIVE_ROGUE1,Another wild rogue? [pause]I guess I'll be getting some extra reps in today!,Une autre fusion rebele ? On dirait que je vais faire un peu plus d’exercice aujourd’hui !
+CYBIL_PASSIVE_ROGUE1,This one's gonna be a wild time! [pause] The whole town's gonna be hearing this!,"Préparez-vous, Radio Cybille, ça va être [wave amp=30 freq=10][i]wild[/i][/wave]!"
+PENNY_PASSIVE_ROGUE1,There won't be any second wind for this rogue! [pause]Time to work!,Pas de second souffle pour cette fusion rebelle ![pause] Au travail !
+GLADIOLA_PASSIVE_ROGUE1,A perfect chance to sharpen my blades! [pause] This rogue better put up a good fight!,Une chance parfaite pour aiguiser mes lames ! [pause]Cette fusion a intérêt à me poser un vrai défi !
+HEATHER_PASSIVE_ROGUE1,This just in! [pause] Our very own local reporter is just arriving on the scene of another wild rogue battle!,Flash info! [pause]Notre envoyée spéciale vient d’arriver sur la scène d’un combat contre une fusion reblelle !
+JUDAS_PASSIVE_ROGUE1,"I'll buy some time! [pause]Everyone, make sure you're prepared. That rogue looks dangerous!","Je vais gagner du temps! [pause] Préparez-vous, tout le monde. cette fusion a l’air dangeeruse!"
+LODESTEIN_PASSIVE_ROGUE1,Don't let it get near the electric grids! Let's keep this rogue grounded!,Ne la laissez pas s’approcher du réseau électrique! On va court-circuiter cette fusion!
+SKIP_PASSIVE_ROGUE1,This is really cutting into my treasure hunting time! [pause]I hope this rogue has something interesting for me!,Tout ça prend du temps sur ma recherche au trésor! [pause]J’espère que cette fusion aura quelque chose d’intéressant pour moi !
+TRADE_CARDS_BTN,Trade Cards,Échanger des cartes
+CARD_BATTLE_BTN,Card Battle,Duel de cartes
+ONLINE_REQUEST_CARDTRADE_PROMPT,Choose a Card to trade with {remote_player},Choisissez une carte à échanger avec {remote_player}
+ONLINE_REQUEST_ACTION_trade_card,Card Trade,Échange de cartes
+ONLINE_REQUEST_UI_TRADE_CARD_MAKE_OFFER,Offer Card,Offrir une carte
+ONLINE_NOTIFICATION_TRADED_CARDS,{player} and {other_player} traded cards,{player} et {other_player} ont échangé des cartes
+ONLINE_REQUEST_SENT_CARD_TRADE,You have offered to trade your {species1} card to {remote_player}!,Vous avez offert d’échanger votre {species1} card for your {species2}
+ONLINE_REQUEST_SENT_CARD_TRADE2,{remote_player} has offered a {species2} card for your {species1} card.,{remote_player} propose une carte {species1} en échange de votre {species2}
+ONLINE_REQUEST_RECEIVED_CARD_TRADE,{remote_player} has offered to trade a {species1} card with you!,{remote_player} propose une carte {species1}!
+ONLINE_REQUEST_CLOSED_COMPLETE_TRADE_CARD,"The trade went through, {remote_player}'s {species2} card is now in your collection!",Échange confirmé ; {remote_player}'s {species2} est maintenant dans votre collection !
+LIVINGWORLD_UI_CARD_RESERVED,This card is currently reserved for a trade offer.,Cette carte est actuellement réservée pour une offre d’échange.
+LIVINGWORLD_UI_OFFER_CARD,Offer Card,Proposer une carte.
+ONLINE_REQUEST_UI_CARD_BATTLE_ACCEPT,Accept Challenge,Accepter le défi
+ONLINE_REQUEST_ACTION_card_battle,Card Battle,Duel de cartes
+ONLINE_REQUEST_CLOSED_COMPLETE_BATTLE_DRAW,Your Card Battle with {remote_player} ended in a draw!,Votre round de jeu de cartes s’est terminé en égalité !
+ONLINE_NOTIFICATION_CARD_BATTLE_STARTING,{player} and {other_player} are having a card battle!,{player} et {other_player} sont en duel de cartes.
+LIVINGWORLD_MP_POPUP1,Living World is now online!\n\n-Transform with your friends!\n-Raid with NPCs in expanded battles!\n-Trade cards\n-Challenge your friends to card battles!\n\nAll without leaving the comfort of your bed!,Merci d’avoir installé Living World !\n\n- Transformez-vous avec vos amis\n- Participez à des raids étendus avec des PNJ!\n- Échangez des cartes`\n défiezvous habits
+LIVINGWORLD_SETTINGS_UI_SHORTCUT,Overworld Transform Shortcut,Raccourci clavier pour transformation hors combat
+LIVINGWORLD_SETTINGS_UI_TRANSFORMS,Unlock All Transformations,Débloquez toutes les transformations
+LIVINGWORLD_UI_DECK,Deck,Deck
+LIVINGWORLD_UI_ADD_CARD,Add Card,Ajouter une carte
+LIVINGWORLD_UI_REMOVE_CARD,Remove Card,Retirer la carte 
+LIVINGWORLD_UI_TURN_START,{player}’s Turn,Au tour de {player}
+LIVINGWORLD_UI_SURRENDER,Surrender,Abandonner
+LIVINGWORLD_UI_BLOCKED,Blocked,Bloqué 
+LIVINGWORLD_UI_SURRENDER_CONFIRM,Are you sure you want to give up?,Êtes-vous sûr de vouloir abandonner ? 
+LIVINGWORLD_UI_VICTORY,{player} wins!,{player} gagne !
+LIVINGWORLD_UI_PLAYER_SURRENDERED,{player} gave up!,{player} a abandonné !
+LIVINGWORLD_UI_MATCH_DRAW,Game ended in a draw!,Le match s'est terminé par un match nul !

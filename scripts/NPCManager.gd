@@ -152,15 +152,16 @@ static func get_card_collection()->Dictionary:
 		var random = Random.new(SaveState.random_seed)
 		var item:Dictionary = {"path":"","amount":0,"deck":0,"bestiary_index":0,"holocard":false}
 		var basic_forms = MonsterForms.basic_forms.values()
-		var debut_forms = MonsterForms.pre_evolution.values()		
+		var debut_forms = MonsterForms.pre_evolution.values()
 		for i in range(10):
 			options = debut_forms if i < settings.deck_limit/2 else basic_forms
 			var form = random.choice(options)
 			var key = Loc.tr(form.name).to_lower()
 			if collection.has(key):
 				collection[key].amount += 1
-				continue
-			add_card_to_collection(item)
+			else:
+				item.path = form.resource_path
+				collection[key] = set_card_data({form=form.resource_path},false)
 		collection = SaveState.other_data.LivingWorldData.CardGame.collection
 	return collection
 
@@ -240,6 +241,10 @@ static func get_setting(setting_name):
 		value = config.get_value("battle","npcs_recording",true)
 	if setting_name == "UseItems":
 		value = config.get_value("battle","use_items",true)
+	if setting_name == "UnlockTransform":
+		value = config.get_value("world","unlock_transform",false)
+	if setting_name == "EnableTransform":
+		value = config.get_value("world","enable_transform",true)
 	return value
 
 static func _load_settings_file()->ConfigFile:
@@ -295,21 +300,21 @@ static func get_follower_config(other_recruit, occupant = null):
 
 static func get_extra_slots()->int:
 	if !has_savedata():
-		initialize_savedata()	
+		initialize_savedata()
 	return SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots
 
 static func set_extra_slots(amount:int):
 	if !has_savedata():
-		initialize_savedata()	
+		initialize_savedata()
 	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots = amount
 
 static func repack_background(battlebackground):
 	if !has_savedata():
-		initialize_savedata()	
+		initialize_savedata()
 	var extra_battle_slots:int = SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots
 	if typeof(battlebackground) == TYPE_STRING:
 		battlebackground = load(battlebackground)
-	var unpacked_background = battlebackground.instance()   
+	var unpacked_background = battlebackground.instance()
 	if extra_battle_slots <= 0:
 		return
 	if extra_battle_slots > 3:
@@ -344,7 +349,7 @@ static func repack_background(battlebackground):
 				extra_enemy_slot.transform.origin = enemy3slot.transform.origin - Vector3(2,0,0)
 				player3slot.transform.origin += Vector3(10,0,0)
 				enemy3slot.transform.origin -= Vector3(10,0,0)
-				index+=1        
+				index+=1
 				followerslot.set_owner(unpacked_background)
 				extra_enemy_slot.set_owner(unpacked_background)
 				continue
@@ -357,31 +362,31 @@ static func repack_background(battlebackground):
 			followerslot.translation = translation_slot.translation + Vector3(-12 +(offset*index), 0,0)
 			extra_enemy_slot.translation = enemytranslation_slot.translation + Vector3(12-(offset*index), 0,0)
 			followerslot.set_owner(unpacked_background)
-			extra_enemy_slot.set_owner(unpacked_background)        
+			extra_enemy_slot.set_owner(unpacked_background)
 			index+=1
 	var battle_camera = unpacked_background.get_node("BattleCamera")
 	battle_camera.wide_mode = true
 	var new_background = PackedScene.new()
 	var result = new_background.pack(unpacked_background)
 	unpacked_background.queue_free()
-	if result == OK:   
+	if result == OK:
 		print("repacked background")
 		return new_background
 	else:
-		return battlebackground 
+		return battlebackground
 
 static func has_raid_request()->bool:
-    var result:bool = false
-    var requests:Array = Net.requests.get_requests()
-    for request in requests:
-        if request.kind == "raid" and not request.closed:
-            result = true
-            break
-    return result
+	var result:bool = false
+	var requests:Array = Net.requests.get_requests()
+	for request in requests:
+		if request.kind == "raid" and not request.closed:
+			result = true
+			break
+	return result
 
 static func add_battle_slots(battlebackground):
 	if has_raid_request():
-		return 
+		return
 	if !has_savedata():
 		initialize_savedata()
 	if SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots <= 0:
@@ -699,7 +704,7 @@ static func add_extra_fighters(encounter):
 		return
 	var parent = encounter.get_parent()
 	if !parent:
-		return 
+		return
 	if !parent.has_node("ObjectData"):
 		parent = parent.get_parent()
 	if parent.has_node("ObjectData"):
@@ -732,12 +737,12 @@ static func get_extra_fighters(encounter)->Array:
 static func get_follower_fighter():
 	var newconfig = get_follower_config(get_current_follower())
 	var fighter = newconfig.generate_fighter(Random.new(),0)
-	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1	
+	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots += 1
 	return fighter
 
 static func add_follower_to_encounter(encounter):
 	if !encounter:
-		return	
+		return
 	if has_active_follower():
 		var newconfig = get_follower_config(get_current_follower())
 		encounter.add_child(newconfig)
@@ -746,7 +751,7 @@ static func add_follower_to_encounter(encounter):
 
 static func remove_old_configs(encounter):
 	if !encounter:
-		return	
+		return
 	if !has_savedata():
 		return
 	SaveState.other_data.LivingWorldData.ExtraEncounterConfig.extra_slots = 0
@@ -845,5 +850,5 @@ static func get_transformation_index(playerindex = 0)->int:
 
 static func get_use_transformation_form()->bool:
 	if !has_savedata():
-		initialize_savedata()	
+		initialize_savedata()
 	return SaveState.other_data.LivingWorldData.Transformations.player1.get("use_monster_form",false)

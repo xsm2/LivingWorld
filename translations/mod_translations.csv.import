@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://mods/LivingWorld/translations/mod_translations.en.translation" ]
+files=[ "res://mods/LivingWorld/translations/mod_translations.en.translation", "res://mods/LivingWorld/translations/mod_translations.fr.translation" ]
 
 source_file="res://mods/LivingWorld/translations/mod_translations.csv"
-dest_files=[ "res://mods/LivingWorld/translations/mod_translations.en.translation" ]
+dest_files=[ "res://mods/LivingWorld/translations/mod_translations.en.translation", "res://mods/LivingWorld/translations/mod_translations.fr.translation" ]
 
 [params]
 

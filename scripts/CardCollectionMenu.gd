@@ -195,8 +195,16 @@ func get_card_data(card):
 	else:
 		return null
 	var key = str(card_form).to_lower()
-	var card_data = collection[key]
-	return card_data
+	for data in collection.values():
+		var form = card.get("form")
+		if !form:
+			form = card.get("monster_form")
+		if !form:
+			return
+		if data.path == form:
+			return data
+	# var card_data = collection[key]
+	# return card_data
 
 func remove_card(card):
 	if !has_valid_data(card):

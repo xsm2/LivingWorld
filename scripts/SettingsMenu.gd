@@ -13,6 +13,8 @@ onready var CardEnemyThoughtsInput = find_node("CardEnemyThoughtsInput")
 onready var OverspillInput = find_node("OverspillInput")
 onready var UseItemsInput = find_node("UseItemsInput")
 onready var RecordableInput = find_node("RecordableInput")
+onready var UnlockTransformInput = find_node("UnlockedTransformInput")
+onready var EnableTransformShortcutInput = find_node("EnableTransformShortcutInput")
 const settings_path = "user://LivingWorldSettings.cfg"
 
 func _ready():
@@ -55,6 +57,12 @@ func is_dirty()->bool:
 	if UseItemsInput.selected_value != get_config_value("use_items"):
 		return true
 
+	if UnlockTransformInput.selected_value != get_config_value("unlock_transform"):
+		return true
+
+	if EnableTransformShortcutInput.selected_value != get_config_value("enable_transform"):
+		return true
+
 	return false
 
 func apply():
@@ -74,6 +82,8 @@ func save_settings():
 	config.set_value("world", "custom_trainee", UseCustomRecruitsInput.selected_value)
 	config.set_value("world", "battle_sprite", UseBattleSpriteInput.selected_value)
 	config.set_value("card", "enemy_thinking", CardEnemyThoughtsInput.selected_value)
+	config.set_value("world", "unlock_transform", UnlockTransformInput.selected_value)
+	config.set_value("world", "enable_transform", EnableTransformShortcutInput.selected_value)
 
 	_save_settings_file(config)
 
@@ -95,6 +105,8 @@ func reset():
 	OverspillInput.selected_value = get_config_value("overspill_damage")
 	RecordableInput.selected_value = get_config_value("npcs_recording")
 	UseItemsInput.selected_value = get_config_value("use_items")
+	UnlockTransformInput.selected_value = get_config_value("unlock_transform")
+	EnableTransformShortcutInput.selected_value = get_config_value("enable_transform")
 
 	inputs.setup_focus()
 
@@ -125,6 +137,11 @@ func get_config_value(setting_name:String):
 		value = config.get_value("card","enemy_thinking",CardEnemyThoughtsInput.values[0])
 	if setting_name == "overspill_damage":
 		value = config.get_value("battle","overspill_damage",OverspillInput.values[0])
+	if setting_name == "unlock_transform":
+		value = config.get_value("world","unlock_transform",UnlockTransformInput.values[0])	
+	if setting_name == "enable_transform":
+		value = config.get_value("world","enable_transform",EnableTransformShortcutInput.values[0])	
+
 	return value
 
 func grab_focus():

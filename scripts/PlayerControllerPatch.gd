@@ -49,7 +49,7 @@ static func get_code(block:String)->String:
 	var code_blocks:Dictionary = {}
 	code_blocks["add_key"] = """
 	if event.is_action_pressed("livingworldmod_transform"):
-		if pawn.has_method("player_transform"):
+		if pawn.has_method("player_transform") and npc_manager.get_setting("EnableTransform"):
 			pawn.player_transform(npc_manager.get_use_transformation_form())
 	"""
 	code_blocks["new_func"] = """

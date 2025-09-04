@@ -107,6 +107,12 @@ var is_remote_player:bool = false
 var is_disconnect:bool = false
 var surrendered:String = ""
 var is_surrendering:bool = false
+
+func _input(event):
+	if event.is_action_pressed("cardgame_win"):
+		surrendered = enemy_data.name
+		end_game()
+
 func _ready():
 	if net_request:
 		net_request.connect("closed", self, "_on_request_closed")
@@ -228,9 +234,9 @@ func end_game():
 	if !player_wins or is_disconnect:
 		PlayerSprite.animate_defeat()
 	var team = Team.PLAYER if player_wins else Team.ENEMY
-	var text = "%s Wins!"%Loc.tr(winner) if !is_disconnect else "Draw!"
+	var text = Loc.tr("LIVINGWORLD_UI_VICTORY").format({player=winner}) if !is_disconnect else Loc.tr("LIVINGWORLD_UI_MATCH_DRAW")
 	if surrendered != "":
-		text = "%s has surrendered!"%surrendered
+		text = Loc.tr("LIVINGWORLD_UI_PLAYER_SURRENDERED").format({player=surrendered})
 	PlayBanner(team,text,"remaster")
 	yield(Banner.tween,"tween_completed")
 	if net_request:
@@ -372,7 +378,7 @@ func resolve_field():
 	elif player_result.defense > enemy_result.attack and player_stats.hp >= player_stats.max_hp and enemy_result.attack > 0:
 
 		console_log("Player blocks Enemy attack.")
-		animate_damage_pop(Team.PLAYER,"Blocked!",DamageType.NEUTRAL)
+		animate_damage_pop(Team.PLAYER,Loc.tr("LIVINGWORLD_UI_BLOCKED"),DamageType.NEUTRAL)
 		GameSFX.play_track("blocked")
 
 
@@ -399,16 +405,16 @@ func resolve_field():
 		GameSFX.play_track("heal")
 	elif enemy_result.defense > player_result.attack and enemy_stats.hp >= enemy_stats.max_hp and player_result.attack > 0:
 		console_log("Bot blocks Player attack.")
-		animate_damage_pop(Team.ENEMY,"Blocked!",DamageType.NEUTRAL)
+		animate_damage_pop(Team.ENEMY,Loc.tr("LIVINGWORLD_UI_BLOCKED"),DamageType.NEUTRAL)
 		GameSFX.play_track("blocked")
 
 	if enemy_result.defense == player_result.attack and player_result.attack != 0:
 		console_log("Bot blocks Player attack.")
-		animate_damage_pop(Team.ENEMY,"Blocked!",DamageType.NEUTRAL)
+		animate_damage_pop(Team.ENEMY,Loc.tr("LIVINGWORLD_UI_BLOCKED"),DamageType.NEUTRAL)
 		GameSFX.play_track("blocked")
 	if player_result.defense == enemy_result.attack and enemy_result.attack != 0:
 		console_log("Player blocks Bot attack.")
-		animate_damage_pop(Team.PLAYER,"Blocked!",DamageType.NEUTRAL)
+		animate_damage_pop(Team.PLAYER,Loc.tr("LIVINGWORLD_UI_BLOCKED"),DamageType.NEUTRAL)
 		GameSFX.play_track("blocked")
 
 	reset_stats()
@@ -764,7 +770,8 @@ func enemy_move():
 	if net_request:
 		return
 	EnemySprite.animate_turn()
-	var text = "%s's Turn"%Loc.tr(enemy_data.name)
+	# var text = "%s's Turn"%Loc.tr(enemy_data.name)
+	var text = Loc.tr("LIVINGWORLD_UI_TURN_START").format({player=Loc.tr(enemy_data.name)})
 	if !has_surrendered():PlayBanner(Team.ENEMY,text,"turn_start")
 	yield(Banner.tween,"tween_completed")
 	if can_draw_card(Team.ENEMY):
@@ -1091,7 +1098,8 @@ func set_player_turn(value:bool):
 	if value:
 		if net_request and !net_request.closed:
 			net_request.barrier.start()
-		var text = "%s's Turn"%Loc.tr(player_data.name)
+		# var text = "%s's Turn"%Loc.tr(player_data.name)
+		var text = Loc.tr("LIVINGWORLD_UI_TURN_START").format({player=Loc.tr(player_data.name)})
 		if !has_surrendered():PlayBanner(Team.PLAYER, text, "turn_start")
 		yield(Banner.tween,"tween_completed")
 		PlayerSprite.animate_turn()
@@ -1105,7 +1113,8 @@ func set_player_turn(value:bool):
 		PlayerSprite.animate_turn_end()	
 		if net_request and !net_request.closed:
 			EnemySprite.animate_turn()
-			var text = "%s's Turn"%Loc.tr(enemy_data.name)
+			# var text = "%s's Turn"%Loc.tr(enemy_data.name)
+			var text = Loc.tr("LIVINGWORLD_UI_TURN_START").format({player=Loc.tr(enemy_data.name)})
 			if !has_surrendered():PlayBanner(Team.ENEMY,text,"turn_start")
 			yield(Banner.tween,"tween_completed")
 			if can_draw_card(Team.ENEMY):
@@ -1239,7 +1248,7 @@ func animate_hover_exit(node):
 
 func _on_Surrender_pressed():
 	is_surrendering = true
-	var result = yield(MenuHelper.confirm("Are you sure you want to give up?"),"completed")
+	var result = yield(MenuHelper.confirm(Loc.tr("LIVINGWORLD_UI_SURRENDER_CONFIRM")),"completed")
 	if current_focus_button:current_focus_button.grab_focus()
 	if result:
 		surrendered = player_data.name

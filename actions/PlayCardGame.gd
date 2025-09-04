@@ -23,7 +23,7 @@ func _run():
 	menu.queue_free()
 	if result:
 		var reward_card = random.choice(recruit_data.card_deck)
-		reward_card.holocard = random.rand_bool(settings.holocard_rate)
+		reward_card.holocard = random.rand_bool(settings.holocard_rate)		
 		manager.add_card_to_collection(reward_card)
 		set_bb("reward",reward_card)
 	return true

@@ -221,15 +221,15 @@ margin_right = 1490.0
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="Scroller/OverscanMarginContainer/Control/Header/CenterContainer"]
-margin_left = 566.0
-margin_right = 913.0
+margin_left = 316.0
+margin_right = 1164.0
 margin_bottom = 90.0
 theme = ExtResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.756863 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 3
 custom_fonts/font = ExtResource( 2 )
-text = "Card Collection"
+text = "LIVINGWORLD_UI_CARDCOLLECTION"
 
 [node name="ScrollIndicator" parent="Scroller/OverscanMarginContainer/Control" instance=ExtResource( 9 )]
 anchor_left = 0.031
@@ -289,19 +289,18 @@ custom_styles/panel = SubResource( 6 )
 [node name="CenterContainer" type="CenterContainer" parent="Scroller/OverscanMarginContainer/Control/Header2"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 365.0
+margin_right = 583.0
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="Scroller/OverscanMarginContainer/Control/Header2/CenterContainer"]
-margin_left = 117.0
-margin_right = 237.0
+margin_right = 573.0
 margin_bottom = 90.0
 theme = ExtResource( 7 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.827451 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 3
 custom_fonts/font = ExtResource( 2 )
-text = "Deck"
+text = "LIVINGWORLD_UI_DECK"
 
 [node name="DeckCountPanel" type="PanelContainer" parent="."]
 anchor_left = 0.832
@@ -351,8 +350,8 @@ custom_constants/separation = 50
 alignment = 2
 
 [node name="AddCard" type="Button" parent="PanelContainer/HBoxContainer"]
-margin_left = 1660.0
-margin_right = 1792.0
+margin_left = 899.0
+margin_right = 1321.0
 margin_bottom = 78.0
 focus_mode = 0
 size_flags_horizontal = 0
@@ -360,29 +359,29 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.121569, 0.815686, 0.937255, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Add Card"
+text = "LIVINGWORLD_UI_ADD_CARD"
 flat = true
 expand_icon = true
 script = ExtResource( 3 )
 action = "ui_accept"
 
 [node name="RemoveCard" type="Button" parent="PanelContainer/HBoxContainer"]
-margin_left = 1842.0
-margin_right = 2024.0
+margin_left = 1371.0
+margin_right = 1842.0
 margin_bottom = 78.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.121569, 0.815686, 0.937255, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Remove Card"
+text = "LIVINGWORLD_UI_REMOVE_CARD"
 flat = true
 expand_icon = true
 script = ExtResource( 3 )
 action = "ui_action_1"
 
 [node name="Back" type="Button" parent="PanelContainer/HBoxContainer"]
-margin_left = 2074.0
+margin_left = 1892.0
 margin_right = 2148.0
 margin_bottom = 78.0
 focus_mode = 0
@@ -391,7 +390,7 @@ size_flags_vertical = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.121569, 0.815686, 0.937255, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "Back"
+text = "UI_BUTTON_BACK"
 flat = true
 expand_icon = true
 script = ExtResource( 3 )
